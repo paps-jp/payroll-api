@@ -1,0 +1,2825 @@
+{
+ "note": "協会けんぽ(全国健康保険協会)管掌の健康保険のみ。組合健保・共済は対象外。率は%、雇用保険は‰。effective_from は対象月(YYYY-MM)。",
+ "health": [
+  {
+   "effective_from": "2016-03",
+   "rates": {
+    "北海道": 10.15,
+    "青森県": 9.97,
+    "岩手県": 9.93,
+    "宮城県": 9.96,
+    "秋田県": 10.11,
+    "山形県": 10.0,
+    "福島県": 9.9,
+    "茨城県": 9.92,
+    "栃木県": 9.94,
+    "群馬県": 9.94,
+    "埼玉県": 9.91,
+    "千葉県": 9.93,
+    "東京都": 9.96,
+    "神奈川県": 9.97,
+    "新潟県": 9.79,
+    "富山県": 9.83,
+    "石川県": 9.99,
+    "福井県": 9.93,
+    "山梨県": 10.0,
+    "長野県": 9.88,
+    "岐阜県": 9.93,
+    "静岡県": 9.89,
+    "愛知県": 9.97,
+    "三重県": 9.93,
+    "滋賀県": 9.99,
+    "京都府": 10.0,
+    "大阪府": 10.07,
+    "兵庫県": 10.07,
+    "奈良県": 9.97,
+    "和歌山県": 10.0,
+    "鳥取県": 9.96,
+    "島根県": 10.09,
+    "岡山県": 10.1,
+    "広島県": 10.04,
+    "山口県": 10.13,
+    "徳島県": 10.18,
+    "香川県": 10.15,
+    "愛媛県": 10.03,
+    "高知県": 10.1,
+    "福岡県": 10.1,
+    "佐賀県": 10.33,
+    "長崎県": 10.12,
+    "熊本県": 10.1,
+    "大分県": 10.04,
+    "宮崎県": 9.95,
+    "鹿児島県": 10.06,
+    "沖縄県": 9.87
+   },
+   "source": "https://www.kyoukaikenpo.or.jp/about/business/insurance_rate/rate_prefectures/h28/",
+   "verified": false
+  },
+  {
+   "effective_from": "2017-03",
+   "rates": {
+    "北海道": 10.22,
+    "青森県": 9.96,
+    "岩手県": 9.82,
+    "宮城県": 9.97,
+    "秋田県": 10.16,
+    "山形県": 9.99,
+    "福島県": 9.85,
+    "茨城県": 9.89,
+    "栃木県": 9.94,
+    "群馬県": 9.93,
+    "埼玉県": 9.87,
+    "千葉県": 9.89,
+    "東京都": 9.91,
+    "神奈川県": 9.93,
+    "新潟県": 9.69,
+    "富山県": 9.8,
+    "石川県": 10.02,
+    "福井県": 9.99,
+    "山梨県": 10.04,
+    "長野県": 9.76,
+    "岐阜県": 9.95,
+    "静岡県": 9.81,
+    "愛知県": 9.92,
+    "三重県": 9.92,
+    "滋賀県": 9.92,
+    "京都府": 9.99,
+    "大阪府": 10.13,
+    "兵庫県": 10.06,
+    "奈良県": 10.0,
+    "和歌山県": 10.06,
+    "鳥取県": 9.99,
+    "島根県": 10.1,
+    "岡山県": 10.15,
+    "広島県": 10.04,
+    "山口県": 10.11,
+    "徳島県": 10.18,
+    "香川県": 10.24,
+    "愛媛県": 10.11,
+    "高知県": 10.18,
+    "福岡県": 10.19,
+    "佐賀県": 10.47,
+    "長崎県": 10.22,
+    "熊本県": 10.14,
+    "大分県": 10.17,
+    "宮崎県": 9.97,
+    "鹿児島県": 10.13,
+    "沖縄県": 9.95
+   },
+   "source": "https://www.kyoukaikenpo.or.jp/about/business/insurance_rate/rate_prefectures/h29/",
+   "verified": true
+  },
+  {
+   "effective_from": "2018-03",
+   "rates": {
+    "北海道": 10.25,
+    "青森県": 9.96,
+    "岩手県": 9.84,
+    "宮城県": 10.05,
+    "秋田県": 10.13,
+    "山形県": 10.04,
+    "福島県": 9.79,
+    "茨城県": 9.9,
+    "栃木県": 9.92,
+    "群馬県": 9.91,
+    "埼玉県": 9.85,
+    "千葉県": 9.89,
+    "東京都": 9.9,
+    "神奈川県": 9.93,
+    "新潟県": 9.63,
+    "富山県": 9.81,
+    "石川県": 10.04,
+    "福井県": 9.98,
+    "山梨県": 9.96,
+    "長野県": 9.71,
+    "岐阜県": 9.91,
+    "静岡県": 9.77,
+    "愛知県": 9.9,
+    "三重県": 9.9,
+    "滋賀県": 9.84,
+    "京都府": 10.02,
+    "大阪府": 10.17,
+    "兵庫県": 10.1,
+    "奈良県": 10.03,
+    "和歌山県": 10.08,
+    "鳥取県": 9.96,
+    "島根県": 10.13,
+    "岡山県": 10.15,
+    "広島県": 10.0,
+    "山口県": 10.18,
+    "徳島県": 10.28,
+    "香川県": 10.23,
+    "愛媛県": 10.1,
+    "高知県": 10.14,
+    "福岡県": 10.23,
+    "佐賀県": 10.61,
+    "長崎県": 10.2,
+    "熊本県": 10.13,
+    "大分県": 10.26,
+    "宮崎県": 9.97,
+    "鹿児島県": 10.11,
+    "沖縄県": 9.93
+   },
+   "source": "https://www.kyoukaikenpo.or.jp/about/business/insurance_rate/rate_prefectures/h30/",
+   "verified": true
+  },
+  {
+   "effective_from": "2019-03",
+   "rates": {
+    "北海道": 10.31,
+    "青森県": 9.87,
+    "岩手県": 9.8,
+    "宮城県": 10.1,
+    "秋田県": 10.14,
+    "山形県": 10.03,
+    "福島県": 9.74,
+    "茨城県": 9.84,
+    "栃木県": 9.92,
+    "群馬県": 9.84,
+    "埼玉県": 9.79,
+    "千葉県": 9.81,
+    "東京都": 9.9,
+    "神奈川県": 9.91,
+    "新潟県": 9.63,
+    "富山県": 9.71,
+    "石川県": 9.99,
+    "福井県": 9.88,
+    "山梨県": 9.9,
+    "長野県": 9.69,
+    "岐阜県": 9.86,
+    "静岡県": 9.75,
+    "愛知県": 9.9,
+    "三重県": 9.9,
+    "滋賀県": 9.87,
+    "京都府": 10.03,
+    "大阪府": 10.19,
+    "兵庫県": 10.14,
+    "奈良県": 10.07,
+    "和歌山県": 10.15,
+    "鳥取県": 10.0,
+    "島根県": 10.13,
+    "岡山県": 10.22,
+    "広島県": 10.0,
+    "山口県": 10.21,
+    "徳島県": 10.3,
+    "香川県": 10.31,
+    "愛媛県": 10.02,
+    "高知県": 10.21,
+    "福岡県": 10.24,
+    "佐賀県": 10.75,
+    "長崎県": 10.24,
+    "熊本県": 10.18,
+    "大分県": 10.21,
+    "宮崎県": 10.02,
+    "鹿児島県": 10.16,
+    "沖縄県": 9.95
+   },
+   "source": "https://www.kyoukaikenpo.or.jp/about/business/insurance_rate/rate_prefectures/r01/",
+   "verified": true
+  },
+  {
+   "effective_from": "2020-03",
+   "rates": {
+    "北海道": 10.41,
+    "青森県": 9.88,
+    "岩手県": 9.77,
+    "宮城県": 10.06,
+    "秋田県": 10.25,
+    "山形県": 10.05,
+    "福島県": 9.71,
+    "茨城県": 9.77,
+    "栃木県": 9.88,
+    "群馬県": 9.77,
+    "埼玉県": 9.81,
+    "千葉県": 9.75,
+    "東京都": 9.87,
+    "神奈川県": 9.93,
+    "新潟県": 9.58,
+    "富山県": 9.59,
+    "石川県": 10.01,
+    "福井県": 9.95,
+    "山梨県": 9.81,
+    "長野県": 9.7,
+    "岐阜県": 9.92,
+    "静岡県": 9.73,
+    "愛知県": 9.88,
+    "三重県": 9.77,
+    "滋賀県": 9.79,
+    "京都府": 10.03,
+    "大阪府": 10.22,
+    "兵庫県": 10.14,
+    "奈良県": 10.14,
+    "和歌山県": 10.14,
+    "鳥取県": 9.99,
+    "島根県": 10.15,
+    "岡山県": 10.17,
+    "広島県": 10.01,
+    "山口県": 10.2,
+    "徳島県": 10.28,
+    "香川県": 10.34,
+    "愛媛県": 10.07,
+    "高知県": 10.3,
+    "福岡県": 10.32,
+    "佐賀県": 10.73,
+    "長崎県": 10.22,
+    "熊本県": 10.33,
+    "大分県": 10.17,
+    "宮崎県": 9.91,
+    "鹿児島県": 10.25,
+    "沖縄県": 9.97
+   },
+   "source": "https://www.kyoukaikenpo.or.jp/about/business/insurance_rate/rate_prefectures/r02/",
+   "verified": true
+  },
+  {
+   "effective_from": "2021-03",
+   "rates": {
+    "北海道": 10.45,
+    "青森県": 9.96,
+    "岩手県": 9.74,
+    "宮城県": 10.01,
+    "秋田県": 10.16,
+    "山形県": 10.03,
+    "福島県": 9.64,
+    "茨城県": 9.74,
+    "栃木県": 9.87,
+    "群馬県": 9.66,
+    "埼玉県": 9.8,
+    "千葉県": 9.79,
+    "東京都": 9.84,
+    "神奈川県": 9.99,
+    "新潟県": 9.5,
+    "富山県": 9.59,
+    "石川県": 10.11,
+    "福井県": 9.98,
+    "山梨県": 9.79,
+    "長野県": 9.71,
+    "岐阜県": 9.83,
+    "静岡県": 9.72,
+    "愛知県": 9.91,
+    "三重県": 9.81,
+    "滋賀県": 9.78,
+    "京都府": 10.06,
+    "大阪府": 10.29,
+    "兵庫県": 10.24,
+    "奈良県": 10.0,
+    "和歌山県": 10.11,
+    "鳥取県": 9.97,
+    "島根県": 10.03,
+    "岡山県": 10.18,
+    "広島県": 10.04,
+    "山口県": 10.22,
+    "徳島県": 10.29,
+    "香川県": 10.28,
+    "愛媛県": 10.22,
+    "高知県": 10.17,
+    "福岡県": 10.22,
+    "佐賀県": 10.68,
+    "長崎県": 10.26,
+    "熊本県": 10.29,
+    "大分県": 10.3,
+    "宮崎県": 9.83,
+    "鹿児島県": 10.36,
+    "沖縄県": 9.95
+   },
+   "source": "https://www.kyoukaikenpo.or.jp/about/business/insurance_rate/rate_prefectures/r03/",
+   "verified": true
+  },
+  {
+   "effective_from": "2022-03",
+   "rates": {
+    "北海道": 10.39,
+    "青森県": 10.03,
+    "岩手県": 9.91,
+    "宮城県": 10.18,
+    "秋田県": 10.27,
+    "山形県": 9.99,
+    "福島県": 9.65,
+    "茨城県": 9.77,
+    "栃木県": 9.9,
+    "群馬県": 9.73,
+    "埼玉県": 9.71,
+    "千葉県": 9.76,
+    "東京都": 9.81,
+    "神奈川県": 9.85,
+    "新潟県": 9.51,
+    "富山県": 9.61,
+    "石川県": 9.89,
+    "福井県": 9.96,
+    "山梨県": 9.66,
+    "長野県": 9.67,
+    "岐阜県": 9.82,
+    "静岡県": 9.75,
+    "愛知県": 9.93,
+    "三重県": 9.91,
+    "滋賀県": 9.83,
+    "京都府": 9.95,
+    "大阪府": 10.22,
+    "兵庫県": 10.13,
+    "奈良県": 9.96,
+    "和歌山県": 10.18,
+    "鳥取県": 9.94,
+    "島根県": 10.35,
+    "岡山県": 10.25,
+    "広島県": 10.09,
+    "山口県": 10.15,
+    "徳島県": 10.43,
+    "香川県": 10.34,
+    "愛媛県": 10.26,
+    "高知県": 10.3,
+    "福岡県": 10.21,
+    "佐賀県": 11.0,
+    "長崎県": 10.47,
+    "熊本県": 10.45,
+    "大分県": 10.52,
+    "宮崎県": 10.14,
+    "鹿児島県": 10.65,
+    "沖縄県": 10.09
+   },
+   "source": "https://www.kyoukaikenpo.or.jp/about/business/insurance_rate/rate_prefectures/r04/",
+   "verified": true
+  },
+  {
+   "effective_from": "2023-03",
+   "rates": {
+    "北海道": 10.29,
+    "青森県": 9.79,
+    "岩手県": 9.77,
+    "宮城県": 10.05,
+    "秋田県": 9.86,
+    "山形県": 9.98,
+    "福島県": 9.53,
+    "茨城県": 9.73,
+    "栃木県": 9.96,
+    "群馬県": 9.76,
+    "埼玉県": 9.82,
+    "千葉県": 9.87,
+    "東京都": 10.0,
+    "神奈川県": 10.02,
+    "新潟県": 9.33,
+    "富山県": 9.57,
+    "石川県": 9.66,
+    "福井県": 9.91,
+    "山梨県": 9.67,
+    "長野県": 9.49,
+    "岐阜県": 9.8,
+    "静岡県": 9.75,
+    "愛知県": 10.01,
+    "三重県": 9.81,
+    "滋賀県": 9.73,
+    "京都府": 10.09,
+    "大阪府": 10.29,
+    "兵庫県": 10.17,
+    "奈良県": 10.14,
+    "和歌山県": 9.94,
+    "鳥取県": 9.82,
+    "島根県": 10.26,
+    "岡山県": 10.07,
+    "広島県": 9.92,
+    "山口県": 9.96,
+    "徳島県": 10.25,
+    "香川県": 10.23,
+    "愛媛県": 10.01,
+    "高知県": 10.1,
+    "福岡県": 10.36,
+    "佐賀県": 10.51,
+    "長崎県": 10.21,
+    "熊本県": 10.32,
+    "大分県": 10.2,
+    "宮崎県": 9.76,
+    "鹿児島県": 10.26,
+    "沖縄県": 9.89
+   },
+   "source": "https://www.kyoukaikenpo.or.jp/about/business/insurance_rate/rate_prefectures/r05/",
+   "verified": true
+  },
+  {
+   "effective_from": "2024-03",
+   "rates": {
+    "北海道": 10.21,
+    "青森県": 9.49,
+    "岩手県": 9.63,
+    "宮城県": 10.01,
+    "秋田県": 9.85,
+    "山形県": 9.84,
+    "福島県": 9.59,
+    "茨城県": 9.66,
+    "栃木県": 9.79,
+    "群馬県": 9.81,
+    "埼玉県": 9.78,
+    "千葉県": 9.77,
+    "東京都": 9.98,
+    "神奈川県": 10.02,
+    "新潟県": 9.35,
+    "富山県": 9.62,
+    "石川県": 9.94,
+    "福井県": 10.07,
+    "山梨県": 9.94,
+    "長野県": 9.55,
+    "岐阜県": 9.91,
+    "静岡県": 9.85,
+    "愛知県": 10.02,
+    "三重県": 9.94,
+    "滋賀県": 9.89,
+    "京都府": 10.13,
+    "大阪府": 10.34,
+    "兵庫県": 10.18,
+    "奈良県": 10.22,
+    "和歌山県": 10.0,
+    "鳥取県": 9.68,
+    "島根県": 9.92,
+    "岡山県": 10.02,
+    "広島県": 9.95,
+    "山口県": 10.2,
+    "徳島県": 10.19,
+    "香川県": 10.33,
+    "愛媛県": 10.03,
+    "高知県": 9.89,
+    "福岡県": 10.35,
+    "佐賀県": 10.42,
+    "長崎県": 10.17,
+    "熊本県": 10.3,
+    "大分県": 10.25,
+    "宮崎県": 9.85,
+    "鹿児島県": 10.13,
+    "沖縄県": 9.52
+   },
+   "source": "https://www.kyoukaikenpo.or.jp/about/business/insurance_rate/rate_prefectures/r06/",
+   "verified": true
+  },
+  {
+   "effective_from": "2025-03",
+   "rates": {
+    "北海道": 10.31,
+    "青森県": 9.85,
+    "岩手県": 9.62,
+    "宮城県": 10.11,
+    "秋田県": 10.01,
+    "山形県": 9.75,
+    "福島県": 9.62,
+    "茨城県": 9.67,
+    "栃木県": 9.82,
+    "群馬県": 9.77,
+    "埼玉県": 9.76,
+    "千葉県": 9.79,
+    "東京都": 9.91,
+    "神奈川県": 9.92,
+    "新潟県": 9.55,
+    "富山県": 9.65,
+    "石川県": 9.88,
+    "福井県": 9.94,
+    "山梨県": 9.89,
+    "長野県": 9.69,
+    "岐阜県": 9.93,
+    "静岡県": 9.8,
+    "愛知県": 10.03,
+    "三重県": 9.99,
+    "滋賀県": 9.97,
+    "京都府": 10.03,
+    "大阪府": 10.24,
+    "兵庫県": 10.16,
+    "奈良県": 10.02,
+    "和歌山県": 10.19,
+    "鳥取県": 9.93,
+    "島根県": 9.94,
+    "岡山県": 10.17,
+    "広島県": 9.97,
+    "山口県": 10.36,
+    "徳島県": 10.47,
+    "香川県": 10.21,
+    "愛媛県": 10.18,
+    "高知県": 10.13,
+    "福岡県": 10.31,
+    "佐賀県": 10.78,
+    "長崎県": 10.41,
+    "熊本県": 10.12,
+    "大分県": 10.25,
+    "宮崎県": 10.09,
+    "鹿児島県": 10.31,
+    "沖縄県": 9.44
+   },
+   "source": "https://www.kyoukaikenpo.or.jp/about/business/insurance_rate/rate_prefectures/r07/",
+   "verified": true
+  },
+  {
+   "effective_from": "2026-03",
+   "rates": {
+    "北海道": 10.28,
+    "青森県": 9.85,
+    "岩手県": 9.51,
+    "宮城県": 10.1,
+    "秋田県": 10.01,
+    "山形県": 9.75,
+    "福島県": 9.5,
+    "茨城県": 9.52,
+    "栃木県": 9.82,
+    "群馬県": 9.68,
+    "埼玉県": 9.67,
+    "千葉県": 9.73,
+    "東京都": 9.85,
+    "神奈川県": 9.92,
+    "新潟県": 9.21,
+    "富山県": 9.59,
+    "石川県": 9.7,
+    "福井県": 9.71,
+    "山梨県": 9.55,
+    "長野県": 9.63,
+    "岐阜県": 9.8,
+    "静岡県": 9.61,
+    "愛知県": 9.93,
+    "三重県": 9.77,
+    "滋賀県": 9.88,
+    "京都府": 9.89,
+    "大阪府": 10.13,
+    "兵庫県": 10.12,
+    "奈良県": 9.91,
+    "和歌山県": 10.06,
+    "鳥取県": 9.86,
+    "島根県": 9.94,
+    "岡山県": 10.05,
+    "広島県": 9.78,
+    "山口県": 10.15,
+    "徳島県": 10.24,
+    "香川県": 10.02,
+    "愛媛県": 9.98,
+    "高知県": 10.05,
+    "福岡県": 10.11,
+    "佐賀県": 10.55,
+    "長崎県": 10.06,
+    "熊本県": 10.08,
+    "大分県": 10.08,
+    "宮崎県": 9.77,
+    "鹿児島県": 10.13,
+    "沖縄県": 9.44
+   },
+   "source": "https://www.kyoukaikenpo.or.jp/about/business/insurance_rate/rate_prefectures/r08",
+   "verified": true
+  }
+ ],
+ "care": [
+  {
+   "effective_from": "2016-03",
+   "rate": 1.58,
+   "source": "https://www.kyoukaikenpo.or.jp/about/business/insurance_rate/rate_prefectures/h28/",
+   "verified": false
+  },
+  {
+   "effective_from": "2017-03",
+   "rate": 1.65,
+   "source": "https://www.kyoukaikenpo.or.jp/about/business/insurance_rate/rate_prefectures/h29/",
+   "verified": true
+  },
+  {
+   "effective_from": "2018-03",
+   "rate": 1.57,
+   "source": "https://www.kyoukaikenpo.or.jp/about/business/insurance_rate/rate_prefectures/h30/",
+   "verified": true
+  },
+  {
+   "effective_from": "2019-03",
+   "rate": 1.73,
+   "source": "https://www.kyoukaikenpo.or.jp/about/business/insurance_rate/rate_prefectures/r01/",
+   "verified": true
+  },
+  {
+   "effective_from": "2020-03",
+   "rate": 1.79,
+   "source": "https://www.kyoukaikenpo.or.jp/about/business/insurance_rate/rate_prefectures/r02/",
+   "verified": true
+  },
+  {
+   "effective_from": "2021-03",
+   "rate": 1.8,
+   "source": "https://www.kyoukaikenpo.or.jp/about/business/insurance_rate/rate_prefectures/r03/",
+   "verified": true
+  },
+  {
+   "effective_from": "2022-03",
+   "rate": 1.64,
+   "source": "https://www.kyoukaikenpo.or.jp/about/business/insurance_rate/rate_prefectures/r04/",
+   "verified": true
+  },
+  {
+   "effective_from": "2023-03",
+   "rate": 1.82,
+   "source": "https://www.kyoukaikenpo.or.jp/about/business/insurance_rate/rate_prefectures/r05/",
+   "verified": true
+  },
+  {
+   "effective_from": "2024-03",
+   "rate": 1.6,
+   "source": "https://www.kyoukaikenpo.or.jp/about/business/insurance_rate/rate_prefectures/r06/",
+   "verified": true
+  },
+  {
+   "effective_from": "2025-03",
+   "rate": 1.59,
+   "source": "https://www.kyoukaikenpo.or.jp/about/business/insurance_rate/rate_prefectures/r07/",
+   "verified": true
+  },
+  {
+   "effective_from": "2026-03",
+   "rate": 1.62,
+   "source": "https://www.kyoukaikenpo.or.jp/about/business/insurance_rate/rate_prefectures/r08",
+   "verified": true
+  }
+ ],
+ "pension": [
+  {
+   "effective_from": "2015-09",
+   "rate": 17.828,
+   "source": "https://www.nenkin.go.jp/service/kounen/hokenryo/ryogaku/20140710.files/kouseinennkinnhokennryourituhyou.pdf",
+   "verified": true
+  },
+  {
+   "effective_from": "2016-09",
+   "rate": 18.182,
+   "source": "https://www.nenkin.go.jp/service/kounen/hokenryo/ryogaku/20140710.files/kouseinennkinnhokennryourituhyou.pdf",
+   "verified": true
+  },
+  {
+   "effective_from": "2017-09",
+   "rate": 18.3,
+   "source": "https://www.nenkin.go.jp/service/kounen/hokenryo/ryogaku/20140710.files/kouseinennkinnhokennryourituhyou.pdf",
+   "verified": true
+  }
+ ],
+ "child_support": [
+  {
+   "effective_from": "2026-04",
+   "rate": 0.23,
+   "source": "https://www.kyoukaikenpo.or.jp/about/business/insurance_rate/rate_prefectures/r08",
+   "verified": true,
+   "note": "子ども・子育て支援金。労使折半。"
+  }
+ ],
+ "child_contribution": [
+  {
+   "effective_from": "2015-04",
+   "rate": 0.15,
+   "source": "https://www.nenkin.go.jp/service/kounen/hokenryo/ryogaku/ryogakuhyo/kako/20140710.html (平成24年4月分から1.5/1000。平成28年4月前の改定なし。2017-04の告知で旧率2.0を確認)",
+   "verified": false,
+   "note": "子ども・子育て拠出金。事業主のみ。厚生年金の標準報酬に乗じる。 出典が間接的(要再確認)"
+  },
+  {
+   "effective_from": "2016-04",
+   "rate": 0.2,
+   "source": "https://www.nenkin.go.jp/oshirase/taisetu/2017/201704/2017040102.html (平成29年4月告知の旧率1,000分の2.0。適用開始月は協会けんぽ資料=平成28年4月分~、一次PDFは未取得)",
+   "verified": false,
+   "note": "子ども・子育て拠出金。事業主のみ。厚生年金の標準報酬に乗じる。 出典が間接的(要再確認)"
+  },
+  {
+   "effective_from": "2017-04",
+   "rate": 0.23,
+   "source": "https://www.nenkin.go.jp/oshirase/taisetu/2017/201704/2017040102.html",
+   "verified": true,
+   "note": "子ども・子育て拠出金。事業主のみ。厚生年金の標準報酬に乗じる。"
+  },
+  {
+   "effective_from": "2018-04",
+   "rate": 0.29,
+   "source": "https://www.nenkin.go.jp/oshirase/taisetu/2018/201804/2018040301.html",
+   "verified": true,
+   "note": "子ども・子育て拠出金。事業主のみ。厚生年金の標準報酬に乗じる。"
+  },
+  {
+   "effective_from": "2019-04",
+   "rate": 0.34,
+   "source": "https://www.nenkin.go.jp/oshirase/taisetu/2019/201904/2019040401.html",
+   "verified": true,
+   "note": "子ども・子育て拠出金。事業主のみ。厚生年金の標準報酬に乗じる。"
+  },
+  {
+   "effective_from": "2020-04",
+   "rate": 0.36,
+   "source": "https://www.nenkin.go.jp/oshirase/taisetu/2020/202005/20200514.html",
+   "verified": true,
+   "note": "子ども・子育て拠出金。事業主のみ。厚生年金の標準報酬に乗じる。"
+  },
+  {
+   "effective_from": "2025-04",
+   "rate": 0.36,
+   "source": "https://www.nenkin.go.jp/service/kounen/hokenryo/ryogaku/ryogakuhyo/20200825.html (R7: 令和8年度の項に『令和7年度と同様に』と記載。R07ryougaku.pdf)",
+   "verified": true,
+   "note": "子ども・子育て拠出金。事業主のみ。厚生年金の標準報酬に乗じる。"
+  },
+  {
+   "effective_from": "2026-04",
+   "rate": 0.36,
+   "source": "https://www.nenkin.go.jp/service/kounen/hokenryo/ryogaku/ryogakuhyo/20200825.html",
+   "verified": true,
+   "note": "子ども・子育て拠出金。事業主のみ。厚生年金の標準報酬に乗じる。"
+  }
+ ],
+ "employment": [
+  {
+   "effective_from": "2015-04",
+   "per_mille": {
+    "general": {
+     "worker": 5,
+     "employer": 8.5
+    },
+    "agri": {
+     "worker": 6,
+     "employer": 9.5
+    },
+    "construction": {
+     "worker": 6,
+     "employer": 10.5
+    }
+   },
+   "source": "https://www.mhlw.go.jp/file/06-Seisakujouhou-11600000-Shokugyouanteikyoku/0000122930.pdf (平成28年度リーフレットの27年度欄)",
+   "verified": true
+  },
+  {
+   "effective_from": "2016-04",
+   "per_mille": {
+    "general": {
+     "worker": 4,
+     "employer": 7
+    },
+    "agri": {
+     "worker": 5,
+     "employer": 8
+    },
+    "construction": {
+     "worker": 5,
+     "employer": 9
+    }
+   },
+   "source": "https://www.mhlw.go.jp/file/06-Seisakujouhou-11600000-Shokugyouanteikyoku/0000122930.pdf",
+   "verified": true
+  },
+  {
+   "effective_from": "2017-04",
+   "per_mille": {
+    "general": {
+     "worker": 3,
+     "employer": 6
+    },
+    "agri": {
+     "worker": 4,
+     "employer": 7
+    },
+    "construction": {
+     "worker": 4,
+     "employer": 8
+    }
+   },
+   "source": "https://www.mhlw.go.jp/file/06-Seisakujouhou-11600000-Shokugyouanteikyoku/0000160687.pdf (H30,R1,R2,R3年度も同率: jsite.mhlw.go.jp/tottori-roudoukyoku/var/rev0/0112/1758/hokenritu_30.pdf, jsite.mhlw.go.jp/yamagata-roudoukyoku/content/contents/000407005.pdf, jsite.mhlw.go.jp/kumamoto-roudoukyoku/content/contents/000636186.pdf, https://www.mhlw.go.jp/content/000739455.pdf)",
+   "verified": true
+  },
+  {
+   "effective_from": "2022-04",
+   "per_mille": {
+    "general": {
+     "worker": 3,
+     "employer": 6.5
+    },
+    "agri": {
+     "worker": 4,
+     "employer": 7.5
+    },
+    "construction": {
+     "worker": 4,
+     "employer": 8.5
+    }
+   },
+   "source": "https://www.mhlw.go.jp/content/000921550.pdf",
+   "verified": true
+  },
+  {
+   "effective_from": "2022-10",
+   "per_mille": {
+    "general": {
+     "worker": 5,
+     "employer": 8.5
+    },
+    "agri": {
+     "worker": 6,
+     "employer": 9.5
+    },
+    "construction": {
+     "worker": 6,
+     "employer": 10.5
+    }
+   },
+   "source": "https://www.mhlw.go.jp/content/000921550.pdf",
+   "verified": true
+  },
+  {
+   "effective_from": "2023-04",
+   "per_mille": {
+    "general": {
+     "worker": 6,
+     "employer": 9.5
+    },
+    "agri": {
+     "worker": 7,
+     "employer": 10.5
+    },
+    "construction": {
+     "worker": 7,
+     "employer": 11.5
+    }
+   },
+   "source": "https://www.mhlw.go.jp/content/001050206.pdf (R6年度も同率: content/001211914.pdf)",
+   "verified": true
+  },
+  {
+   "effective_from": "2025-04",
+   "per_mille": {
+    "general": {
+     "worker": 5.5,
+     "employer": 9
+    },
+    "agri": {
+     "worker": 6.5,
+     "employer": 10
+    },
+    "construction": {
+     "worker": 6.5,
+     "employer": 11
+    }
+   },
+   "source": "https://www.mhlw.go.jp/content/001401966.pdf (ユーザー確認済)",
+   "verified": true
+  },
+  {
+   "effective_from": "2026-04",
+   "per_mille": {
+    "general": {
+     "worker": 5,
+     "employer": 8.5
+    },
+    "agri": {
+     "worker": 6,
+     "employer": 9.5
+    },
+    "construction": {
+     "worker": 6,
+     "employer": 10.5
+    }
+   },
+   "source": "https://www.mhlw.go.jp/content/001692566.pdf (ユーザー確認済)",
+   "verified": true
+  }
+ ],
+ "health_grades": [
+  {
+   "grade": 1,
+   "standard": 58000,
+   "lower": 0
+  },
+  {
+   "grade": 2,
+   "standard": 68000,
+   "lower": 63000
+  },
+  {
+   "grade": 3,
+   "standard": 78000,
+   "lower": 73000
+  },
+  {
+   "grade": 4,
+   "standard": 88000,
+   "lower": 83000
+  },
+  {
+   "grade": 5,
+   "standard": 98000,
+   "lower": 93000
+  },
+  {
+   "grade": 6,
+   "standard": 104000,
+   "lower": 101000
+  },
+  {
+   "grade": 7,
+   "standard": 110000,
+   "lower": 107000
+  },
+  {
+   "grade": 8,
+   "standard": 118000,
+   "lower": 114000
+  },
+  {
+   "grade": 9,
+   "standard": 126000,
+   "lower": 122000
+  },
+  {
+   "grade": 10,
+   "standard": 134000,
+   "lower": 130000
+  },
+  {
+   "grade": 11,
+   "standard": 142000,
+   "lower": 138000
+  },
+  {
+   "grade": 12,
+   "standard": 150000,
+   "lower": 146000
+  },
+  {
+   "grade": 13,
+   "standard": 160000,
+   "lower": 155000
+  },
+  {
+   "grade": 14,
+   "standard": 170000,
+   "lower": 165000
+  },
+  {
+   "grade": 15,
+   "standard": 180000,
+   "lower": 175000
+  },
+  {
+   "grade": 16,
+   "standard": 190000,
+   "lower": 185000
+  },
+  {
+   "grade": 17,
+   "standard": 200000,
+   "lower": 195000
+  },
+  {
+   "grade": 18,
+   "standard": 220000,
+   "lower": 210000
+  },
+  {
+   "grade": 19,
+   "standard": 240000,
+   "lower": 230000
+  },
+  {
+   "grade": 20,
+   "standard": 260000,
+   "lower": 250000
+  },
+  {
+   "grade": 21,
+   "standard": 280000,
+   "lower": 270000
+  },
+  {
+   "grade": 22,
+   "standard": 300000,
+   "lower": 290000
+  },
+  {
+   "grade": 23,
+   "standard": 320000,
+   "lower": 310000
+  },
+  {
+   "grade": 24,
+   "standard": 340000,
+   "lower": 330000
+  },
+  {
+   "grade": 25,
+   "standard": 360000,
+   "lower": 350000
+  },
+  {
+   "grade": 26,
+   "standard": 380000,
+   "lower": 370000
+  },
+  {
+   "grade": 27,
+   "standard": 410000,
+   "lower": 395000
+  },
+  {
+   "grade": 28,
+   "standard": 440000,
+   "lower": 425000
+  },
+  {
+   "grade": 29,
+   "standard": 470000,
+   "lower": 455000
+  },
+  {
+   "grade": 30,
+   "standard": 500000,
+   "lower": 485000
+  },
+  {
+   "grade": 31,
+   "standard": 530000,
+   "lower": 515000
+  },
+  {
+   "grade": 32,
+   "standard": 560000,
+   "lower": 545000
+  },
+  {
+   "grade": 33,
+   "standard": 590000,
+   "lower": 575000
+  },
+  {
+   "grade": 34,
+   "standard": 620000,
+   "lower": 605000
+  },
+  {
+   "grade": 35,
+   "standard": 650000,
+   "lower": 635000
+  },
+  {
+   "grade": 36,
+   "standard": 680000,
+   "lower": 665000
+  },
+  {
+   "grade": 37,
+   "standard": 710000,
+   "lower": 695000
+  },
+  {
+   "grade": 38,
+   "standard": 750000,
+   "lower": 730000
+  },
+  {
+   "grade": 39,
+   "standard": 790000,
+   "lower": 770000
+  },
+  {
+   "grade": 40,
+   "standard": 830000,
+   "lower": 810000
+  },
+  {
+   "grade": 41,
+   "standard": 880000,
+   "lower": 855000
+  },
+  {
+   "grade": 42,
+   "standard": 930000,
+   "lower": 905000
+  },
+  {
+   "grade": 43,
+   "standard": 980000,
+   "lower": 955000
+  },
+  {
+   "grade": 44,
+   "standard": 1030000,
+   "lower": 1005000
+  },
+  {
+   "grade": 45,
+   "standard": 1090000,
+   "lower": 1055000
+  },
+  {
+   "grade": 46,
+   "standard": 1150000,
+   "lower": 1115000
+  },
+  {
+   "grade": 47,
+   "standard": 1210000,
+   "lower": 1175000
+  },
+  {
+   "grade": 48,
+   "standard": 1270000,
+   "lower": 1235000
+  },
+  {
+   "grade": 49,
+   "standard": 1330000,
+   "lower": 1295000
+  },
+  {
+   "grade": 50,
+   "standard": 1390000,
+   "lower": 1355000
+  }
+ ],
+ "pension_grade_range": {
+  "min_standard": 88000,
+  "max_standard": 650000
+ },
+ "grades_verified": false,
+ "employment_page": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000108634.html",
+ "withholding": [
+  {
+   "effective_from": "2016-01",
+   "source": "https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/aramashi2015/pdf/16.pdf",
+   "verified": true,
+   "note": "2016年分。平成28年版『源泉徴収のあらまし』【参考】給与等に対する源泉徴収税額の電算機計算の特例等(p.312-318、平27財務省告示99号改正/平27財務省告示115号改正の別表)。NTA現行サイトでは既に削除済みのため、国立国会図書館WARPの保存版PDFを出典とした。給与所得控除に833,334〜999,999円のA×5%+141,667円の帯と上限191,667円がある(平成29年分以降は183,334円頭打ち)。基礎控除相当は固定31,667円。乙欄の電算機計算の対象は1,010,000円以下。 復興特別所得税(2.1%)込み。税額表の値とは差が出得る(年末調整で精算)。乙欄は一部の行で月額表の値と一致しない(ルートの otsu_table_discrepancies 参照)。",
+   "dependent_deduction": 31667,
+   "salary_deduction": [
+    {
+     "upto": 135416,
+     "amount": 54167
+    },
+    {
+     "upto": 149999,
+     "rate_percent": 40,
+     "add": 0
+    },
+    {
+     "upto": 299999,
+     "rate_percent": 30,
+     "add": 15000
+    },
+    {
+     "upto": 549999,
+     "rate_percent": 20,
+     "add": 45000
+    },
+    {
+     "upto": 833333,
+     "rate_percent": 10,
+     "add": 100000
+    },
+    {
+     "upto": 999999,
+     "rate_percent": 5,
+     "add": 141667
+    },
+    {
+     "amount": 191667
+    }
+   ],
+   "basic_deduction": [
+    {
+     "amount": 31667
+    }
+   ],
+   "ko_brackets": [
+    {
+     "upto": 162500,
+     "rate_percent": 5.105,
+     "sub": 0
+    },
+    {
+     "upto": 275000,
+     "rate_percent": 10.21,
+     "sub": 8296
+    },
+    {
+     "upto": 579166,
+     "rate_percent": 20.42,
+     "sub": 36374
+    },
+    {
+     "upto": 750000,
+     "rate_percent": 23.483,
+     "sub": 54113
+    },
+    {
+     "upto": 1500000,
+     "rate_percent": 33.693,
+     "sub": 130688
+    },
+    {
+     "upto": 3333333,
+     "rate_percent": 40.84,
+     "sub": 237893
+    },
+    {
+     "rate_percent": 45.945,
+     "sub": 408061
+    }
+   ],
+   "otsu": {
+    "low_below": 88000,
+    "low_rate_percent": 3.063,
+    "table_max": 1010000,
+    "steps": [
+     {
+      "from": 88000,
+      "to": 98999,
+      "step": 1000
+     },
+     {
+      "from": 99000,
+      "to": 220999,
+      "step": 2000
+     },
+     {
+      "from": 221000,
+      "to": 1009999,
+      "step": 3000
+     }
+    ],
+    "base_brackets": [
+     {
+      "upto": 162500,
+      "rate_percent": 5,
+      "sub": 0
+     },
+     {
+      "upto": 275000,
+      "rate_percent": 10,
+      "sub": 8125
+     },
+     {
+      "upto": 579166,
+      "rate_percent": 20,
+      "sub": 35625
+     },
+     {
+      "upto": 750000,
+      "rate_percent": 23,
+      "sub": 53000
+     },
+     {
+      "upto": 1500000,
+      "rate_percent": 33,
+      "sub": 128000
+     },
+     {
+      "upto": 3333333,
+      "rate_percent": 40,
+      "sub": 233000
+     }
+    ],
+    "base_basic_deduction": 31667,
+    "mid": {
+     "from": 1010000,
+     "add": 397600,
+     "rate_percent": 40.84
+    },
+    "high": {
+     "from": 1720000,
+     "add": 687600,
+     "rate_percent": 45.945
+    },
+    "sub_dependent": 1610
+   }
+  },
+  {
+   "effective_from": "2017-01",
+   "source": "https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/aramashi2016/pdf/16.pdf",
+   "verified": true,
+   "note": "2017年分。平成29年版『源泉徴収のあらまし』【参考】給与等に対する源泉徴収税額の電算機計算の特例等(p.324-329、平28財務省告示90号改正/平28財務省告示106号改正の別表)。NTA現行サイトでは既に削除済みのため、国立国会図書館WARPの保存版PDFを出典とした。給与所得控除は833,334円以上で183,334円頭打ち。基礎控除相当は固定31,667円。乙欄の電算機計算の対象は860,000円以下。出典PDFはフォント埋込みの都合で文字抽出不能のため、ページ画像を目視で確認。 復興特別所得税(2.1%)込み。税額表の値とは差が出得る(年末調整で精算)。乙欄は一部の行で月額表の値と一致しない(ルートの otsu_table_discrepancies 参照)。",
+   "dependent_deduction": 31667,
+   "salary_deduction": [
+    {
+     "upto": 135416,
+     "amount": 54167
+    },
+    {
+     "upto": 149999,
+     "rate_percent": 40,
+     "add": 0
+    },
+    {
+     "upto": 299999,
+     "rate_percent": 30,
+     "add": 15000
+    },
+    {
+     "upto": 549999,
+     "rate_percent": 20,
+     "add": 45000
+    },
+    {
+     "upto": 833333,
+     "rate_percent": 10,
+     "add": 100000
+    },
+    {
+     "amount": 183334
+    }
+   ],
+   "basic_deduction": [
+    {
+     "amount": 31667
+    }
+   ],
+   "ko_brackets": [
+    {
+     "upto": 162500,
+     "rate_percent": 5.105,
+     "sub": 0
+    },
+    {
+     "upto": 275000,
+     "rate_percent": 10.21,
+     "sub": 8296
+    },
+    {
+     "upto": 579166,
+     "rate_percent": 20.42,
+     "sub": 36374
+    },
+    {
+     "upto": 750000,
+     "rate_percent": 23.483,
+     "sub": 54113
+    },
+    {
+     "upto": 1500000,
+     "rate_percent": 33.693,
+     "sub": 130688
+    },
+    {
+     "upto": 3333333,
+     "rate_percent": 40.84,
+     "sub": 237893
+    },
+    {
+     "rate_percent": 45.945,
+     "sub": 408061
+    }
+   ],
+   "otsu": {
+    "low_below": 88000,
+    "low_rate_percent": 3.063,
+    "table_max": 860000,
+    "steps": [
+     {
+      "from": 88000,
+      "to": 98999,
+      "step": 1000
+     },
+     {
+      "from": 99000,
+      "to": 220999,
+      "step": 2000
+     },
+     {
+      "from": 221000,
+      "to": 859999,
+      "step": 3000
+     }
+    ],
+    "base_brackets": [
+     {
+      "upto": 162500,
+      "rate_percent": 5,
+      "sub": 0
+     },
+     {
+      "upto": 275000,
+      "rate_percent": 10,
+      "sub": 8125
+     },
+     {
+      "upto": 579166,
+      "rate_percent": 20,
+      "sub": 35625
+     },
+     {
+      "upto": 750000,
+      "rate_percent": 23,
+      "sub": 53000
+     },
+     {
+      "upto": 1500000,
+      "rate_percent": 33,
+      "sub": 128000
+     },
+     {
+      "upto": 3333333,
+      "rate_percent": 40,
+      "sub": 233000
+     }
+    ],
+    "base_basic_deduction": 31667,
+    "mid": {
+     "from": 860000,
+     "add": 320900,
+     "rate_percent": 40.84
+    },
+    "high": {
+     "from": 1720000,
+     "add": 672200,
+     "rate_percent": 45.945
+    },
+    "sub_dependent": 1610
+   }
+  },
+  {
+   "effective_from": "2018-01",
+   "source": "https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/aramashi2017/pdf/16.pdf",
+   "verified": true,
+   "note": "2018年分。平成30年版『源泉徴収のあらまし』【参考】給与等に対する源泉徴収税額の電算機計算の特例等(p.337-342、平29財務省告示88号改正/平29財務省告示96号改正の別表)。NTA現行サイトでは既に削除済みのため、国立国会図書館WARPの保存版PDFを出典とした。表の数値は平成29年分・平成31年分と同一。配偶者控除の欄が『配偶者(特別)控除』(額は同じ31,667円)になった。基礎控除相当は固定31,667円。乙欄の電算機計算の対象は860,000円以下。出典PDFはフォント埋込みの都合で文字抽出不能のため、ページ画像を目視で確認。 復興特別所得税(2.1%)込み。税額表の値とは差が出得る(年末調整で精算)。乙欄は一部の行で月額表の値と一致しない(ルートの otsu_table_discrepancies 参照)。",
+   "dependent_deduction": 31667,
+   "salary_deduction": [
+    {
+     "upto": 135416,
+     "amount": 54167
+    },
+    {
+     "upto": 149999,
+     "rate_percent": 40,
+     "add": 0
+    },
+    {
+     "upto": 299999,
+     "rate_percent": 30,
+     "add": 15000
+    },
+    {
+     "upto": 549999,
+     "rate_percent": 20,
+     "add": 45000
+    },
+    {
+     "upto": 833333,
+     "rate_percent": 10,
+     "add": 100000
+    },
+    {
+     "amount": 183334
+    }
+   ],
+   "basic_deduction": [
+    {
+     "amount": 31667
+    }
+   ],
+   "ko_brackets": [
+    {
+     "upto": 162500,
+     "rate_percent": 5.105,
+     "sub": 0
+    },
+    {
+     "upto": 275000,
+     "rate_percent": 10.21,
+     "sub": 8296
+    },
+    {
+     "upto": 579166,
+     "rate_percent": 20.42,
+     "sub": 36374
+    },
+    {
+     "upto": 750000,
+     "rate_percent": 23.483,
+     "sub": 54113
+    },
+    {
+     "upto": 1500000,
+     "rate_percent": 33.693,
+     "sub": 130688
+    },
+    {
+     "upto": 3333333,
+     "rate_percent": 40.84,
+     "sub": 237893
+    },
+    {
+     "rate_percent": 45.945,
+     "sub": 408061
+    }
+   ],
+   "otsu": {
+    "low_below": 88000,
+    "low_rate_percent": 3.063,
+    "table_max": 860000,
+    "steps": [
+     {
+      "from": 88000,
+      "to": 98999,
+      "step": 1000
+     },
+     {
+      "from": 99000,
+      "to": 220999,
+      "step": 2000
+     },
+     {
+      "from": 221000,
+      "to": 859999,
+      "step": 3000
+     }
+    ],
+    "base_brackets": [
+     {
+      "upto": 162500,
+      "rate_percent": 5,
+      "sub": 0
+     },
+     {
+      "upto": 275000,
+      "rate_percent": 10,
+      "sub": 8125
+     },
+     {
+      "upto": 579166,
+      "rate_percent": 20,
+      "sub": 35625
+     },
+     {
+      "upto": 750000,
+      "rate_percent": 23,
+      "sub": 53000
+     },
+     {
+      "upto": 1500000,
+      "rate_percent": 33,
+      "sub": 128000
+     },
+     {
+      "upto": 3333333,
+      "rate_percent": 40,
+      "sub": 233000
+     }
+    ],
+    "base_basic_deduction": 31667,
+    "mid": {
+     "from": 860000,
+     "add": 320900,
+     "rate_percent": 40.84
+    },
+    "high": {
+     "from": 1720000,
+     "add": 672200,
+     "rate_percent": 45.945
+    },
+    "sub_dependent": 1610
+   }
+  },
+  {
+   "effective_from": "2019-01",
+   "source": "https://www.nta.go.jp/publication/pamph/gensen/aramashi2018/pdf/16.pdf",
+   "verified": true,
+   "note": "2019年分。平成31年版『源泉徴収のあらまし』【参考】給与等に対する源泉徴収税額の電算機計算の特例等(p.352-358、平29財務省告示88号改正/平29財務省告示96号改正の別表)。表の数値は平成29〜31年分で同一。基礎控除相当は固定31,667円。乙欄の電算機計算の対象は860,000円以下。 復興特別所得税(2.1%)込み。税額表の値とは差が出得る(年末調整で精算)。乙欄は一部の行で月額表の値と一致しない(ルートの otsu_table_discrepancies 参照)。",
+   "dependent_deduction": 31667,
+   "salary_deduction": [
+    {
+     "upto": 135416,
+     "amount": 54167
+    },
+    {
+     "upto": 149999,
+     "rate_percent": 40,
+     "add": 0
+    },
+    {
+     "upto": 299999,
+     "rate_percent": 30,
+     "add": 15000
+    },
+    {
+     "upto": 549999,
+     "rate_percent": 20,
+     "add": 45000
+    },
+    {
+     "upto": 833333,
+     "rate_percent": 10,
+     "add": 100000
+    },
+    {
+     "amount": 183334
+    }
+   ],
+   "basic_deduction": [
+    {
+     "amount": 31667
+    }
+   ],
+   "ko_brackets": [
+    {
+     "upto": 162500,
+     "rate_percent": 5.105,
+     "sub": 0
+    },
+    {
+     "upto": 275000,
+     "rate_percent": 10.21,
+     "sub": 8296
+    },
+    {
+     "upto": 579166,
+     "rate_percent": 20.42,
+     "sub": 36374
+    },
+    {
+     "upto": 750000,
+     "rate_percent": 23.483,
+     "sub": 54113
+    },
+    {
+     "upto": 1500000,
+     "rate_percent": 33.693,
+     "sub": 130688
+    },
+    {
+     "upto": 3333333,
+     "rate_percent": 40.84,
+     "sub": 237893
+    },
+    {
+     "rate_percent": 45.945,
+     "sub": 408061
+    }
+   ],
+   "otsu": {
+    "low_below": 88000,
+    "low_rate_percent": 3.063,
+    "table_max": 860000,
+    "steps": [
+     {
+      "from": 88000,
+      "to": 98999,
+      "step": 1000
+     },
+     {
+      "from": 99000,
+      "to": 220999,
+      "step": 2000
+     },
+     {
+      "from": 221000,
+      "to": 859999,
+      "step": 3000
+     }
+    ],
+    "base_brackets": [
+     {
+      "upto": 162500,
+      "rate_percent": 5,
+      "sub": 0
+     },
+     {
+      "upto": 275000,
+      "rate_percent": 10,
+      "sub": 8125
+     },
+     {
+      "upto": 579166,
+      "rate_percent": 20,
+      "sub": 35625
+     },
+     {
+      "upto": 750000,
+      "rate_percent": 23,
+      "sub": 53000
+     },
+     {
+      "upto": 1500000,
+      "rate_percent": 33,
+      "sub": 128000
+     },
+     {
+      "upto": 3333333,
+      "rate_percent": 40,
+      "sub": 233000
+     }
+    ],
+    "base_basic_deduction": 31667,
+    "mid": {
+     "from": 860000,
+     "add": 320900,
+     "rate_percent": 40.84
+    },
+    "high": {
+     "from": 1720000,
+     "add": 672200,
+     "rate_percent": 45.945
+    },
+    "sub_dependent": 1610
+   }
+  },
+  {
+   "effective_from": "2020-01",
+   "source": "https://www.nta.go.jp/publication/pamph/gensen/aramashi2019/pdf/16.pdf",
+   "verified": true,
+   "note": "2020年分。令和2年版『源泉徴収のあらまし』【参考】給与等に対する源泉徴収税額の電算機計算の特例等(p.351-357、平31財務省告示89号改正/平31財務省告示98号改正の別表)。給与所得控除・基礎控除の枠組み変更後の初年。基礎控除は給与等の金額に応じ40,000円→26,667→13,334→0円の段階制(旧:固定31,667円)。給与所得控除は45,834円〜上限162,500円(708,331円以上)。乙欄の電算機計算の対象は740,000円以下。 復興特別所得税(2.1%)込み。税額表の値とは差が出得る(年末調整で精算)。乙欄は一部の行で月額表の値と一致しない(ルートの otsu_table_discrepancies 参照)。",
+   "dependent_deduction": 31667,
+   "salary_deduction": [
+    {
+     "upto": 135416,
+     "amount": 45834
+    },
+    {
+     "upto": 149999,
+     "rate_percent": 40,
+     "add": -8333
+    },
+    {
+     "upto": 299999,
+     "rate_percent": 30,
+     "add": 6667
+    },
+    {
+     "upto": 549999,
+     "rate_percent": 20,
+     "add": 36667
+    },
+    {
+     "upto": 708330,
+     "rate_percent": 10,
+     "add": 91667
+    },
+    {
+     "amount": 162500
+    }
+   ],
+   "basic_deduction": [
+    {
+     "upto": 2162499,
+     "amount": 40000
+    },
+    {
+     "upto": 2204166,
+     "amount": 26667
+    },
+    {
+     "upto": 2245833,
+     "amount": 13334
+    },
+    {
+     "amount": 0
+    }
+   ],
+   "ko_brackets": [
+    {
+     "upto": 162500,
+     "rate_percent": 5.105,
+     "sub": 0
+    },
+    {
+     "upto": 275000,
+     "rate_percent": 10.21,
+     "sub": 8296
+    },
+    {
+     "upto": 579166,
+     "rate_percent": 20.42,
+     "sub": 36374
+    },
+    {
+     "upto": 750000,
+     "rate_percent": 23.483,
+     "sub": 54113
+    },
+    {
+     "upto": 1500000,
+     "rate_percent": 33.693,
+     "sub": 130688
+    },
+    {
+     "upto": 3333333,
+     "rate_percent": 40.84,
+     "sub": 237893
+    },
+    {
+     "rate_percent": 45.945,
+     "sub": 408061
+    }
+   ],
+   "otsu": {
+    "low_below": 88000,
+    "low_rate_percent": 3.063,
+    "table_max": 740000,
+    "steps": [
+     {
+      "from": 88000,
+      "to": 98999,
+      "step": 1000
+     },
+     {
+      "from": 99000,
+      "to": 220999,
+      "step": 2000
+     },
+     {
+      "from": 221000,
+      "to": 739999,
+      "step": 3000
+     }
+    ],
+    "base_brackets": [
+     {
+      "upto": 162500,
+      "rate_percent": 5,
+      "sub": 0
+     },
+     {
+      "upto": 275000,
+      "rate_percent": 10,
+      "sub": 8125
+     },
+     {
+      "upto": 579166,
+      "rate_percent": 20,
+      "sub": 35625
+     },
+     {
+      "upto": 750000,
+      "rate_percent": 23,
+      "sub": 53000
+     },
+     {
+      "upto": 1500000,
+      "rate_percent": 33,
+      "sub": 128000
+     },
+     {
+      "upto": 3333333,
+      "rate_percent": 40,
+      "sub": 233000
+     }
+    ],
+    "base_basic_deduction": 40000,
+    "mid": {
+     "from": 740000,
+     "add": 259800,
+     "rate_percent": 40.84
+    },
+    "high": {
+     "from": 1700000,
+     "add": 651900,
+     "rate_percent": 45.945
+    },
+    "sub_dependent": 1610
+   }
+  },
+  {
+   "effective_from": "2021-01",
+   "source": "https://www.nta.go.jp/publication/pamph/gensen/aramashi2020/pdf/16.pdf",
+   "verified": true,
+   "note": "2021年分。令和3年版『源泉徴収のあらまし』【参考】給与等に対する源泉徴収税額の電算機計算の特例等(p.352-358、令2財務省告示76号改正/令2財務省告示82号改正の別表)。表の数値は令和2〜令和7年分で同一(税額表も『令和2年分と同じ』と明記)。 復興特別所得税(2.1%)込み。税額表の値とは差が出得る(年末調整で精算)。乙欄は一部の行で月額表の値と一致しない(ルートの otsu_table_discrepancies 参照)。",
+   "dependent_deduction": 31667,
+   "salary_deduction": [
+    {
+     "upto": 135416,
+     "amount": 45834
+    },
+    {
+     "upto": 149999,
+     "rate_percent": 40,
+     "add": -8333
+    },
+    {
+     "upto": 299999,
+     "rate_percent": 30,
+     "add": 6667
+    },
+    {
+     "upto": 549999,
+     "rate_percent": 20,
+     "add": 36667
+    },
+    {
+     "upto": 708330,
+     "rate_percent": 10,
+     "add": 91667
+    },
+    {
+     "amount": 162500
+    }
+   ],
+   "basic_deduction": [
+    {
+     "upto": 2162499,
+     "amount": 40000
+    },
+    {
+     "upto": 2204166,
+     "amount": 26667
+    },
+    {
+     "upto": 2245833,
+     "amount": 13334
+    },
+    {
+     "amount": 0
+    }
+   ],
+   "ko_brackets": [
+    {
+     "upto": 162500,
+     "rate_percent": 5.105,
+     "sub": 0
+    },
+    {
+     "upto": 275000,
+     "rate_percent": 10.21,
+     "sub": 8296
+    },
+    {
+     "upto": 579166,
+     "rate_percent": 20.42,
+     "sub": 36374
+    },
+    {
+     "upto": 750000,
+     "rate_percent": 23.483,
+     "sub": 54113
+    },
+    {
+     "upto": 1500000,
+     "rate_percent": 33.693,
+     "sub": 130688
+    },
+    {
+     "upto": 3333333,
+     "rate_percent": 40.84,
+     "sub": 237893
+    },
+    {
+     "rate_percent": 45.945,
+     "sub": 408061
+    }
+   ],
+   "otsu": {
+    "low_below": 88000,
+    "low_rate_percent": 3.063,
+    "table_max": 740000,
+    "steps": [
+     {
+      "from": 88000,
+      "to": 98999,
+      "step": 1000
+     },
+     {
+      "from": 99000,
+      "to": 220999,
+      "step": 2000
+     },
+     {
+      "from": 221000,
+      "to": 739999,
+      "step": 3000
+     }
+    ],
+    "base_brackets": [
+     {
+      "upto": 162500,
+      "rate_percent": 5,
+      "sub": 0
+     },
+     {
+      "upto": 275000,
+      "rate_percent": 10,
+      "sub": 8125
+     },
+     {
+      "upto": 579166,
+      "rate_percent": 20,
+      "sub": 35625
+     },
+     {
+      "upto": 750000,
+      "rate_percent": 23,
+      "sub": 53000
+     },
+     {
+      "upto": 1500000,
+      "rate_percent": 33,
+      "sub": 128000
+     },
+     {
+      "upto": 3333333,
+      "rate_percent": 40,
+      "sub": 233000
+     }
+    ],
+    "base_basic_deduction": 40000,
+    "mid": {
+     "from": 740000,
+     "add": 259800,
+     "rate_percent": 40.84
+    },
+    "high": {
+     "from": 1700000,
+     "add": 651900,
+     "rate_percent": 45.945
+    },
+    "sub_dependent": 1610
+   }
+  },
+  {
+   "effective_from": "2022-01",
+   "source": "https://www.nta.go.jp/publication/pamph/gensen/aramashi2021/pdf/16.pdf",
+   "verified": true,
+   "note": "2022年分。令和4年版『源泉徴収のあらまし』【参考】給与等に対する源泉徴収税額の電算機計算の特例等(p.354-360、令3財務省告示82号改正/令3財務省告示89号改正の別表)。表の数値は令和2〜令和7年分で同一(税額表も『令和3年分と同じ』と明記)。 復興特別所得税(2.1%)込み。税額表の値とは差が出得る(年末調整で精算)。乙欄は一部の行で月額表の値と一致しない(ルートの otsu_table_discrepancies 参照)。",
+   "dependent_deduction": 31667,
+   "salary_deduction": [
+    {
+     "upto": 135416,
+     "amount": 45834
+    },
+    {
+     "upto": 149999,
+     "rate_percent": 40,
+     "add": -8333
+    },
+    {
+     "upto": 299999,
+     "rate_percent": 30,
+     "add": 6667
+    },
+    {
+     "upto": 549999,
+     "rate_percent": 20,
+     "add": 36667
+    },
+    {
+     "upto": 708330,
+     "rate_percent": 10,
+     "add": 91667
+    },
+    {
+     "amount": 162500
+    }
+   ],
+   "basic_deduction": [
+    {
+     "upto": 2162499,
+     "amount": 40000
+    },
+    {
+     "upto": 2204166,
+     "amount": 26667
+    },
+    {
+     "upto": 2245833,
+     "amount": 13334
+    },
+    {
+     "amount": 0
+    }
+   ],
+   "ko_brackets": [
+    {
+     "upto": 162500,
+     "rate_percent": 5.105,
+     "sub": 0
+    },
+    {
+     "upto": 275000,
+     "rate_percent": 10.21,
+     "sub": 8296
+    },
+    {
+     "upto": 579166,
+     "rate_percent": 20.42,
+     "sub": 36374
+    },
+    {
+     "upto": 750000,
+     "rate_percent": 23.483,
+     "sub": 54113
+    },
+    {
+     "upto": 1500000,
+     "rate_percent": 33.693,
+     "sub": 130688
+    },
+    {
+     "upto": 3333333,
+     "rate_percent": 40.84,
+     "sub": 237893
+    },
+    {
+     "rate_percent": 45.945,
+     "sub": 408061
+    }
+   ],
+   "otsu": {
+    "low_below": 88000,
+    "low_rate_percent": 3.063,
+    "table_max": 740000,
+    "steps": [
+     {
+      "from": 88000,
+      "to": 98999,
+      "step": 1000
+     },
+     {
+      "from": 99000,
+      "to": 220999,
+      "step": 2000
+     },
+     {
+      "from": 221000,
+      "to": 739999,
+      "step": 3000
+     }
+    ],
+    "base_brackets": [
+     {
+      "upto": 162500,
+      "rate_percent": 5,
+      "sub": 0
+     },
+     {
+      "upto": 275000,
+      "rate_percent": 10,
+      "sub": 8125
+     },
+     {
+      "upto": 579166,
+      "rate_percent": 20,
+      "sub": 35625
+     },
+     {
+      "upto": 750000,
+      "rate_percent": 23,
+      "sub": 53000
+     },
+     {
+      "upto": 1500000,
+      "rate_percent": 33,
+      "sub": 128000
+     },
+     {
+      "upto": 3333333,
+      "rate_percent": 40,
+      "sub": 233000
+     }
+    ],
+    "base_basic_deduction": 40000,
+    "mid": {
+     "from": 740000,
+     "add": 259800,
+     "rate_percent": 40.84
+    },
+    "high": {
+     "from": 1700000,
+     "add": 651900,
+     "rate_percent": 45.945
+    },
+    "sub_dependent": 1610
+   }
+  },
+  {
+   "effective_from": "2023-01",
+   "source": "https://www.nta.go.jp/publication/pamph/gensen/aramashi2022/pdf/16.pdf",
+   "verified": true,
+   "note": "2023年分。令和5年版『源泉徴収のあらまし』【参考】給与等に対する源泉徴収税額の電算機計算の特例等(p.353-359、令3財務省告示82号改正/令3財務省告示89号改正の別表)。表の数値は令和2〜令和7年分で同一(税額表も『令和4年分と同じ』と明記)。 復興特別所得税(2.1%)込み。税額表の値とは差が出得る(年末調整で精算)。乙欄は一部の行で月額表の値と一致しない(ルートの otsu_table_discrepancies 参照)。",
+   "dependent_deduction": 31667,
+   "salary_deduction": [
+    {
+     "upto": 135416,
+     "amount": 45834
+    },
+    {
+     "upto": 149999,
+     "rate_percent": 40,
+     "add": -8333
+    },
+    {
+     "upto": 299999,
+     "rate_percent": 30,
+     "add": 6667
+    },
+    {
+     "upto": 549999,
+     "rate_percent": 20,
+     "add": 36667
+    },
+    {
+     "upto": 708330,
+     "rate_percent": 10,
+     "add": 91667
+    },
+    {
+     "amount": 162500
+    }
+   ],
+   "basic_deduction": [
+    {
+     "upto": 2162499,
+     "amount": 40000
+    },
+    {
+     "upto": 2204166,
+     "amount": 26667
+    },
+    {
+     "upto": 2245833,
+     "amount": 13334
+    },
+    {
+     "amount": 0
+    }
+   ],
+   "ko_brackets": [
+    {
+     "upto": 162500,
+     "rate_percent": 5.105,
+     "sub": 0
+    },
+    {
+     "upto": 275000,
+     "rate_percent": 10.21,
+     "sub": 8296
+    },
+    {
+     "upto": 579166,
+     "rate_percent": 20.42,
+     "sub": 36374
+    },
+    {
+     "upto": 750000,
+     "rate_percent": 23.483,
+     "sub": 54113
+    },
+    {
+     "upto": 1500000,
+     "rate_percent": 33.693,
+     "sub": 130688
+    },
+    {
+     "upto": 3333333,
+     "rate_percent": 40.84,
+     "sub": 237893
+    },
+    {
+     "rate_percent": 45.945,
+     "sub": 408061
+    }
+   ],
+   "otsu": {
+    "low_below": 88000,
+    "low_rate_percent": 3.063,
+    "table_max": 740000,
+    "steps": [
+     {
+      "from": 88000,
+      "to": 98999,
+      "step": 1000
+     },
+     {
+      "from": 99000,
+      "to": 220999,
+      "step": 2000
+     },
+     {
+      "from": 221000,
+      "to": 739999,
+      "step": 3000
+     }
+    ],
+    "base_brackets": [
+     {
+      "upto": 162500,
+      "rate_percent": 5,
+      "sub": 0
+     },
+     {
+      "upto": 275000,
+      "rate_percent": 10,
+      "sub": 8125
+     },
+     {
+      "upto": 579166,
+      "rate_percent": 20,
+      "sub": 35625
+     },
+     {
+      "upto": 750000,
+      "rate_percent": 23,
+      "sub": 53000
+     },
+     {
+      "upto": 1500000,
+      "rate_percent": 33,
+      "sub": 128000
+     },
+     {
+      "upto": 3333333,
+      "rate_percent": 40,
+      "sub": 233000
+     }
+    ],
+    "base_basic_deduction": 40000,
+    "mid": {
+     "from": 740000,
+     "add": 259800,
+     "rate_percent": 40.84
+    },
+    "high": {
+     "from": 1700000,
+     "add": 651900,
+     "rate_percent": 45.945
+    },
+    "sub_dependent": 1610
+   }
+  },
+  {
+   "effective_from": "2024-01",
+   "source": "https://www.nta.go.jp/publication/pamph/gensen/aramashi2023/pdf/16.pdf",
+   "verified": true,
+   "note": "2024年分。令和6年版『源泉徴収のあらまし』【参考】給与等に対する源泉徴収税額の電算機計算の特例等(p.356-362、令3財務省告示82号改正/令3財務省告示89号改正の別表)。表の数値は令和2〜令和7年分で同一(税額表も『令和5年分と同じ』と明記)。 復興特別所得税(2.1%)込み。税額表の値とは差が出得る(年末調整で精算)。乙欄は一部の行で月額表の値と一致しない(ルートの otsu_table_discrepancies 参照)。",
+   "dependent_deduction": 31667,
+   "salary_deduction": [
+    {
+     "upto": 135416,
+     "amount": 45834
+    },
+    {
+     "upto": 149999,
+     "rate_percent": 40,
+     "add": -8333
+    },
+    {
+     "upto": 299999,
+     "rate_percent": 30,
+     "add": 6667
+    },
+    {
+     "upto": 549999,
+     "rate_percent": 20,
+     "add": 36667
+    },
+    {
+     "upto": 708330,
+     "rate_percent": 10,
+     "add": 91667
+    },
+    {
+     "amount": 162500
+    }
+   ],
+   "basic_deduction": [
+    {
+     "upto": 2162499,
+     "amount": 40000
+    },
+    {
+     "upto": 2204166,
+     "amount": 26667
+    },
+    {
+     "upto": 2245833,
+     "amount": 13334
+    },
+    {
+     "amount": 0
+    }
+   ],
+   "ko_brackets": [
+    {
+     "upto": 162500,
+     "rate_percent": 5.105,
+     "sub": 0
+    },
+    {
+     "upto": 275000,
+     "rate_percent": 10.21,
+     "sub": 8296
+    },
+    {
+     "upto": 579166,
+     "rate_percent": 20.42,
+     "sub": 36374
+    },
+    {
+     "upto": 750000,
+     "rate_percent": 23.483,
+     "sub": 54113
+    },
+    {
+     "upto": 1500000,
+     "rate_percent": 33.693,
+     "sub": 130688
+    },
+    {
+     "upto": 3333333,
+     "rate_percent": 40.84,
+     "sub": 237893
+    },
+    {
+     "rate_percent": 45.945,
+     "sub": 408061
+    }
+   ],
+   "otsu": {
+    "low_below": 88000,
+    "low_rate_percent": 3.063,
+    "table_max": 740000,
+    "steps": [
+     {
+      "from": 88000,
+      "to": 98999,
+      "step": 1000
+     },
+     {
+      "from": 99000,
+      "to": 220999,
+      "step": 2000
+     },
+     {
+      "from": 221000,
+      "to": 739999,
+      "step": 3000
+     }
+    ],
+    "base_brackets": [
+     {
+      "upto": 162500,
+      "rate_percent": 5,
+      "sub": 0
+     },
+     {
+      "upto": 275000,
+      "rate_percent": 10,
+      "sub": 8125
+     },
+     {
+      "upto": 579166,
+      "rate_percent": 20,
+      "sub": 35625
+     },
+     {
+      "upto": 750000,
+      "rate_percent": 23,
+      "sub": 53000
+     },
+     {
+      "upto": 1500000,
+      "rate_percent": 33,
+      "sub": 128000
+     },
+     {
+      "upto": 3333333,
+      "rate_percent": 40,
+      "sub": 233000
+     }
+    ],
+    "base_basic_deduction": 40000,
+    "mid": {
+     "from": 740000,
+     "add": 259800,
+     "rate_percent": 40.84
+    },
+    "high": {
+     "from": 1700000,
+     "add": 651900,
+     "rate_percent": 45.945
+    },
+    "sub_dependent": 1610
+   }
+  },
+  {
+   "effective_from": "2025-01",
+   "source": "https://www.nta.go.jp/publication/pamph/gensen/aramashi2024/pdf/16.pdf",
+   "verified": true,
+   "note": "2025年分。令和7年版『源泉徴収のあらまし』【参考】給与等に対する源泉徴収税額の電算機計算の特例等(p.357-363、令5財務省告示88号改正/令5財務省告示95号改正の別表)。表の数値は令和2〜令和7年分で同一(税額表も『令和6年分と同じ』と明記)。令和7年度改正の基礎控除引上げ等は令和8年1月分から(令和8年分データ側)。 復興特別所得税(2.1%)込み。税額表の値とは差が出得る(年末調整で精算)。乙欄は一部の行で月額表の値と一致しない(ルートの otsu_table_discrepancies 参照)。",
+   "dependent_deduction": 31667,
+   "salary_deduction": [
+    {
+     "upto": 135416,
+     "amount": 45834
+    },
+    {
+     "upto": 149999,
+     "rate_percent": 40,
+     "add": -8333
+    },
+    {
+     "upto": 299999,
+     "rate_percent": 30,
+     "add": 6667
+    },
+    {
+     "upto": 549999,
+     "rate_percent": 20,
+     "add": 36667
+    },
+    {
+     "upto": 708330,
+     "rate_percent": 10,
+     "add": 91667
+    },
+    {
+     "amount": 162500
+    }
+   ],
+   "basic_deduction": [
+    {
+     "upto": 2162499,
+     "amount": 40000
+    },
+    {
+     "upto": 2204166,
+     "amount": 26667
+    },
+    {
+     "upto": 2245833,
+     "amount": 13334
+    },
+    {
+     "amount": 0
+    }
+   ],
+   "ko_brackets": [
+    {
+     "upto": 162500,
+     "rate_percent": 5.105,
+     "sub": 0
+    },
+    {
+     "upto": 275000,
+     "rate_percent": 10.21,
+     "sub": 8296
+    },
+    {
+     "upto": 579166,
+     "rate_percent": 20.42,
+     "sub": 36374
+    },
+    {
+     "upto": 750000,
+     "rate_percent": 23.483,
+     "sub": 54113
+    },
+    {
+     "upto": 1500000,
+     "rate_percent": 33.693,
+     "sub": 130688
+    },
+    {
+     "upto": 3333333,
+     "rate_percent": 40.84,
+     "sub": 237893
+    },
+    {
+     "rate_percent": 45.945,
+     "sub": 408061
+    }
+   ],
+   "otsu": {
+    "low_below": 88000,
+    "low_rate_percent": 3.063,
+    "table_max": 740000,
+    "steps": [
+     {
+      "from": 88000,
+      "to": 98999,
+      "step": 1000
+     },
+     {
+      "from": 99000,
+      "to": 220999,
+      "step": 2000
+     },
+     {
+      "from": 221000,
+      "to": 739999,
+      "step": 3000
+     }
+    ],
+    "base_brackets": [
+     {
+      "upto": 162500,
+      "rate_percent": 5,
+      "sub": 0
+     },
+     {
+      "upto": 275000,
+      "rate_percent": 10,
+      "sub": 8125
+     },
+     {
+      "upto": 579166,
+      "rate_percent": 20,
+      "sub": 35625
+     },
+     {
+      "upto": 750000,
+      "rate_percent": 23,
+      "sub": 53000
+     },
+     {
+      "upto": 1500000,
+      "rate_percent": 33,
+      "sub": 128000
+     },
+     {
+      "upto": 3333333,
+      "rate_percent": 40,
+      "sub": 233000
+     }
+    ],
+    "base_basic_deduction": 40000,
+    "mid": {
+     "from": 740000,
+     "add": 259800,
+     "rate_percent": 40.84
+    },
+    "high": {
+     "from": 1700000,
+     "add": 651900,
+     "rate_percent": 45.945
+    },
+    "sub_dependent": 1610
+   }
+  },
+  {
+   "effective_from": "2026-01",
+   "source": "https://www.nta.go.jp/publication/pamph/gensen/aramashi2026/pdf/16.pdf",
+   "verified": true,
+   "note": "令和8年分 給与所得の源泉徴収税額(電算機計算の特例=甲欄 / 乙欄の電算機計算)。復興特別所得税(2.1%)込み。税額表の値とは±数十円〜差が出得る(年末調整で精算)。",
+   "dependent_deduction": 31667,
+   "salary_deduction": [
+    {
+     "upto": 158333,
+     "amount": 54167
+    },
+    {
+     "upto": 299999,
+     "rate_percent": 30,
+     "add": 6667
+    },
+    {
+     "upto": 549999,
+     "rate_percent": 20,
+     "add": 36667
+    },
+    {
+     "upto": 708330,
+     "rate_percent": 10,
+     "add": 91667
+    },
+    {
+     "amount": 162500
+    }
+   ],
+   "basic_deduction": [
+    {
+     "upto": 2120833,
+     "amount": 48334
+    },
+    {
+     "upto": 2162499,
+     "amount": 40000
+    },
+    {
+     "upto": 2204166,
+     "amount": 26667
+    },
+    {
+     "upto": 2245833,
+     "amount": 13334
+    },
+    {
+     "amount": 0
+    }
+   ],
+   "ko_brackets": [
+    {
+     "upto": 162500,
+     "rate_percent": 5.105,
+     "sub": 0
+    },
+    {
+     "upto": 275000,
+     "rate_percent": 10.21,
+     "sub": 8296
+    },
+    {
+     "upto": 579166,
+     "rate_percent": 20.42,
+     "sub": 36374
+    },
+    {
+     "upto": 750000,
+     "rate_percent": 23.483,
+     "sub": 54113
+    },
+    {
+     "upto": 1500000,
+     "rate_percent": 33.693,
+     "sub": 130688
+    },
+    {
+     "upto": 3333333,
+     "rate_percent": 40.84,
+     "sub": 237893
+    },
+    {
+     "rate_percent": 45.945,
+     "sub": 408061
+    }
+   ],
+   "otsu": {
+    "low_below": 105000,
+    "low_rate_percent": 3.063,
+    "table_max": 740000,
+    "steps": [
+     {
+      "from": 105000,
+      "to": 220999,
+      "step": 2000
+     },
+     {
+      "from": 221000,
+      "to": 739999,
+      "step": 3000
+     }
+    ],
+    "base_brackets": [
+     {
+      "upto": 162500,
+      "rate_percent": 5,
+      "sub": 0
+     },
+     {
+      "upto": 275000,
+      "rate_percent": 10,
+      "sub": 8125
+     },
+     {
+      "upto": 579166,
+      "rate_percent": 20,
+      "sub": 35625
+     },
+     {
+      "upto": 750000,
+      "rate_percent": 23,
+      "sub": 53000
+     },
+     {
+      "upto": 1500000,
+      "rate_percent": 33,
+      "sub": 128000
+     },
+     {
+      "upto": 3333333,
+      "rate_percent": 40,
+      "sub": 233000
+     }
+    ],
+    "base_basic_deduction": 48334,
+    "mid": {
+     "from": 740000,
+     "add": 259200,
+     "rate_percent": 40.84
+    },
+    "high": {
+     "from": 1710000,
+     "add": 655400,
+     "rate_percent": 45.945
+    },
+    "sub_dependent": 1610
+   }
+  }
+ ],
+ "withholding_otsu_note": "乙欄は国税庁『あらまし』の算式どおり。令和2〜令和7年分の乙欄は算式が月額表(税額表)と一部の行(約29万〜43.7万円)で最大数千円ずれる(算式の方が大きい)。令和8年分は全行一致。"
+}

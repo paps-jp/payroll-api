@@ -1,0 +1,2321 @@
+{
+ "examples": [
+  {
+   "year": 2016,
+   "column": "ko",
+   "amount": 175000,
+   "dependents": 2,
+   "expected_tax": 640,
+   "table_tax": 670,
+   "where": "平成28年版 源泉徴収のあらまし 電算機計算の特例等 p.312-318『特例により求めた税額』計算例イ(源泉控除対象配偶者+控除対象扶養親族1人=dependents 2)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2016,
+   "column": "ko",
+   "amount": 446000,
+   "dependents": 8,
+   "expected_tax": 1370,
+   "table_tax": 1430,
+   "where": "平成28年版 源泉徴収のあらまし 電算機計算の特例等 p.312-318『特例により求めた税額』計算例ロ(配偶者+扶養親族7人=dependents 8)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2016,
+   "column": "ko",
+   "amount": 1195200,
+   "dependents": 3,
+   "expected_tax": 164750,
+   "table_tax": 170709,
+   "where": "平成28年版 源泉徴収のあらまし 電算機計算の特例等 p.312-318『特例により求めた税額』計算例ハ(配偶者+扶養親族2人=dependents 3)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2017,
+   "column": "ko",
+   "amount": 175000,
+   "dependents": 2,
+   "expected_tax": 640,
+   "table_tax": 670,
+   "where": "平成29年版 源泉徴収のあらまし 電算機計算の特例等 p.324-329『特例により求めた税額』計算例イ(源泉控除対象配偶者+控除対象扶養親族1人=dependents 2)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2017,
+   "column": "ko",
+   "amount": 446000,
+   "dependents": 8,
+   "expected_tax": 1370,
+   "table_tax": 1430,
+   "where": "平成29年版 源泉徴収のあらまし 電算機計算の特例等 p.324-329『特例により求めた税額』計算例ロ(配偶者+扶養親族7人=dependents 8)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2017,
+   "column": "ko",
+   "amount": 895200,
+   "dependents": 3,
+   "expected_tax": 83310,
+   "table_tax": 84196,
+   "where": "平成29年版 源泉徴収のあらまし 電算機計算の特例等 p.324-329『特例により求めた税額』計算例ハ(配偶者+扶養親族2人=dependents 3)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2018,
+   "column": "ko",
+   "amount": 175000,
+   "dependents": 2,
+   "expected_tax": 640,
+   "table_tax": 670,
+   "where": "平成30年版 源泉徴収のあらまし 電算機計算の特例等 p.337-342『特例により求めた税額』計算例イ(源泉控除対象配偶者+控除対象扶養親族1人=dependents 2)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2018,
+   "column": "ko",
+   "amount": 446000,
+   "dependents": 8,
+   "expected_tax": 1370,
+   "table_tax": 1430,
+   "where": "平成30年版 源泉徴収のあらまし 電算機計算の特例等 p.337-342『特例により求めた税額』計算例ロ(配偶者+扶養親族7人=dependents 8)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2018,
+   "column": "ko",
+   "amount": 895200,
+   "dependents": 3,
+   "expected_tax": 83310,
+   "table_tax": 84196,
+   "where": "平成30年版 源泉徴収のあらまし 電算機計算の特例等 p.337-342『特例により求めた税額』計算例ハ(配偶者+扶養親族2人=dependents 3)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2019,
+   "column": "ko",
+   "amount": 175000,
+   "dependents": 2,
+   "expected_tax": 640,
+   "table_tax": 670,
+   "where": "平成31年版 源泉徴収のあらまし 電算機計算の特例等 p.352-358『特例により求めた税額』計算例イ(源泉控除対象配偶者+控除対象扶養親族1人=dependents 2)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2019,
+   "column": "ko",
+   "amount": 446000,
+   "dependents": 8,
+   "expected_tax": 1370,
+   "table_tax": 1430,
+   "where": "平成31年版 源泉徴収のあらまし 電算機計算の特例等 p.352-358『特例により求めた税額』計算例ロ(配偶者+扶養親族7人=dependents 8)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2019,
+   "column": "ko",
+   "amount": 895200,
+   "dependents": 3,
+   "expected_tax": 83310,
+   "table_tax": 84196,
+   "where": "平成31年版 源泉徴収のあらまし 電算機計算の特例等 p.352-358『特例により求めた税額』計算例ハ(配偶者+扶養親族2人=dependents 3)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2020,
+   "column": "ko",
+   "amount": 175000,
+   "dependents": 2,
+   "expected_tax": 640,
+   "table_tax": 670,
+   "where": "令和2年版 源泉徴収のあらまし 電算機計算の特例等 p.351-357『特例により求めた税額』計算例イ(源泉控除対象配偶者+控除対象扶養親族1人=dependents 2)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2020,
+   "column": "ko",
+   "amount": 446000,
+   "dependents": 8,
+   "expected_tax": 1370,
+   "table_tax": 1430,
+   "where": "令和2年版 源泉徴収のあらまし 電算機計算の特例等 p.351-357『特例により求めた税額』計算例ロ(配偶者+扶養親族7人=dependents 8)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2020,
+   "column": "ko",
+   "amount": 775200,
+   "dependents": 3,
+   "expected_tax": 61170,
+   "table_tax": 61167,
+   "where": "令和2年版 源泉徴収のあらまし 電算機計算の特例等 p.351-357『特例により求めた税額』計算例ハ(配偶者+扶養親族2人=dependents 3)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2021,
+   "column": "ko",
+   "amount": 175000,
+   "dependents": 2,
+   "expected_tax": 640,
+   "table_tax": 670,
+   "where": "令和3年版 源泉徴収のあらまし 電算機計算の特例等 p.352-358『特例により求めた税額』計算例イ(源泉控除対象配偶者+控除対象扶養親族1人=dependents 2)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2021,
+   "column": "ko",
+   "amount": 446000,
+   "dependents": 8,
+   "expected_tax": 1370,
+   "table_tax": 1430,
+   "where": "令和3年版 源泉徴収のあらまし 電算機計算の特例等 p.352-358『特例により求めた税額』計算例ロ(配偶者+扶養親族7人=dependents 8)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2021,
+   "column": "ko",
+   "amount": 775200,
+   "dependents": 3,
+   "expected_tax": 61170,
+   "table_tax": 61167,
+   "where": "令和3年版 源泉徴収のあらまし 電算機計算の特例等 p.352-358『特例により求めた税額』計算例ハ(配偶者+扶養親族2人=dependents 3)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2022,
+   "column": "ko",
+   "amount": 175000,
+   "dependents": 2,
+   "expected_tax": 640,
+   "table_tax": 670,
+   "where": "令和4年版 源泉徴収のあらまし 電算機計算の特例等 p.354-360『特例により求めた税額』計算例イ(源泉控除対象配偶者+控除対象扶養親族1人=dependents 2)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2022,
+   "column": "ko",
+   "amount": 446000,
+   "dependents": 8,
+   "expected_tax": 1370,
+   "table_tax": 1430,
+   "where": "令和4年版 源泉徴収のあらまし 電算機計算の特例等 p.354-360『特例により求めた税額』計算例ロ(配偶者+扶養親族7人=dependents 8)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2022,
+   "column": "ko",
+   "amount": 775200,
+   "dependents": 3,
+   "expected_tax": 61170,
+   "table_tax": 61167,
+   "where": "令和4年版 源泉徴収のあらまし 電算機計算の特例等 p.354-360『特例により求めた税額』計算例ハ(配偶者+扶養親族2人=dependents 3)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2023,
+   "column": "ko",
+   "amount": 175000,
+   "dependents": 2,
+   "expected_tax": 640,
+   "table_tax": 670,
+   "where": "令和5年版 源泉徴収のあらまし 電算機計算の特例等 p.353-359『特例により求めた税額』計算例イ(源泉控除対象配偶者+控除対象扶養親族1人=dependents 2)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2023,
+   "column": "ko",
+   "amount": 446000,
+   "dependents": 8,
+   "expected_tax": 1370,
+   "table_tax": 1430,
+   "where": "令和5年版 源泉徴収のあらまし 電算機計算の特例等 p.353-359『特例により求めた税額』計算例ロ(配偶者+扶養親族7人=dependents 8)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2023,
+   "column": "ko",
+   "amount": 775200,
+   "dependents": 3,
+   "expected_tax": 61170,
+   "table_tax": 61167,
+   "where": "令和5年版 源泉徴収のあらまし 電算機計算の特例等 p.353-359『特例により求めた税額』計算例ハ(配偶者+扶養親族2人=dependents 3)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2024,
+   "column": "ko",
+   "amount": 175000,
+   "dependents": 2,
+   "expected_tax": 640,
+   "table_tax": 670,
+   "where": "令和6年版 源泉徴収のあらまし 電算機計算の特例等 p.356-362『特例により求めた税額』計算例イ(源泉控除対象配偶者+控除対象扶養親族1人=dependents 2)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2024,
+   "column": "ko",
+   "amount": 446000,
+   "dependents": 8,
+   "expected_tax": 1370,
+   "table_tax": 1430,
+   "where": "令和6年版 源泉徴収のあらまし 電算機計算の特例等 p.356-362『特例により求めた税額』計算例ロ(配偶者+扶養親族7人=dependents 8)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2024,
+   "column": "ko",
+   "amount": 775200,
+   "dependents": 3,
+   "expected_tax": 61170,
+   "table_tax": 61167,
+   "where": "令和6年版 源泉徴収のあらまし 電算機計算の特例等 p.356-362『特例により求めた税額』計算例ハ(配偶者+扶養親族2人=dependents 3)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2025,
+   "column": "ko",
+   "amount": 175000,
+   "dependents": 2,
+   "expected_tax": 640,
+   "table_tax": 670,
+   "where": "令和7年版 源泉徴収のあらまし 電算機計算の特例等 p.357-363『特例により求めた税額』計算例イ(源泉控除対象配偶者+控除対象扶養親族1人=dependents 2)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2025,
+   "column": "ko",
+   "amount": 446000,
+   "dependents": 8,
+   "expected_tax": 1370,
+   "table_tax": 1430,
+   "where": "令和7年版 源泉徴収のあらまし 電算機計算の特例等 p.357-363『特例により求めた税額』計算例ロ(配偶者+扶養親族7人=dependents 8)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2025,
+   "column": "ko",
+   "amount": 775200,
+   "dependents": 3,
+   "expected_tax": 61170,
+   "table_tax": 61167,
+   "where": "令和7年版 源泉徴収のあらまし 電算機計算の特例等 p.357-363『特例により求めた税額』計算例ハ(配偶者+扶養親族2人=dependents 3)。table_taxは同例に併記の月額表甲欄の税額(参考、特例計算とは一致しない)"
+  },
+  {
+   "year": 2016,
+   "column": "otsu",
+   "amount": 88000,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2016年分源泉徴収税額表 月額表乙欄『88,000円以上89,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2015/data/all.pdf)"
+  },
+  {
+   "year": 2016,
+   "column": "otsu",
+   "amount": 88500,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2016年分源泉徴収税額表 月額表乙欄『88,000円以上89,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2015/data/all.pdf)"
+  },
+  {
+   "year": 2016,
+   "column": "otsu",
+   "amount": 89000,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2016年分源泉徴収税額表 月額表乙欄『89,000円以上90,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2015/data/all.pdf)"
+  },
+  {
+   "year": 2016,
+   "column": "otsu",
+   "amount": 89500,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2016年分源泉徴収税額表 月額表乙欄『89,000円以上90,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2015/data/all.pdf)"
+  },
+  {
+   "year": 2016,
+   "column": "otsu",
+   "amount": 98000,
+   "dependents": 0,
+   "expected_tax": 3500,
+   "where": "2016年分源泉徴収税額表 月額表乙欄『98,000円以上99,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2015/data/all.pdf)"
+  },
+  {
+   "year": 2016,
+   "column": "otsu",
+   "amount": 98500,
+   "dependents": 0,
+   "expected_tax": 3500,
+   "where": "2016年分源泉徴収税額表 月額表乙欄『98,000円以上99,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2015/data/all.pdf)"
+  },
+  {
+   "year": 2016,
+   "column": "otsu",
+   "amount": 99000,
+   "dependents": 0,
+   "expected_tax": 3600,
+   "where": "2016年分源泉徴収税額表 月額表乙欄『99,000円以上101,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2015/data/all.pdf)"
+  },
+  {
+   "year": 2016,
+   "column": "otsu",
+   "amount": 100000,
+   "dependents": 0,
+   "expected_tax": 3600,
+   "where": "2016年分源泉徴収税額表 月額表乙欄『99,000円以上101,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2015/data/all.pdf)"
+  },
+  {
+   "year": 2016,
+   "column": "otsu",
+   "amount": 221000,
+   "dependents": 0,
+   "expected_tax": 27400,
+   "where": "2016年分源泉徴収税額表 月額表乙欄『221,000円以上224,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2015/data/all.pdf)"
+  },
+  {
+   "year": 2016,
+   "column": "otsu",
+   "amount": 222500,
+   "dependents": 0,
+   "expected_tax": 27400,
+   "where": "2016年分源泉徴収税額表 月額表乙欄『221,000円以上224,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2015/data/all.pdf)"
+  },
+  {
+   "year": 2016,
+   "column": "otsu",
+   "amount": 260000,
+   "dependents": 0,
+   "expected_tax": 40400,
+   "where": "2016年分源泉徴収税額表 月額表乙欄『260,000円以上263,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2015/data/all.pdf)"
+  },
+  {
+   "year": 2016,
+   "column": "otsu",
+   "amount": 261500,
+   "dependents": 0,
+   "expected_tax": 40400,
+   "where": "2016年分源泉徴収税額表 月額表乙欄『260,000円以上263,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2015/data/all.pdf)"
+  },
+  {
+   "year": 2016,
+   "column": "otsu",
+   "amount": 281000,
+   "dependents": 0,
+   "expected_tax": 47600,
+   "where": "2016年分源泉徴収税額表 月額表乙欄『281,000円以上284,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2015/data/all.pdf)"
+  },
+  {
+   "year": 2016,
+   "column": "otsu",
+   "amount": 282500,
+   "dependents": 0,
+   "expected_tax": 47600,
+   "where": "2016年分源泉徴収税額表 月額表乙欄『281,000円以上284,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2015/data/all.pdf)"
+  },
+  {
+   "year": 2016,
+   "column": "otsu",
+   "amount": 284000,
+   "dependents": 0,
+   "expected_tax": 48600,
+   "where": "2016年分源泉徴収税額表 月額表乙欄『284,000円以上287,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2015/data/all.pdf)"
+  },
+  {
+   "year": 2016,
+   "column": "otsu",
+   "amount": 285500,
+   "dependents": 0,
+   "expected_tax": 48600,
+   "where": "2016年分源泉徴収税額表 月額表乙欄『284,000円以上287,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2015/data/all.pdf)"
+  },
+  {
+   "year": 2016,
+   "column": "otsu",
+   "amount": 1007000,
+   "dependents": 0,
+   "expected_tax": 396000,
+   "where": "2016年分源泉徴収税額表 月額表乙欄『1,007,000円以上1,010,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2015/data/all.pdf)"
+  },
+  {
+   "year": 2016,
+   "column": "otsu",
+   "amount": 1008500,
+   "dependents": 0,
+   "expected_tax": 396000,
+   "where": "2016年分源泉徴収税額表 月額表乙欄『1,007,000円以上1,010,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2015/data/all.pdf)"
+  },
+  {
+   "year": 2016,
+   "column": "otsu",
+   "amount": 1009999,
+   "dependents": 0,
+   "expected_tax": 396000,
+   "where": "2016年分源泉徴収税額表 月額表乙欄『1,007,000円以上1,010,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2015/data/all.pdf)"
+  },
+  {
+   "year": 2016,
+   "column": "otsu",
+   "amount": 1010000,
+   "dependents": 0,
+   "expected_tax": 397600,
+   "where": "2016年分源泉徴収税額表 月額表乙欄『1,010,000円』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2015/data/all.pdf)"
+  },
+  {
+   "year": 2016,
+   "column": "otsu",
+   "amount": 1720000,
+   "dependents": 0,
+   "expected_tax": 687600,
+   "where": "2016年分源泉徴収税額表 月額表乙欄『1,720,000円』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2015/data/all.pdf)"
+  },
+  {
+   "year": 2017,
+   "column": "otsu",
+   "amount": 88000,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2017年分源泉徴収税額表 月額表乙欄『88,000円以上89,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2016/data/all.pdf)"
+  },
+  {
+   "year": 2017,
+   "column": "otsu",
+   "amount": 88500,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2017年分源泉徴収税額表 月額表乙欄『88,000円以上89,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2016/data/all.pdf)"
+  },
+  {
+   "year": 2017,
+   "column": "otsu",
+   "amount": 89000,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2017年分源泉徴収税額表 月額表乙欄『89,000円以上90,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2016/data/all.pdf)"
+  },
+  {
+   "year": 2017,
+   "column": "otsu",
+   "amount": 89500,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2017年分源泉徴収税額表 月額表乙欄『89,000円以上90,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2016/data/all.pdf)"
+  },
+  {
+   "year": 2017,
+   "column": "otsu",
+   "amount": 98000,
+   "dependents": 0,
+   "expected_tax": 3500,
+   "where": "2017年分源泉徴収税額表 月額表乙欄『98,000円以上99,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2016/data/all.pdf)"
+  },
+  {
+   "year": 2017,
+   "column": "otsu",
+   "amount": 98500,
+   "dependents": 0,
+   "expected_tax": 3500,
+   "where": "2017年分源泉徴収税額表 月額表乙欄『98,000円以上99,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2016/data/all.pdf)"
+  },
+  {
+   "year": 2017,
+   "column": "otsu",
+   "amount": 99000,
+   "dependents": 0,
+   "expected_tax": 3600,
+   "where": "2017年分源泉徴収税額表 月額表乙欄『99,000円以上101,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2016/data/all.pdf)"
+  },
+  {
+   "year": 2017,
+   "column": "otsu",
+   "amount": 100000,
+   "dependents": 0,
+   "expected_tax": 3600,
+   "where": "2017年分源泉徴収税額表 月額表乙欄『99,000円以上101,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2016/data/all.pdf)"
+  },
+  {
+   "year": 2017,
+   "column": "otsu",
+   "amount": 221000,
+   "dependents": 0,
+   "expected_tax": 27400,
+   "where": "2017年分源泉徴収税額表 月額表乙欄『221,000円以上224,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2016/data/all.pdf)"
+  },
+  {
+   "year": 2017,
+   "column": "otsu",
+   "amount": 222500,
+   "dependents": 0,
+   "expected_tax": 27400,
+   "where": "2017年分源泉徴収税額表 月額表乙欄『221,000円以上224,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2016/data/all.pdf)"
+  },
+  {
+   "year": 2017,
+   "column": "otsu",
+   "amount": 260000,
+   "dependents": 0,
+   "expected_tax": 40400,
+   "where": "2017年分源泉徴収税額表 月額表乙欄『260,000円以上263,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2016/data/all.pdf)"
+  },
+  {
+   "year": 2017,
+   "column": "otsu",
+   "amount": 261500,
+   "dependents": 0,
+   "expected_tax": 40400,
+   "where": "2017年分源泉徴収税額表 月額表乙欄『260,000円以上263,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2016/data/all.pdf)"
+  },
+  {
+   "year": 2017,
+   "column": "otsu",
+   "amount": 281000,
+   "dependents": 0,
+   "expected_tax": 47600,
+   "where": "2017年分源泉徴収税額表 月額表乙欄『281,000円以上284,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2016/data/all.pdf)"
+  },
+  {
+   "year": 2017,
+   "column": "otsu",
+   "amount": 282500,
+   "dependents": 0,
+   "expected_tax": 47600,
+   "where": "2017年分源泉徴収税額表 月額表乙欄『281,000円以上284,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2016/data/all.pdf)"
+  },
+  {
+   "year": 2017,
+   "column": "otsu",
+   "amount": 284000,
+   "dependents": 0,
+   "expected_tax": 48600,
+   "where": "2017年分源泉徴収税額表 月額表乙欄『284,000円以上287,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2016/data/all.pdf)"
+  },
+  {
+   "year": 2017,
+   "column": "otsu",
+   "amount": 285500,
+   "dependents": 0,
+   "expected_tax": 48600,
+   "where": "2017年分源泉徴収税額表 月額表乙欄『284,000円以上287,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2016/data/all.pdf)"
+  },
+  {
+   "year": 2017,
+   "column": "otsu",
+   "amount": 857000,
+   "dependents": 0,
+   "expected_tax": 319300,
+   "where": "2017年分源泉徴収税額表 月額表乙欄『857,000円以上860,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2016/data/all.pdf)"
+  },
+  {
+   "year": 2017,
+   "column": "otsu",
+   "amount": 858500,
+   "dependents": 0,
+   "expected_tax": 319300,
+   "where": "2017年分源泉徴収税額表 月額表乙欄『857,000円以上860,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2016/data/all.pdf)"
+  },
+  {
+   "year": 2017,
+   "column": "otsu",
+   "amount": 859999,
+   "dependents": 0,
+   "expected_tax": 319300,
+   "where": "2017年分源泉徴収税額表 月額表乙欄『857,000円以上860,000円未満』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2016/data/all.pdf)"
+  },
+  {
+   "year": 2017,
+   "column": "otsu",
+   "amount": 860000,
+   "dependents": 0,
+   "expected_tax": 320900,
+   "where": "2017年分源泉徴収税額表 月額表乙欄『860,000円』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2016/data/all.pdf)"
+  },
+  {
+   "year": 2017,
+   "column": "otsu",
+   "amount": 1720000,
+   "dependents": 0,
+   "expected_tax": 672200,
+   "where": "2017年分源泉徴収税額表 月額表乙欄『1,720,000円』の行の乙欄の税額(https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2016/data/all.pdf)"
+  },
+  {
+   "year": 2018,
+   "column": "otsu",
+   "amount": 88000,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "平成31年分税額表(冒頭で『平成30年分の税額と同じ』と明記=平成30年分と同一)『88,000円以上89,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2018,
+   "column": "otsu",
+   "amount": 88500,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "平成31年分税額表(冒頭で『平成30年分の税額と同じ』と明記=平成30年分と同一)『88,000円以上89,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2018,
+   "column": "otsu",
+   "amount": 89000,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "平成31年分税額表(冒頭で『平成30年分の税額と同じ』と明記=平成30年分と同一)『89,000円以上90,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2018,
+   "column": "otsu",
+   "amount": 89500,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "平成31年分税額表(冒頭で『平成30年分の税額と同じ』と明記=平成30年分と同一)『89,000円以上90,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2018,
+   "column": "otsu",
+   "amount": 98000,
+   "dependents": 0,
+   "expected_tax": 3500,
+   "where": "平成31年分税額表(冒頭で『平成30年分の税額と同じ』と明記=平成30年分と同一)『98,000円以上99,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2018,
+   "column": "otsu",
+   "amount": 98500,
+   "dependents": 0,
+   "expected_tax": 3500,
+   "where": "平成31年分税額表(冒頭で『平成30年分の税額と同じ』と明記=平成30年分と同一)『98,000円以上99,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2018,
+   "column": "otsu",
+   "amount": 99000,
+   "dependents": 0,
+   "expected_tax": 3600,
+   "where": "平成31年分税額表(冒頭で『平成30年分の税額と同じ』と明記=平成30年分と同一)『99,000円以上101,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2018,
+   "column": "otsu",
+   "amount": 100000,
+   "dependents": 0,
+   "expected_tax": 3600,
+   "where": "平成31年分税額表(冒頭で『平成30年分の税額と同じ』と明記=平成30年分と同一)『99,000円以上101,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2018,
+   "column": "otsu",
+   "amount": 221000,
+   "dependents": 0,
+   "expected_tax": 27400,
+   "where": "平成31年分税額表(冒頭で『平成30年分の税額と同じ』と明記=平成30年分と同一)『221,000円以上224,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2018,
+   "column": "otsu",
+   "amount": 222500,
+   "dependents": 0,
+   "expected_tax": 27400,
+   "where": "平成31年分税額表(冒頭で『平成30年分の税額と同じ』と明記=平成30年分と同一)『221,000円以上224,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2018,
+   "column": "otsu",
+   "amount": 260000,
+   "dependents": 0,
+   "expected_tax": 40400,
+   "where": "平成31年分税額表(冒頭で『平成30年分の税額と同じ』と明記=平成30年分と同一)『260,000円以上263,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2018,
+   "column": "otsu",
+   "amount": 261500,
+   "dependents": 0,
+   "expected_tax": 40400,
+   "where": "平成31年分税額表(冒頭で『平成30年分の税額と同じ』と明記=平成30年分と同一)『260,000円以上263,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2018,
+   "column": "otsu",
+   "amount": 281000,
+   "dependents": 0,
+   "expected_tax": 47600,
+   "where": "平成31年分税額表(冒頭で『平成30年分の税額と同じ』と明記=平成30年分と同一)『281,000円以上284,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2018,
+   "column": "otsu",
+   "amount": 282500,
+   "dependents": 0,
+   "expected_tax": 47600,
+   "where": "平成31年分税額表(冒頭で『平成30年分の税額と同じ』と明記=平成30年分と同一)『281,000円以上284,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2018,
+   "column": "otsu",
+   "amount": 284000,
+   "dependents": 0,
+   "expected_tax": 48600,
+   "where": "平成31年分税額表(冒頭で『平成30年分の税額と同じ』と明記=平成30年分と同一)『284,000円以上287,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2018,
+   "column": "otsu",
+   "amount": 285500,
+   "dependents": 0,
+   "expected_tax": 48600,
+   "where": "平成31年分税額表(冒頭で『平成30年分の税額と同じ』と明記=平成30年分と同一)『284,000円以上287,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2018,
+   "column": "otsu",
+   "amount": 857000,
+   "dependents": 0,
+   "expected_tax": 319300,
+   "where": "平成31年分税額表(冒頭で『平成30年分の税額と同じ』と明記=平成30年分と同一)『857,000円以上860,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2018,
+   "column": "otsu",
+   "amount": 858500,
+   "dependents": 0,
+   "expected_tax": 319300,
+   "where": "平成31年分税額表(冒頭で『平成30年分の税額と同じ』と明記=平成30年分と同一)『857,000円以上860,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2018,
+   "column": "otsu",
+   "amount": 859999,
+   "dependents": 0,
+   "expected_tax": 319300,
+   "where": "平成31年分税額表(冒頭で『平成30年分の税額と同じ』と明記=平成30年分と同一)『857,000円以上860,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2018,
+   "column": "otsu",
+   "amount": 860000,
+   "dependents": 0,
+   "expected_tax": 320900,
+   "where": "平成31年分税額表(冒頭で『平成30年分の税額と同じ』と明記=平成30年分と同一)『860,000円』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2018,
+   "column": "otsu",
+   "amount": 1720000,
+   "dependents": 0,
+   "expected_tax": 672200,
+   "where": "平成31年分税額表(冒頭で『平成30年分の税額と同じ』と明記=平成30年分と同一)『1,720,000円』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2019,
+   "column": "otsu",
+   "amount": 88000,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2019年分源泉徴収税額表 月額表乙欄『88,000円以上89,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2019,
+   "column": "otsu",
+   "amount": 88500,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2019年分源泉徴収税額表 月額表乙欄『88,000円以上89,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2019,
+   "column": "otsu",
+   "amount": 89000,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2019年分源泉徴収税額表 月額表乙欄『89,000円以上90,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2019,
+   "column": "otsu",
+   "amount": 89500,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2019年分源泉徴収税額表 月額表乙欄『89,000円以上90,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2019,
+   "column": "otsu",
+   "amount": 98000,
+   "dependents": 0,
+   "expected_tax": 3500,
+   "where": "2019年分源泉徴収税額表 月額表乙欄『98,000円以上99,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2019,
+   "column": "otsu",
+   "amount": 98500,
+   "dependents": 0,
+   "expected_tax": 3500,
+   "where": "2019年分源泉徴収税額表 月額表乙欄『98,000円以上99,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2019,
+   "column": "otsu",
+   "amount": 99000,
+   "dependents": 0,
+   "expected_tax": 3600,
+   "where": "2019年分源泉徴収税額表 月額表乙欄『99,000円以上101,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2019,
+   "column": "otsu",
+   "amount": 100000,
+   "dependents": 0,
+   "expected_tax": 3600,
+   "where": "2019年分源泉徴収税額表 月額表乙欄『99,000円以上101,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2019,
+   "column": "otsu",
+   "amount": 221000,
+   "dependents": 0,
+   "expected_tax": 27400,
+   "where": "2019年分源泉徴収税額表 月額表乙欄『221,000円以上224,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2019,
+   "column": "otsu",
+   "amount": 222500,
+   "dependents": 0,
+   "expected_tax": 27400,
+   "where": "2019年分源泉徴収税額表 月額表乙欄『221,000円以上224,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2019,
+   "column": "otsu",
+   "amount": 260000,
+   "dependents": 0,
+   "expected_tax": 40400,
+   "where": "2019年分源泉徴収税額表 月額表乙欄『260,000円以上263,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2019,
+   "column": "otsu",
+   "amount": 261500,
+   "dependents": 0,
+   "expected_tax": 40400,
+   "where": "2019年分源泉徴収税額表 月額表乙欄『260,000円以上263,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2019,
+   "column": "otsu",
+   "amount": 281000,
+   "dependents": 0,
+   "expected_tax": 47600,
+   "where": "2019年分源泉徴収税額表 月額表乙欄『281,000円以上284,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2019,
+   "column": "otsu",
+   "amount": 282500,
+   "dependents": 0,
+   "expected_tax": 47600,
+   "where": "2019年分源泉徴収税額表 月額表乙欄『281,000円以上284,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2019,
+   "column": "otsu",
+   "amount": 284000,
+   "dependents": 0,
+   "expected_tax": 48600,
+   "where": "2019年分源泉徴収税額表 月額表乙欄『284,000円以上287,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2019,
+   "column": "otsu",
+   "amount": 285500,
+   "dependents": 0,
+   "expected_tax": 48600,
+   "where": "2019年分源泉徴収税額表 月額表乙欄『284,000円以上287,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2019,
+   "column": "otsu",
+   "amount": 857000,
+   "dependents": 0,
+   "expected_tax": 319300,
+   "where": "2019年分源泉徴収税額表 月額表乙欄『857,000円以上860,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2019,
+   "column": "otsu",
+   "amount": 858500,
+   "dependents": 0,
+   "expected_tax": 319300,
+   "where": "2019年分源泉徴収税額表 月額表乙欄『857,000円以上860,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2019,
+   "column": "otsu",
+   "amount": 859999,
+   "dependents": 0,
+   "expected_tax": 319300,
+   "where": "2019年分源泉徴収税額表 月額表乙欄『857,000円以上860,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2019,
+   "column": "otsu",
+   "amount": 860000,
+   "dependents": 0,
+   "expected_tax": 320900,
+   "where": "2019年分源泉徴収税額表 月額表乙欄『860,000円』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2019,
+   "column": "otsu",
+   "amount": 1720000,
+   "dependents": 0,
+   "expected_tax": 672200,
+   "where": "2019年分源泉徴収税額表 月額表乙欄『1,720,000円』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf)"
+  },
+  {
+   "year": 2020,
+   "column": "otsu",
+   "amount": 88000,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2020年分源泉徴収税額表 月額表乙欄『88,000円以上89,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2019/data/all.pdf)"
+  },
+  {
+   "year": 2020,
+   "column": "otsu",
+   "amount": 88500,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2020年分源泉徴収税額表 月額表乙欄『88,000円以上89,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2019/data/all.pdf)"
+  },
+  {
+   "year": 2020,
+   "column": "otsu",
+   "amount": 89000,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2020年分源泉徴収税額表 月額表乙欄『89,000円以上90,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2019/data/all.pdf)"
+  },
+  {
+   "year": 2020,
+   "column": "otsu",
+   "amount": 89500,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2020年分源泉徴収税額表 月額表乙欄『89,000円以上90,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2019/data/all.pdf)"
+  },
+  {
+   "year": 2020,
+   "column": "otsu",
+   "amount": 98000,
+   "dependents": 0,
+   "expected_tax": 3500,
+   "where": "2020年分源泉徴収税額表 月額表乙欄『98,000円以上99,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2019/data/all.pdf)"
+  },
+  {
+   "year": 2020,
+   "column": "otsu",
+   "amount": 98500,
+   "dependents": 0,
+   "expected_tax": 3500,
+   "where": "2020年分源泉徴収税額表 月額表乙欄『98,000円以上99,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2019/data/all.pdf)"
+  },
+  {
+   "year": 2020,
+   "column": "otsu",
+   "amount": 99000,
+   "dependents": 0,
+   "expected_tax": 3600,
+   "where": "2020年分源泉徴収税額表 月額表乙欄『99,000円以上101,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2019/data/all.pdf)"
+  },
+  {
+   "year": 2020,
+   "column": "otsu",
+   "amount": 100000,
+   "dependents": 0,
+   "expected_tax": 3600,
+   "where": "2020年分源泉徴収税額表 月額表乙欄『99,000円以上101,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2019/data/all.pdf)"
+  },
+  {
+   "year": 2020,
+   "column": "otsu",
+   "amount": 221000,
+   "dependents": 0,
+   "expected_tax": 27400,
+   "where": "2020年分源泉徴収税額表 月額表乙欄『221,000円以上224,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2019/data/all.pdf)"
+  },
+  {
+   "year": 2020,
+   "column": "otsu",
+   "amount": 222500,
+   "dependents": 0,
+   "expected_tax": 27400,
+   "where": "2020年分源泉徴収税額表 月額表乙欄『221,000円以上224,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2019/data/all.pdf)"
+  },
+  {
+   "year": 2020,
+   "column": "otsu",
+   "amount": 260000,
+   "dependents": 0,
+   "expected_tax": 40400,
+   "where": "2020年分源泉徴収税額表 月額表乙欄『260,000円以上263,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2019/data/all.pdf)"
+  },
+  {
+   "year": 2020,
+   "column": "otsu",
+   "amount": 261500,
+   "dependents": 0,
+   "expected_tax": 40400,
+   "where": "2020年分源泉徴収税額表 月額表乙欄『260,000円以上263,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2019/data/all.pdf)"
+  },
+  {
+   "year": 2020,
+   "column": "otsu",
+   "amount": 281000,
+   "dependents": 0,
+   "expected_tax": 47600,
+   "where": "2020年分源泉徴収税額表 月額表乙欄『281,000円以上284,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2019/data/all.pdf)"
+  },
+  {
+   "year": 2020,
+   "column": "otsu",
+   "amount": 282500,
+   "dependents": 0,
+   "expected_tax": 47600,
+   "where": "2020年分源泉徴収税額表 月額表乙欄『281,000円以上284,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2019/data/all.pdf)"
+  },
+  {
+   "year": 2020,
+   "column": "otsu",
+   "amount": 284000,
+   "dependents": 0,
+   "expected_tax": 48600,
+   "where": "2020年分源泉徴収税額表 月額表乙欄『284,000円以上287,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2019/data/all.pdf)"
+  },
+  {
+   "year": 2020,
+   "column": "otsu",
+   "amount": 285500,
+   "dependents": 0,
+   "expected_tax": 48600,
+   "where": "2020年分源泉徴収税額表 月額表乙欄『284,000円以上287,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2019/data/all.pdf)"
+  },
+  {
+   "year": 2020,
+   "column": "otsu",
+   "amount": 737000,
+   "dependents": 0,
+   "expected_tax": 258300,
+   "where": "2020年分源泉徴収税額表 月額表乙欄『737,000円以上740,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2019/data/all.pdf)"
+  },
+  {
+   "year": 2020,
+   "column": "otsu",
+   "amount": 738500,
+   "dependents": 0,
+   "expected_tax": 258300,
+   "where": "2020年分源泉徴収税額表 月額表乙欄『737,000円以上740,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2019/data/all.pdf)"
+  },
+  {
+   "year": 2020,
+   "column": "otsu",
+   "amount": 739999,
+   "dependents": 0,
+   "expected_tax": 258300,
+   "where": "2020年分源泉徴収税額表 月額表乙欄『737,000円以上740,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2019/data/all.pdf)"
+  },
+  {
+   "year": 2020,
+   "column": "otsu",
+   "amount": 740000,
+   "dependents": 0,
+   "expected_tax": 259800,
+   "where": "2020年分源泉徴収税額表 月額表乙欄『740,000円』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2019/data/all.pdf)"
+  },
+  {
+   "year": 2020,
+   "column": "otsu",
+   "amount": 1700000,
+   "dependents": 0,
+   "expected_tax": 651900,
+   "where": "2020年分源泉徴収税額表 月額表乙欄『1,700,000円』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2019/data/all.pdf)"
+  },
+  {
+   "year": 2021,
+   "column": "otsu",
+   "amount": 88000,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2021年分源泉徴収税額表 月額表乙欄『88,000円以上89,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2021,
+   "column": "otsu",
+   "amount": 88500,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2021年分源泉徴収税額表 月額表乙欄『88,000円以上89,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2021,
+   "column": "otsu",
+   "amount": 89000,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2021年分源泉徴収税額表 月額表乙欄『89,000円以上90,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2021,
+   "column": "otsu",
+   "amount": 89500,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2021年分源泉徴収税額表 月額表乙欄『89,000円以上90,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2021,
+   "column": "otsu",
+   "amount": 98000,
+   "dependents": 0,
+   "expected_tax": 3500,
+   "where": "2021年分源泉徴収税額表 月額表乙欄『98,000円以上99,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2021,
+   "column": "otsu",
+   "amount": 98500,
+   "dependents": 0,
+   "expected_tax": 3500,
+   "where": "2021年分源泉徴収税額表 月額表乙欄『98,000円以上99,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2021,
+   "column": "otsu",
+   "amount": 99000,
+   "dependents": 0,
+   "expected_tax": 3600,
+   "where": "2021年分源泉徴収税額表 月額表乙欄『99,000円以上101,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2021,
+   "column": "otsu",
+   "amount": 100000,
+   "dependents": 0,
+   "expected_tax": 3600,
+   "where": "2021年分源泉徴収税額表 月額表乙欄『99,000円以上101,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2021,
+   "column": "otsu",
+   "amount": 221000,
+   "dependents": 0,
+   "expected_tax": 27400,
+   "where": "2021年分源泉徴収税額表 月額表乙欄『221,000円以上224,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2021,
+   "column": "otsu",
+   "amount": 222500,
+   "dependents": 0,
+   "expected_tax": 27400,
+   "where": "2021年分源泉徴収税額表 月額表乙欄『221,000円以上224,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2021,
+   "column": "otsu",
+   "amount": 260000,
+   "dependents": 0,
+   "expected_tax": 40400,
+   "where": "2021年分源泉徴収税額表 月額表乙欄『260,000円以上263,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2021,
+   "column": "otsu",
+   "amount": 261500,
+   "dependents": 0,
+   "expected_tax": 40400,
+   "where": "2021年分源泉徴収税額表 月額表乙欄『260,000円以上263,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2021,
+   "column": "otsu",
+   "amount": 281000,
+   "dependents": 0,
+   "expected_tax": 47600,
+   "where": "2021年分源泉徴収税額表 月額表乙欄『281,000円以上284,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2021,
+   "column": "otsu",
+   "amount": 282500,
+   "dependents": 0,
+   "expected_tax": 47600,
+   "where": "2021年分源泉徴収税額表 月額表乙欄『281,000円以上284,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2021,
+   "column": "otsu",
+   "amount": 284000,
+   "dependents": 0,
+   "expected_tax": 48600,
+   "where": "2021年分源泉徴収税額表 月額表乙欄『284,000円以上287,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2021,
+   "column": "otsu",
+   "amount": 285500,
+   "dependents": 0,
+   "expected_tax": 48600,
+   "where": "2021年分源泉徴収税額表 月額表乙欄『284,000円以上287,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2021,
+   "column": "otsu",
+   "amount": 737000,
+   "dependents": 0,
+   "expected_tax": 258300,
+   "where": "2021年分源泉徴収税額表 月額表乙欄『737,000円以上740,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2021,
+   "column": "otsu",
+   "amount": 738500,
+   "dependents": 0,
+   "expected_tax": 258300,
+   "where": "2021年分源泉徴収税額表 月額表乙欄『737,000円以上740,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2021,
+   "column": "otsu",
+   "amount": 739999,
+   "dependents": 0,
+   "expected_tax": 258300,
+   "where": "2021年分源泉徴収税額表 月額表乙欄『737,000円以上740,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2021,
+   "column": "otsu",
+   "amount": 740000,
+   "dependents": 0,
+   "expected_tax": 259800,
+   "where": "2021年分源泉徴収税額表 月額表乙欄『740,000円』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2021,
+   "column": "otsu",
+   "amount": 1700000,
+   "dependents": 0,
+   "expected_tax": 651900,
+   "where": "2021年分源泉徴収税額表 月額表乙欄『1,700,000円』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2022,
+   "column": "otsu",
+   "amount": 88000,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "令和3年分税額表(令和4年分税額表の冒頭で『令和3年分の税額と同じ』と明記=令和4年分と同一)『88,000円以上89,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2022,
+   "column": "otsu",
+   "amount": 88500,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "令和3年分税額表(令和4年分税額表の冒頭で『令和3年分の税額と同じ』と明記=令和4年分と同一)『88,000円以上89,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2022,
+   "column": "otsu",
+   "amount": 89000,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "令和3年分税額表(令和4年分税額表の冒頭で『令和3年分の税額と同じ』と明記=令和4年分と同一)『89,000円以上90,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2022,
+   "column": "otsu",
+   "amount": 89500,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "令和3年分税額表(令和4年分税額表の冒頭で『令和3年分の税額と同じ』と明記=令和4年分と同一)『89,000円以上90,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2022,
+   "column": "otsu",
+   "amount": 98000,
+   "dependents": 0,
+   "expected_tax": 3500,
+   "where": "令和3年分税額表(令和4年分税額表の冒頭で『令和3年分の税額と同じ』と明記=令和4年分と同一)『98,000円以上99,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2022,
+   "column": "otsu",
+   "amount": 98500,
+   "dependents": 0,
+   "expected_tax": 3500,
+   "where": "令和3年分税額表(令和4年分税額表の冒頭で『令和3年分の税額と同じ』と明記=令和4年分と同一)『98,000円以上99,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2022,
+   "column": "otsu",
+   "amount": 99000,
+   "dependents": 0,
+   "expected_tax": 3600,
+   "where": "令和3年分税額表(令和4年分税額表の冒頭で『令和3年分の税額と同じ』と明記=令和4年分と同一)『99,000円以上101,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2022,
+   "column": "otsu",
+   "amount": 100000,
+   "dependents": 0,
+   "expected_tax": 3600,
+   "where": "令和3年分税額表(令和4年分税額表の冒頭で『令和3年分の税額と同じ』と明記=令和4年分と同一)『99,000円以上101,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2022,
+   "column": "otsu",
+   "amount": 221000,
+   "dependents": 0,
+   "expected_tax": 27400,
+   "where": "令和3年分税額表(令和4年分税額表の冒頭で『令和3年分の税額と同じ』と明記=令和4年分と同一)『221,000円以上224,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2022,
+   "column": "otsu",
+   "amount": 222500,
+   "dependents": 0,
+   "expected_tax": 27400,
+   "where": "令和3年分税額表(令和4年分税額表の冒頭で『令和3年分の税額と同じ』と明記=令和4年分と同一)『221,000円以上224,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2022,
+   "column": "otsu",
+   "amount": 260000,
+   "dependents": 0,
+   "expected_tax": 40400,
+   "where": "令和3年分税額表(令和4年分税額表の冒頭で『令和3年分の税額と同じ』と明記=令和4年分と同一)『260,000円以上263,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2022,
+   "column": "otsu",
+   "amount": 261500,
+   "dependents": 0,
+   "expected_tax": 40400,
+   "where": "令和3年分税額表(令和4年分税額表の冒頭で『令和3年分の税額と同じ』と明記=令和4年分と同一)『260,000円以上263,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2022,
+   "column": "otsu",
+   "amount": 281000,
+   "dependents": 0,
+   "expected_tax": 47600,
+   "where": "令和3年分税額表(令和4年分税額表の冒頭で『令和3年分の税額と同じ』と明記=令和4年分と同一)『281,000円以上284,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2022,
+   "column": "otsu",
+   "amount": 282500,
+   "dependents": 0,
+   "expected_tax": 47600,
+   "where": "令和3年分税額表(令和4年分税額表の冒頭で『令和3年分の税額と同じ』と明記=令和4年分と同一)『281,000円以上284,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2022,
+   "column": "otsu",
+   "amount": 284000,
+   "dependents": 0,
+   "expected_tax": 48600,
+   "where": "令和3年分税額表(令和4年分税額表の冒頭で『令和3年分の税額と同じ』と明記=令和4年分と同一)『284,000円以上287,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2022,
+   "column": "otsu",
+   "amount": 285500,
+   "dependents": 0,
+   "expected_tax": 48600,
+   "where": "令和3年分税額表(令和4年分税額表の冒頭で『令和3年分の税額と同じ』と明記=令和4年分と同一)『284,000円以上287,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2022,
+   "column": "otsu",
+   "amount": 737000,
+   "dependents": 0,
+   "expected_tax": 258300,
+   "where": "令和3年分税額表(令和4年分税額表の冒頭で『令和3年分の税額と同じ』と明記=令和4年分と同一)『737,000円以上740,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2022,
+   "column": "otsu",
+   "amount": 738500,
+   "dependents": 0,
+   "expected_tax": 258300,
+   "where": "令和3年分税額表(令和4年分税額表の冒頭で『令和3年分の税額と同じ』と明記=令和4年分と同一)『737,000円以上740,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2022,
+   "column": "otsu",
+   "amount": 739999,
+   "dependents": 0,
+   "expected_tax": 258300,
+   "where": "令和3年分税額表(令和4年分税額表の冒頭で『令和3年分の税額と同じ』と明記=令和4年分と同一)『737,000円以上740,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2022,
+   "column": "otsu",
+   "amount": 740000,
+   "dependents": 0,
+   "expected_tax": 259800,
+   "where": "令和3年分税額表(令和4年分税額表の冒頭で『令和3年分の税額と同じ』と明記=令和4年分と同一)『740,000円』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2022,
+   "column": "otsu",
+   "amount": 1700000,
+   "dependents": 0,
+   "expected_tax": 651900,
+   "where": "令和3年分税額表(令和4年分税額表の冒頭で『令和3年分の税額と同じ』と明記=令和4年分と同一)『1,700,000円』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf)"
+  },
+  {
+   "year": 2023,
+   "column": "otsu",
+   "amount": 88000,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2023年分源泉徴収税額表 月額表乙欄『88,000円以上89,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2022/data/all.pdf)"
+  },
+  {
+   "year": 2023,
+   "column": "otsu",
+   "amount": 88500,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2023年分源泉徴収税額表 月額表乙欄『88,000円以上89,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2022/data/all.pdf)"
+  },
+  {
+   "year": 2023,
+   "column": "otsu",
+   "amount": 89000,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2023年分源泉徴収税額表 月額表乙欄『89,000円以上90,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2022/data/all.pdf)"
+  },
+  {
+   "year": 2023,
+   "column": "otsu",
+   "amount": 89500,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2023年分源泉徴収税額表 月額表乙欄『89,000円以上90,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2022/data/all.pdf)"
+  },
+  {
+   "year": 2023,
+   "column": "otsu",
+   "amount": 98000,
+   "dependents": 0,
+   "expected_tax": 3500,
+   "where": "2023年分源泉徴収税額表 月額表乙欄『98,000円以上99,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2022/data/all.pdf)"
+  },
+  {
+   "year": 2023,
+   "column": "otsu",
+   "amount": 98500,
+   "dependents": 0,
+   "expected_tax": 3500,
+   "where": "2023年分源泉徴収税額表 月額表乙欄『98,000円以上99,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2022/data/all.pdf)"
+  },
+  {
+   "year": 2023,
+   "column": "otsu",
+   "amount": 99000,
+   "dependents": 0,
+   "expected_tax": 3600,
+   "where": "2023年分源泉徴収税額表 月額表乙欄『99,000円以上101,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2022/data/all.pdf)"
+  },
+  {
+   "year": 2023,
+   "column": "otsu",
+   "amount": 100000,
+   "dependents": 0,
+   "expected_tax": 3600,
+   "where": "2023年分源泉徴収税額表 月額表乙欄『99,000円以上101,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2022/data/all.pdf)"
+  },
+  {
+   "year": 2023,
+   "column": "otsu",
+   "amount": 221000,
+   "dependents": 0,
+   "expected_tax": 27400,
+   "where": "2023年分源泉徴収税額表 月額表乙欄『221,000円以上224,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2022/data/all.pdf)"
+  },
+  {
+   "year": 2023,
+   "column": "otsu",
+   "amount": 222500,
+   "dependents": 0,
+   "expected_tax": 27400,
+   "where": "2023年分源泉徴収税額表 月額表乙欄『221,000円以上224,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2022/data/all.pdf)"
+  },
+  {
+   "year": 2023,
+   "column": "otsu",
+   "amount": 260000,
+   "dependents": 0,
+   "expected_tax": 40400,
+   "where": "2023年分源泉徴収税額表 月額表乙欄『260,000円以上263,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2022/data/all.pdf)"
+  },
+  {
+   "year": 2023,
+   "column": "otsu",
+   "amount": 261500,
+   "dependents": 0,
+   "expected_tax": 40400,
+   "where": "2023年分源泉徴収税額表 月額表乙欄『260,000円以上263,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2022/data/all.pdf)"
+  },
+  {
+   "year": 2023,
+   "column": "otsu",
+   "amount": 281000,
+   "dependents": 0,
+   "expected_tax": 47600,
+   "where": "2023年分源泉徴収税額表 月額表乙欄『281,000円以上284,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2022/data/all.pdf)"
+  },
+  {
+   "year": 2023,
+   "column": "otsu",
+   "amount": 282500,
+   "dependents": 0,
+   "expected_tax": 47600,
+   "where": "2023年分源泉徴収税額表 月額表乙欄『281,000円以上284,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2022/data/all.pdf)"
+  },
+  {
+   "year": 2023,
+   "column": "otsu",
+   "amount": 284000,
+   "dependents": 0,
+   "expected_tax": 48600,
+   "where": "2023年分源泉徴収税額表 月額表乙欄『284,000円以上287,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2022/data/all.pdf)"
+  },
+  {
+   "year": 2023,
+   "column": "otsu",
+   "amount": 285500,
+   "dependents": 0,
+   "expected_tax": 48600,
+   "where": "2023年分源泉徴収税額表 月額表乙欄『284,000円以上287,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2022/data/all.pdf)"
+  },
+  {
+   "year": 2023,
+   "column": "otsu",
+   "amount": 737000,
+   "dependents": 0,
+   "expected_tax": 258300,
+   "where": "2023年分源泉徴収税額表 月額表乙欄『737,000円以上740,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2022/data/all.pdf)"
+  },
+  {
+   "year": 2023,
+   "column": "otsu",
+   "amount": 738500,
+   "dependents": 0,
+   "expected_tax": 258300,
+   "where": "2023年分源泉徴収税額表 月額表乙欄『737,000円以上740,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2022/data/all.pdf)"
+  },
+  {
+   "year": 2023,
+   "column": "otsu",
+   "amount": 739999,
+   "dependents": 0,
+   "expected_tax": 258300,
+   "where": "2023年分源泉徴収税額表 月額表乙欄『737,000円以上740,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2022/data/all.pdf)"
+  },
+  {
+   "year": 2023,
+   "column": "otsu",
+   "amount": 740000,
+   "dependents": 0,
+   "expected_tax": 259800,
+   "where": "2023年分源泉徴収税額表 月額表乙欄『740,000円』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2022/data/all.pdf)"
+  },
+  {
+   "year": 2023,
+   "column": "otsu",
+   "amount": 1700000,
+   "dependents": 0,
+   "expected_tax": 651900,
+   "where": "2023年分源泉徴収税額表 月額表乙欄『1,700,000円』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2022/data/all.pdf)"
+  },
+  {
+   "year": 2024,
+   "column": "otsu",
+   "amount": 88000,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2024年分源泉徴収税額表 月額表乙欄『88,000円以上89,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2023/data/all.pdf)"
+  },
+  {
+   "year": 2024,
+   "column": "otsu",
+   "amount": 88500,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2024年分源泉徴収税額表 月額表乙欄『88,000円以上89,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2023/data/all.pdf)"
+  },
+  {
+   "year": 2024,
+   "column": "otsu",
+   "amount": 89000,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2024年分源泉徴収税額表 月額表乙欄『89,000円以上90,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2023/data/all.pdf)"
+  },
+  {
+   "year": 2024,
+   "column": "otsu",
+   "amount": 89500,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2024年分源泉徴収税額表 月額表乙欄『89,000円以上90,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2023/data/all.pdf)"
+  },
+  {
+   "year": 2024,
+   "column": "otsu",
+   "amount": 98000,
+   "dependents": 0,
+   "expected_tax": 3500,
+   "where": "2024年分源泉徴収税額表 月額表乙欄『98,000円以上99,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2023/data/all.pdf)"
+  },
+  {
+   "year": 2024,
+   "column": "otsu",
+   "amount": 98500,
+   "dependents": 0,
+   "expected_tax": 3500,
+   "where": "2024年分源泉徴収税額表 月額表乙欄『98,000円以上99,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2023/data/all.pdf)"
+  },
+  {
+   "year": 2024,
+   "column": "otsu",
+   "amount": 99000,
+   "dependents": 0,
+   "expected_tax": 3600,
+   "where": "2024年分源泉徴収税額表 月額表乙欄『99,000円以上101,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2023/data/all.pdf)"
+  },
+  {
+   "year": 2024,
+   "column": "otsu",
+   "amount": 100000,
+   "dependents": 0,
+   "expected_tax": 3600,
+   "where": "2024年分源泉徴収税額表 月額表乙欄『99,000円以上101,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2023/data/all.pdf)"
+  },
+  {
+   "year": 2024,
+   "column": "otsu",
+   "amount": 221000,
+   "dependents": 0,
+   "expected_tax": 27400,
+   "where": "2024年分源泉徴収税額表 月額表乙欄『221,000円以上224,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2023/data/all.pdf)"
+  },
+  {
+   "year": 2024,
+   "column": "otsu",
+   "amount": 222500,
+   "dependents": 0,
+   "expected_tax": 27400,
+   "where": "2024年分源泉徴収税額表 月額表乙欄『221,000円以上224,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2023/data/all.pdf)"
+  },
+  {
+   "year": 2024,
+   "column": "otsu",
+   "amount": 260000,
+   "dependents": 0,
+   "expected_tax": 40400,
+   "where": "2024年分源泉徴収税額表 月額表乙欄『260,000円以上263,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2023/data/all.pdf)"
+  },
+  {
+   "year": 2024,
+   "column": "otsu",
+   "amount": 261500,
+   "dependents": 0,
+   "expected_tax": 40400,
+   "where": "2024年分源泉徴収税額表 月額表乙欄『260,000円以上263,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2023/data/all.pdf)"
+  },
+  {
+   "year": 2024,
+   "column": "otsu",
+   "amount": 281000,
+   "dependents": 0,
+   "expected_tax": 47600,
+   "where": "2024年分源泉徴収税額表 月額表乙欄『281,000円以上284,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2023/data/all.pdf)"
+  },
+  {
+   "year": 2024,
+   "column": "otsu",
+   "amount": 282500,
+   "dependents": 0,
+   "expected_tax": 47600,
+   "where": "2024年分源泉徴収税額表 月額表乙欄『281,000円以上284,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2023/data/all.pdf)"
+  },
+  {
+   "year": 2024,
+   "column": "otsu",
+   "amount": 284000,
+   "dependents": 0,
+   "expected_tax": 48600,
+   "where": "2024年分源泉徴収税額表 月額表乙欄『284,000円以上287,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2023/data/all.pdf)"
+  },
+  {
+   "year": 2024,
+   "column": "otsu",
+   "amount": 285500,
+   "dependents": 0,
+   "expected_tax": 48600,
+   "where": "2024年分源泉徴収税額表 月額表乙欄『284,000円以上287,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2023/data/all.pdf)"
+  },
+  {
+   "year": 2024,
+   "column": "otsu",
+   "amount": 737000,
+   "dependents": 0,
+   "expected_tax": 258300,
+   "where": "2024年分源泉徴収税額表 月額表乙欄『737,000円以上740,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2023/data/all.pdf)"
+  },
+  {
+   "year": 2024,
+   "column": "otsu",
+   "amount": 738500,
+   "dependents": 0,
+   "expected_tax": 258300,
+   "where": "2024年分源泉徴収税額表 月額表乙欄『737,000円以上740,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2023/data/all.pdf)"
+  },
+  {
+   "year": 2024,
+   "column": "otsu",
+   "amount": 739999,
+   "dependents": 0,
+   "expected_tax": 258300,
+   "where": "2024年分源泉徴収税額表 月額表乙欄『737,000円以上740,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2023/data/all.pdf)"
+  },
+  {
+   "year": 2024,
+   "column": "otsu",
+   "amount": 740000,
+   "dependents": 0,
+   "expected_tax": 259800,
+   "where": "2024年分源泉徴収税額表 月額表乙欄『740,000円』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2023/data/all.pdf)"
+  },
+  {
+   "year": 2024,
+   "column": "otsu",
+   "amount": 1700000,
+   "dependents": 0,
+   "expected_tax": 651900,
+   "where": "2024年分源泉徴収税額表 月額表乙欄『1,700,000円』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2023/data/all.pdf)"
+  },
+  {
+   "year": 2025,
+   "column": "otsu",
+   "amount": 88000,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2025年分源泉徴収税額表 月額表乙欄『88,000円以上89,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2024/data/all.pdf)"
+  },
+  {
+   "year": 2025,
+   "column": "otsu",
+   "amount": 88500,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2025年分源泉徴収税額表 月額表乙欄『88,000円以上89,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2024/data/all.pdf)"
+  },
+  {
+   "year": 2025,
+   "column": "otsu",
+   "amount": 89000,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2025年分源泉徴収税額表 月額表乙欄『89,000円以上90,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2024/data/all.pdf)"
+  },
+  {
+   "year": 2025,
+   "column": "otsu",
+   "amount": 89500,
+   "dependents": 0,
+   "expected_tax": 3200,
+   "where": "2025年分源泉徴収税額表 月額表乙欄『89,000円以上90,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2024/data/all.pdf)"
+  },
+  {
+   "year": 2025,
+   "column": "otsu",
+   "amount": 98000,
+   "dependents": 0,
+   "expected_tax": 3500,
+   "where": "2025年分源泉徴収税額表 月額表乙欄『98,000円以上99,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2024/data/all.pdf)"
+  },
+  {
+   "year": 2025,
+   "column": "otsu",
+   "amount": 98500,
+   "dependents": 0,
+   "expected_tax": 3500,
+   "where": "2025年分源泉徴収税額表 月額表乙欄『98,000円以上99,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2024/data/all.pdf)"
+  },
+  {
+   "year": 2025,
+   "column": "otsu",
+   "amount": 99000,
+   "dependents": 0,
+   "expected_tax": 3600,
+   "where": "2025年分源泉徴収税額表 月額表乙欄『99,000円以上101,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2024/data/all.pdf)"
+  },
+  {
+   "year": 2025,
+   "column": "otsu",
+   "amount": 100000,
+   "dependents": 0,
+   "expected_tax": 3600,
+   "where": "2025年分源泉徴収税額表 月額表乙欄『99,000円以上101,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2024/data/all.pdf)"
+  },
+  {
+   "year": 2025,
+   "column": "otsu",
+   "amount": 221000,
+   "dependents": 0,
+   "expected_tax": 27400,
+   "where": "2025年分源泉徴収税額表 月額表乙欄『221,000円以上224,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2024/data/all.pdf)"
+  },
+  {
+   "year": 2025,
+   "column": "otsu",
+   "amount": 222500,
+   "dependents": 0,
+   "expected_tax": 27400,
+   "where": "2025年分源泉徴収税額表 月額表乙欄『221,000円以上224,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2024/data/all.pdf)"
+  },
+  {
+   "year": 2025,
+   "column": "otsu",
+   "amount": 260000,
+   "dependents": 0,
+   "expected_tax": 40400,
+   "where": "2025年分源泉徴収税額表 月額表乙欄『260,000円以上263,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2024/data/all.pdf)"
+  },
+  {
+   "year": 2025,
+   "column": "otsu",
+   "amount": 261500,
+   "dependents": 0,
+   "expected_tax": 40400,
+   "where": "2025年分源泉徴収税額表 月額表乙欄『260,000円以上263,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2024/data/all.pdf)"
+  },
+  {
+   "year": 2025,
+   "column": "otsu",
+   "amount": 281000,
+   "dependents": 0,
+   "expected_tax": 47600,
+   "where": "2025年分源泉徴収税額表 月額表乙欄『281,000円以上284,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2024/data/all.pdf)"
+  },
+  {
+   "year": 2025,
+   "column": "otsu",
+   "amount": 282500,
+   "dependents": 0,
+   "expected_tax": 47600,
+   "where": "2025年分源泉徴収税額表 月額表乙欄『281,000円以上284,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2024/data/all.pdf)"
+  },
+  {
+   "year": 2025,
+   "column": "otsu",
+   "amount": 284000,
+   "dependents": 0,
+   "expected_tax": 48600,
+   "where": "2025年分源泉徴収税額表 月額表乙欄『284,000円以上287,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2024/data/all.pdf)"
+  },
+  {
+   "year": 2025,
+   "column": "otsu",
+   "amount": 285500,
+   "dependents": 0,
+   "expected_tax": 48600,
+   "where": "2025年分源泉徴収税額表 月額表乙欄『284,000円以上287,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2024/data/all.pdf)"
+  },
+  {
+   "year": 2025,
+   "column": "otsu",
+   "amount": 737000,
+   "dependents": 0,
+   "expected_tax": 258300,
+   "where": "2025年分源泉徴収税額表 月額表乙欄『737,000円以上740,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2024/data/all.pdf)"
+  },
+  {
+   "year": 2025,
+   "column": "otsu",
+   "amount": 738500,
+   "dependents": 0,
+   "expected_tax": 258300,
+   "where": "2025年分源泉徴収税額表 月額表乙欄『737,000円以上740,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2024/data/all.pdf)"
+  },
+  {
+   "year": 2025,
+   "column": "otsu",
+   "amount": 739999,
+   "dependents": 0,
+   "expected_tax": 258300,
+   "where": "2025年分源泉徴収税額表 月額表乙欄『737,000円以上740,000円未満』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2024/data/all.pdf)"
+  },
+  {
+   "year": 2025,
+   "column": "otsu",
+   "amount": 740000,
+   "dependents": 0,
+   "expected_tax": 259800,
+   "where": "2025年分源泉徴収税額表 月額表乙欄『740,000円』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2024/data/all.pdf)"
+  },
+  {
+   "year": 2025,
+   "column": "otsu",
+   "amount": 1700000,
+   "dependents": 0,
+   "expected_tax": 651900,
+   "where": "2025年分源泉徴収税額表 月額表乙欄『1,700,000円』の行の乙欄の税額(https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2024/data/all.pdf)"
+  }
+ ],
+ "otsu_table_discrepancies": {
+  "summary": "あらまし記載の乙欄の電算機計算式は、月額表(税額表)乙欄の全行を再現しない。差のある行は各年とも『計算基準額が約290,000〜437,000円(令和2〜7年分)/338,000〜437,000円(平成29〜31年分)/404,000〜437,000円(平成28年分)』の範囲に限られ、その範囲の税額表の値は年に依らず同一で、旧算式(給与所得控除: 833,334〜1,249,999円=A×5%+141,667円・1,250,000円以上=204,167円、基礎控除31,667円固定)で計算した値に一致する(この一致はPDFの記載ではなく当方の当てはめ検証による)。差は式の方が大きい(最大8,600円)。表の他の全行は式と一致。examples の乙欄は式と一致する行のみを採用した。",
+  "years": [
+   {
+    "year": 2016,
+    "table_rows_checked": 335,
+    "rows_mismatching": 12,
+    "amount_from": 404000,
+    "amount_to": 437000,
+    "samples": [
+     {
+      "amount": 404000,
+      "table_otsu": 86100,
+      "formula_otsu": 86300
+     },
+     {
+      "amount": 407000,
+      "table_otsu": 87700,
+      "formula_otsu": 87900
+     },
+     {
+      "amount": 410000,
+      "table_otsu": 89200,
+      "formula_otsu": 89600
+     },
+     {
+      "amount": 434000,
+      "table_otsu": 101800,
+      "formula_otsu": 103200
+     },
+     {
+      "amount": 437000,
+      "table_otsu": 103400,
+      "formula_otsu": 105000
+     }
+    ]
+   },
+   {
+    "year": 2017,
+    "table_rows_checked": 285,
+    "rows_mismatching": 34,
+    "amount_from": 338000,
+    "amount_to": 437000,
+    "samples": [
+     {
+      "amount": 338000,
+      "table_otsu": 62900,
+      "formula_otsu": 63000
+     },
+     {
+      "amount": 341000,
+      "table_otsu": 63800,
+      "formula_otsu": 64000
+     },
+     {
+      "amount": 344000,
+      "table_otsu": 64700,
+      "formula_otsu": 65000
+     },
+     {
+      "amount": 434000,
+      "table_otsu": 101800,
+      "formula_otsu": 106100
+     },
+     {
+      "amount": 437000,
+      "table_otsu": 103400,
+      "formula_otsu": 107700
+     }
+    ]
+   },
+   {
+    "year": 2018,
+    "table_rows_checked": 285,
+    "rows_mismatching": 34,
+    "amount_from": 338000,
+    "amount_to": 437000,
+    "samples": [
+     {
+      "amount": 338000,
+      "table_otsu": 62900,
+      "formula_otsu": 63000
+     },
+     {
+      "amount": 341000,
+      "table_otsu": 63800,
+      "formula_otsu": 64000
+     },
+     {
+      "amount": 344000,
+      "table_otsu": 64700,
+      "formula_otsu": 65000
+     },
+     {
+      "amount": 434000,
+      "table_otsu": 101800,
+      "formula_otsu": 106100
+     },
+     {
+      "amount": 437000,
+      "table_otsu": 103400,
+      "formula_otsu": 107700
+     }
+    ]
+   },
+   {
+    "year": 2019,
+    "table_rows_checked": 285,
+    "rows_mismatching": 34,
+    "amount_from": 338000,
+    "amount_to": 437000,
+    "samples": [
+     {
+      "amount": 338000,
+      "table_otsu": 62900,
+      "formula_otsu": 63000
+     },
+     {
+      "amount": 341000,
+      "table_otsu": 63800,
+      "formula_otsu": 64000
+     },
+     {
+      "amount": 344000,
+      "table_otsu": 64700,
+      "formula_otsu": 65000
+     },
+     {
+      "amount": 434000,
+      "table_otsu": 101800,
+      "formula_otsu": 106100
+     },
+     {
+      "amount": 437000,
+      "table_otsu": 103400,
+      "formula_otsu": 107700
+     }
+    ]
+   },
+   {
+    "year": 2020,
+    "table_rows_checked": 245,
+    "rows_mismatching": 50,
+    "amount_from": 290000,
+    "amount_to": 437000,
+    "samples": [
+     {
+      "amount": 290000,
+      "table_otsu": 50500,
+      "formula_otsu": 50900
+     },
+     {
+      "amount": 293000,
+      "table_otsu": 51600,
+      "formula_otsu": 52100
+     },
+     {
+      "amount": 296000,
+      "table_otsu": 52300,
+      "formula_otsu": 52900
+     },
+     {
+      "amount": 434000,
+      "table_otsu": 101800,
+      "formula_otsu": 110300
+     },
+     {
+      "amount": 437000,
+      "table_otsu": 103400,
+      "formula_otsu": 112000
+     }
+    ]
+   },
+   {
+    "year": 2021,
+    "table_rows_checked": 245,
+    "rows_mismatching": 50,
+    "amount_from": 290000,
+    "amount_to": 437000,
+    "samples": [
+     {
+      "amount": 290000,
+      "table_otsu": 50500,
+      "formula_otsu": 50900
+     },
+     {
+      "amount": 293000,
+      "table_otsu": 51600,
+      "formula_otsu": 52100
+     },
+     {
+      "amount": 296000,
+      "table_otsu": 52300,
+      "formula_otsu": 52900
+     },
+     {
+      "amount": 434000,
+      "table_otsu": 101800,
+      "formula_otsu": 110300
+     },
+     {
+      "amount": 437000,
+      "table_otsu": 103400,
+      "formula_otsu": 112000
+     }
+    ]
+   },
+   {
+    "year": 2022,
+    "table_rows_checked": 245,
+    "rows_mismatching": 50,
+    "amount_from": 290000,
+    "amount_to": 437000,
+    "samples": [
+     {
+      "amount": 290000,
+      "table_otsu": 50500,
+      "formula_otsu": 50900
+     },
+     {
+      "amount": 293000,
+      "table_otsu": 51600,
+      "formula_otsu": 52100
+     },
+     {
+      "amount": 296000,
+      "table_otsu": 52300,
+      "formula_otsu": 52900
+     },
+     {
+      "amount": 434000,
+      "table_otsu": 101800,
+      "formula_otsu": 110300
+     },
+     {
+      "amount": 437000,
+      "table_otsu": 103400,
+      "formula_otsu": 112000
+     }
+    ]
+   },
+   {
+    "year": 2023,
+    "table_rows_checked": 245,
+    "rows_mismatching": 50,
+    "amount_from": 290000,
+    "amount_to": 437000,
+    "samples": [
+     {
+      "amount": 290000,
+      "table_otsu": 50500,
+      "formula_otsu": 50900
+     },
+     {
+      "amount": 293000,
+      "table_otsu": 51600,
+      "formula_otsu": 52100
+     },
+     {
+      "amount": 296000,
+      "table_otsu": 52300,
+      "formula_otsu": 52900
+     },
+     {
+      "amount": 434000,
+      "table_otsu": 101800,
+      "formula_otsu": 110300
+     },
+     {
+      "amount": 437000,
+      "table_otsu": 103400,
+      "formula_otsu": 112000
+     }
+    ]
+   },
+   {
+    "year": 2024,
+    "table_rows_checked": 245,
+    "rows_mismatching": 50,
+    "amount_from": 290000,
+    "amount_to": 437000,
+    "samples": [
+     {
+      "amount": 290000,
+      "table_otsu": 50500,
+      "formula_otsu": 50900
+     },
+     {
+      "amount": 293000,
+      "table_otsu": 51600,
+      "formula_otsu": 52100
+     },
+     {
+      "amount": 296000,
+      "table_otsu": 52300,
+      "formula_otsu": 52900
+     },
+     {
+      "amount": 434000,
+      "table_otsu": 101800,
+      "formula_otsu": 110300
+     },
+     {
+      "amount": 437000,
+      "table_otsu": 103400,
+      "formula_otsu": 112000
+     }
+    ]
+   },
+   {
+    "year": 2025,
+    "table_rows_checked": 245,
+    "rows_mismatching": 50,
+    "amount_from": 290000,
+    "amount_to": 437000,
+    "samples": [
+     {
+      "amount": 290000,
+      "table_otsu": 50500,
+      "formula_otsu": 50900
+     },
+     {
+      "amount": 293000,
+      "table_otsu": 51600,
+      "formula_otsu": 52100
+     },
+     {
+      "amount": 296000,
+      "table_otsu": 52300,
+      "formula_otsu": 52900
+     },
+     {
+      "amount": 434000,
+      "table_otsu": 101800,
+      "formula_otsu": 110300
+     },
+     {
+      "amount": 437000,
+      "table_otsu": 103400,
+      "formula_otsu": 112000
+     }
+    ]
+   },
+   {
+    "year": 2018,
+    "note": "税額表PDFが文字抽出不能のため全行照合は未実施。税額表は前年(2018=平成29/31年分と同一、2022=令和3年分と同一)と同一と明記されているため、同一表の照合結果が当てはまる。"
+   },
+   {
+    "year": 2022,
+    "note": "税額表PDFが文字抽出不能のため全行照合は未実施。税額表は前年(2018=平成29/31年分と同一、2022=令和3年分と同一)と同一と明記されているため、同一表の照合結果が当てはまる。"
+   }
+  ]
+ },
+ "sources": {
+  "tax_tables(zeigakuhyo)": {
+   "2016": "https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2015/data/all.pdf",
+   "2017": "https://warp.ndl.go.jp/20250513/20250501090408/www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2016/data/all.pdf",
+   "2018": "https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2017/data/all.pdf",
+   "2019": "https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2018/data/all.pdf",
+   "2020": "https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2019/data/all.pdf",
+   "2021": "https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2020/data/all.pdf",
+   "2022": "https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2021/data/all.pdf",
+   "2023": "https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2022/data/all.pdf",
+   "2024": "https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2023/data/all.pdf",
+   "2025": "https://www.nta.go.jp/publication/pamph/gensen/zeigakuhyo2024/data/all.pdf"
+  }
+ }
+}

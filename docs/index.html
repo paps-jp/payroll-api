@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>payroll-api — 社会保険・雇用保険・源泉所得税の料率 API / MCP</title>
+<meta name="description" content="社会保険料率・雇用保険料率・源泉所得税の参照と計算、改定検知を提供する REST API と MCP サーバー。2016年からの履歴に対応。">
+<style>
+:root{--bg:#fff;--fg:#1c2230;--mut:#5b667a;--line:#e3e7ee;--acc:#0b6bcb;--card:#f6f8fb;--code:#0f172a;--codefg:#e6edf7;--warn:#9a5b00;--warnbg:#fff6e0}
+@media (prefers-color-scheme:dark){:root{--bg:#10141c;--fg:#e6eaf2;--mut:#9aa6bb;--line:#273044;--acc:#6db1ff;--card:#171d29;--code:#0a0e15;--codefg:#dbe5f5;--warn:#f1c27a;--warnbg:#2a2111}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.75 system-ui,-apple-system,"Hiragino Sans","Yu Gothic UI","Noto Sans JP",sans-serif}
+header{border-bottom:1px solid var(--line);background:var(--card)}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+header .wrap{padding-top:40px;padding-bottom:32px}
+h1{margin:0 0 8px;font-size:28px;letter-spacing:.01em}
+.lead{margin:0;color:var(--mut)}
+nav{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:18px;font-size:14px}
+nav a{color:var(--acc);text-decoration:none}
+nav a:hover{text-decoration:underline}
+main{padding-bottom:64px}
+h2{margin:48px 0 12px;font-size:21px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+h3{margin:28px 0 8px;font-size:16px}
+p{margin:10px 0}
+code{font:13.5px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;background:var(--card);border:1px solid var(--line);border-radius:5px;padding:1px 5px}
+pre{background:var(--code);color:var(--codefg);border-radius:8px;padding:14px 16px;overflow:auto;font:13px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace}
+pre code{background:none;border:0;padding:0;color:inherit}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14.5px}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--card);font-weight:600}
+td.p{font-family:ui-monospace,Consolas,monospace;font-size:13px;white-space:nowrap}
+.note{background:var(--warnbg);color:var(--warn);border-radius:8px;padding:12px 16px;margin:16px 0;font-size:14.5px}
+.badge{display:inline-block;font-size:12px;border:1px solid var(--line);border-radius:999px;padding:0 8px;color:var(--mut);margin-left:6px}
+footer{border-top:1px solid var(--line);color:var(--mut);font-size:13px;padding:24px 0}
+</style>
+</head>
+<body>
+<header>
+<div class="wrap">
+<h1>payroll-api</h1>
+<p class="lead">社会保険料率・雇用保険料率・源泉所得税の<strong>参照 / 保険料計算 / 改定検知</strong>を行う REST API と MCP サーバー。2016年からの履歴に対応しています。</p>
+<nav>
+<a href="#api">REST API</a><a href="#mcp">MCP</a><a href="#data">収録データ</a><a href="#calc">計算の考え方</a><a href="#caveat">注意事項</a><a href="#update">改定への追従</a>
+<a href="https://github.com/paps-jp/payroll-api">GitHub</a>
+</nav>
+</div>
+</header>
+
+<main class="wrap">
+
+<h2 id="about">概要</h2>
+<p>協会けんぽ管掌の健康保険・介護保険、厚生年金、子ども・子育て支援金/拠出金、雇用保険、給与の源泉所得税(月額表 甲欄・乙欄)の料率と計算を、同じデータから返します。住民税は自治体の通知額を入力として受け取り、手取りまで一括で計算できます。</p>
+<ul>
+<li>エンドポイント: <code>https://payroll-api.paps.jp</code></li>
+<li>認証: <code>Authorization: Bearer &lt;トークン&gt;</code> (<code>/healthz</code> のみ認証なし)。トークンは管理者に発行を依頼してください。</li>
+<li>データの正本: <a href="https://github.com/paps-jp/payroll-api/blob/main/internal/rates/rates.json"><code>rates.json</code></a> — 適用開始月ごとの版管理、出典URL、検証済みフラグつき</li>
+<li>Go 製・外部依存なし。同じコードを Docker で運用しています。</li>
+</ul>
+
+<h2 id="api">REST API</h2>
+<p>月は <code>YYYY-MM</code> (支払月・対象月)。2016年より前の月はデータなしでエラーになります。</p>
+<table>
+<tr><th>パス</th><th>内容</th></tr>
+<tr><td class="p">GET /v1/rates</td><td>指定月に適用される料率。<code>month</code>、<code>prefecture</code> (省略で全47都道府県)</td></tr>
+<tr><td class="p">GET /v1/revisions</td><td>登録済みの全改定 (種別・適用開始月・出典・検証済みか)</td></tr>
+<tr><td class="p">GET /v1/grades</td><td>標準報酬月額の等級表</td></tr>
+<tr><td class="p">GET /v1/calc/social</td><td>健康保険・介護保険・厚生年金・子ども・子育て支援金/拠出金。<code>month</code> <code>prefecture</code> <code>monthly_remuneration</code> または <code>standard_remuneration</code>、<code>age</code></td></tr>
+<tr><td class="p">GET /v1/calc/employment</td><td>雇用保険。<code>month</code> <code>wage</code> <code>industry</code> (general / agri / construction)</td></tr>
+<tr><td class="p">GET /v1/calc/withholding</td><td>源泉所得税 (復興特別所得税込み)。<code>month</code> <code>amount</code> (社会保険料等控除後) <code>column</code> (ko / otsu) <code>dependents</code></td></tr>
+<tr><td class="p">GET /v1/calc/payroll</td><td>社保・雇用保険・源泉・住民税の控除と手取り、会社負担。<code>gross</code> <code>prefecture</code> <code>age</code> <code>non_taxable_commute</code> <code>dependents</code> <code>column</code> <code>resident_tax</code></td></tr>
+</table>
+
+<h3>例: 東京都・標準報酬月額 30万円・45歳 (2026年4月)</h3>
+<pre><code>curl -H "Authorization: Bearer $TOKEN" \
+  "https://payroll-api.paps.jp/v1/calc/social?month=2026-04&amp;prefecture=東京都&amp;standard_remuneration=300000&amp;age=45"</code></pre>
+<table>
+<tr><th>項目</th><th>料率</th><th>合計</th><th>本人</th><th>事業主</th></tr>
+<tr><td>健康保険</td><td>9.85%</td><td>29,550</td><td>14,775</td><td>14,775</td></tr>
+<tr><td>介護保険</td><td>1.62%</td><td>4,860</td><td>2,430</td><td>2,430</td></tr>
+<tr><td>子ども・子育て支援金</td><td>0.23%</td><td>690</td><td>345</td><td>345</td></tr>
+<tr><td>厚生年金</td><td>18.3%</td><td>54,900</td><td>27,450</td><td>27,450</td></tr>
+<tr><td>子ども・子育て拠出金</td><td>0.36%</td><td>1,080</td><td>—</td><td>1,080</td></tr>
+<tr><th colspan="3">合計</th><th>45,000</th><th>46,080</th></tr>
+</table>
+
+<h2 id="mcp">MCP</h2>
+<p>MCP は <code>https://payroll-api.paps.jp/mcp</code> (HTTP POST、Bearer トークン必須)、またはローカルバイナリの stdio で使えます。</p>
+<pre><code># Claude Code
+claude mcp add --transport http payroll-api https://payroll-api.paps.jp/mcp \
+  --header "Authorization: Bearer &lt;トークン&gt;"</code></pre>
+<pre><code>// stdio (Claude Desktop など): go build -o payroll-api ./cmd/server
+{ "mcpServers": { "payroll-api": { "command": "/path/to/payroll-api", "args": ["-stdio"] } } }</code></pre>
+<table>
+<tr><th>ツール</th><th>内容</th></tr>
+<tr><td class="p">get_rates</td><td>指定月の適用料率</td></tr>
+<tr><td class="p">list_revisions</td><td>全改定の一覧 (出典・検証済みフラグ)</td></tr>
+<tr><td class="p">get_standard_remuneration_grade</td><td>報酬月額から等級・標準報酬月額</td></tr>
+<tr><td class="p">calculate_social_insurance</td><td>社会保険料の本人・事業主負担</td></tr>
+<tr><td class="p">calculate_employment_insurance</td><td>雇用保険料</td></tr>
+<tr><td class="p">calculate_withholding_tax</td><td>源泉所得税 (甲欄・乙欄)</td></tr>
+<tr><td class="p">calculate_payroll_deductions</td><td>控除合計と手取り、会社負担</td></tr>
+<tr><td class="p">check_for_revisions</td><td>公式ページと突き合わせて改定・相違を検知</td></tr>
+</table>
+
+<h2 id="data">収録データ</h2>
+<table>
+<tr><th>種別</th><th>収録期間</th><th>出典</th></tr>
+<tr><td>健康保険・介護保険 (協会けんぽ)</td><td>2016-03〜 (47都道府県)</td><td>協会けんぽ 各年度の都道府県単位保険料率</td></tr>
+<tr><td>厚生年金</td><td>2015-09〜</td><td>日本年金機構</td></tr>
+<tr><td>子ども・子育て支援金</td><td>2026-04〜 (0.23%)</td><td>協会けんぽ</td></tr>
+<tr><td>子ども・子育て拠出金</td><td>2015-04〜</td><td>日本年金機構</td></tr>
+<tr><td>雇用保険</td><td>2015-04〜 (期中改定含む)</td><td>厚生労働省</td></tr>
+<tr><td>源泉所得税</td><td>2016年分〜</td><td>国税庁『源泉徴収のあらまし』</td></tr>
+</table>
+<p>すべての版に出典URLと<code>verified</code>フラグがあり、<code>/v1/revisions</code> で確認できます。源泉所得税は、国税庁の計算例と税額表の値 240 件を全年分で自動テストにかけ、再現を確認しています。</p>
+
+<h2 id="calc">計算の考え方</h2>
+<ul>
+<li><strong>端数処理</strong>: 本人負担は 50銭以下切捨て・50銭超切上げ。事業主負担は 総額(四捨五入) − 本人負担。</li>
+<li><strong>介護保険</strong>: 40歳以上65歳未満。75歳以上は健康保険なし、70歳以上は厚生年金・拠出金なし。</li>
+<li><strong>厚生年金の標準報酬</strong>: 健康保険の標準報酬を 88,000〜650,000円に収めて算出。</li>
+<li><strong>源泉所得税</strong>: 甲欄は国税庁の「電算機計算の特例」、乙欄は電算機計算の算式。税額表の値とは差が出ることがあり、年末調整で精算されます。</li>
+<li><strong>住民税</strong>: 自治体の特別徴収通知額を <code>resident_tax</code> に入力 (計算はしません)。</li>
+</ul>
+
+<h2 id="caveat">注意事項</h2>
+<div class="note">
+計算結果は<strong>目安</strong>です。実際の給与計算では、必ず最新の公式資料(協会けんぽ・日本年金機構・厚生労働省・国税庁)で確認してください。
+</div>
+<ul>
+<li>協会けんぽ管掌のみ。組合健保・共済は対象外です。</li>
+<li>賞与、随時改定、産休・育休の免除、労災保険、年末調整、日額表は未対応です。</li>
+<li>標準報酬月額の等級表の境界額、平成28年度(2016-03)の健康保険料率、拠出金率の 2015-04 / 2016-04 は、出典が弱いため未確認として扱っています (レスポンスの <code>unverified_rate_kinds</code> に出ます)。</li>
+<li>令和2〜7年分の乙欄は、国税庁の算式が月額表と約29万〜43.7万円付近の一部の行で最大数千円ずれます (算式のほうが大きい)。令和8年分は全行一致です。</li>
+</ul>
+
+<h2 id="update">改定への追従</h2>
+<p>料率が改定されたら、<code>rates.json</code> に新しい版を追記するだけです (過去の版は消しません)。<code>ratecheck</code> が協会けんぽ・厚生労働省・国税庁の公開状況を確認し、データとの相違や未登録の改定を検知します。</p>
+<pre><code>go run ./cmd/ratecheck   # 要確認があれば終了コード 1</code></pre>
+<p>詳しい手順は <a href="https://github.com/paps-jp/payroll-api#readme">README</a> を参照してください。</p>
+
+</main>
+<footer><div class="wrap">payroll-api · <a href="https://github.com/paps-jp/payroll-api">paps-jp/payroll-api</a></div></footer>
+</body>
+</html>

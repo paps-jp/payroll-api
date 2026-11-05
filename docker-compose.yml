@@ -1,0 +1,24 @@
+name: payroll-api
+
+# 社会保険料率・雇用保険料率・源泉所得税 API + MCP。
+# 外部公開とTLSは passist の Caddy (passist-caddy-1) が担い、payroll-api.paps.jp をここへ転送する。
+# RATES_API_TOKEN は .env に置く(/v1/* と /mcp の Bearer トークン)。
+services:
+  payroll-api:
+    build: ./src
+    image: payroll-api:latest
+    container_name: payroll-api
+    restart: unless-stopped
+    environment:
+      RATES_API_TOKEN: ${RATES_API_TOKEN:?set RATES_API_TOKEN in .env}
+    expose:
+      - "8080"
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    networks:
+      - passist_pn
+
+networks:
+  passist_pn:
+    external: true

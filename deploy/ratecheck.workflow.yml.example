@@ -1,0 +1,31 @@
+name: ratecheck
+
+on:
+  schedule:
+    - cron: "0 0 * * 1" # 毎週月曜 09:00 JST
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+      - run: go test ./...
+      - name: Check official publications
+        id: check
+        continue-on-error: true
+        run: go run ./cmd/ratecheck -state "$RUNNER_TEMP/state" | tee "$RUNNER_TEMP/out.txt"
+      - name: Open issue when a revision needs attention
+        if: steps.check.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create --title "料率改定チェック: 要確認 ($(date +%F))" \
+            --body "$(grep '^\[warn\]' "$RUNNER_TEMP/out.txt")"
