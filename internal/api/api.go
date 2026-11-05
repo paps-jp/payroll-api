@@ -16,6 +16,7 @@ type Server struct {
 func (s *Server) Handler() http.Handler {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/healthz", func(w http.ResponseWriter, r *http.Request) { write(w, 200, map[string]string{"status": "ok"}) })
+	mux.HandleFunc("/v1/meta", func(w http.ResponseWriter, r *http.Request) { write(w, 200, s.meta()) })
 	mux.HandleFunc("/v1/rates", s.rates)
 	mux.HandleFunc("/v1/revisions", s.revisions)
 	mux.HandleFunc("/v1/grades", s.grades)
@@ -33,6 +34,22 @@ func write(w http.ResponseWriter, code int, v any) {
 	enc.SetIndent("", " ")
 	enc.SetEscapeHTML(false)
 	_ = enc.Encode(v)
+}
+
+// GET /v1/meta — 入力フォーム用の情報(都道府県一覧・対応開始月・事業区分)
+func (s *Server) meta() map[string]any {
+	min := ""
+	for _, v := range s.DS.Health {
+		if min == "" || v.EffectiveFrom < min {
+			min = v.EffectiveFrom
+		}
+	}
+	return map[string]any{
+		"prefectures": rates.Prefectures,
+		"min_month":   min,
+		"industries":  rates.Industries(),
+		"disclaimer":  "計算結果は目安です。協会けんぽ管掌の健康保険のみ。",
+	}
 }
 
 func bad(w http.ResponseWriter, err error) { write(w, 400, map[string]string{"error": err.Error()}) }

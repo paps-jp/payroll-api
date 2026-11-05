@@ -3,138 +3,235 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>payroll-api — 給与の保険料・税金を、正しい率で自動計算</title>
-<meta name="description" content="社会保険料・雇用保険料・源泉所得税の「率」と「計算」を、プログラムやAIから呼び出せるAPI。2016年からの履歴に対応。">
+<title>payroll-api — 給与の手取りを、正しい率で自動計算</title>
+<meta name="description" content="月給や年収を入力するだけで、社会保険料・雇用保険料・所得税を引いた手取りを自動計算。2016年からの料率に対応。プログラムやAIから使えるAPI付き。">
 <style>
 :root{
-  --bg:#f7f8fc;--surface:#fff;--fg:#1b2336;--mut:#5d6882;--line:#e4e8f1;
-  --brand:#2f6bff;--brand2:#7a4dff;--soft:#eef3ff;
-  --c1:#2f6bff;--c2:#16a68a;--c3:#f0a020;--c4:#ec5f67;--c5:#8a63ff;
-  --code:#0f1626;--codefg:#dfe8fa;--warnbg:#fff5dd;--warn:#8a5600;--ok:#0f7a5f;
-  --shadow:0 1px 2px rgba(20,30,60,.05),0 8px 24px rgba(20,30,60,.06);
+  --bg:#f6f8fc;--surface:#fff;--fg:#17203a;--mut:#5b6784;--line:#e3e8f2;
+  --brand:#2f6bff;--brand2:#7a4dff;--soft:#eef3ff;--soft2:#f3f0ff;
+  --c-net:#16a68a;--c-soc:#2f6bff;--c-emp:#f0a020;--c-tax:#ec5f67;--c-res:#8a63ff;
+  --code:#0f1626;--codefg:#dfe8fa;--warnbg:#fff5dd;--warn:#8a5600;--err:#c0394b;--errbg:#fdecee;
+  --shadow:0 1px 2px rgba(20,30,60,.05),0 10px 28px rgba(20,30,60,.07);
 }
 @media (prefers-color-scheme:dark){:root{
   --bg:#0d1119;--surface:#151b28;--fg:#e8ecf5;--mut:#9aa6bf;--line:#252d40;
-  --soft:#18223a;--code:#090d14;--codefg:#dfe8fa;--warnbg:#2b2213;--warn:#f0c37a;--ok:#4cd1ad;
-  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+  --soft:#18223a;--soft2:#1e1b36;--code:#090d14;--warnbg:#2b2213;--warn:#f0c37a;--err:#ff8b9b;--errbg:#34171d;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 28px rgba(0,0,0,.3);
 }}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.85 system-ui,-apple-system,"Hiragino Sans","Yu Gothic UI","Noto Sans JP",sans-serif;-webkit-font-smoothing:antialiased}
 a{color:var(--brand)}
-.wrap{max-width:960px;margin:0 auto;padding:0 22px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+
+/* icons: one set, one style */
+.i{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.ico{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;margin-bottom:14px;color:var(--brand);background:linear-gradient(135deg,var(--soft),var(--soft2))}
+.ico .i{width:24px;height:24px}
 
 /* top bar */
-.bar{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .bar .wrap{display:flex;align-items:center;gap:22px;height:56px}
-.logo{flex:none;white-space:nowrap;font-weight:800;letter-spacing:.01em;color:var(--fg);text-decoration:none;display:flex;align-items:center;gap:8px}
-.logo i{width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg,var(--brand),var(--brand2));display:inline-block}
+.logo{flex:none;white-space:nowrap;font-weight:800;color:var(--fg);text-decoration:none;display:flex;align-items:center;gap:9px}
+.logo b{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--brand),var(--brand2));display:grid;place-items:center;color:#fff}
+.logo .i{width:16px;height:16px;stroke-width:2.2}
 .bar nav{display:flex;gap:18px;margin-left:auto;font-size:14px;overflow-x:auto;white-space:nowrap}
 .bar nav a{color:var(--mut);text-decoration:none}
 .bar nav a:hover{color:var(--fg)}
 
 /* hero */
-.hero{padding:68px 0 54px;background:radial-gradient(900px 340px at 85% -10%,color-mix(in srgb,var(--brand2) 20%,transparent),transparent),radial-gradient(700px 300px at 0% 0%,color-mix(in srgb,var(--brand) 18%,transparent),transparent)}
+.hero{padding:56px 0 30px;background:radial-gradient(900px 340px at 85% -10%,color-mix(in srgb,var(--brand2) 20%,transparent),transparent),radial-gradient(700px 300px at 0% 0%,color-mix(in srgb,var(--brand) 18%,transparent),transparent)}
 .pill{display:inline-block;font-size:13px;font-weight:600;color:var(--brand);background:var(--soft);border-radius:999px;padding:3px 12px}
-h1{margin:16px 0 14px;font-size:clamp(30px,5.4vw,46px);line-height:1.3;letter-spacing:-.01em}
+h1{margin:14px 0 12px;font-size:clamp(28px,5vw,42px);line-height:1.32;letter-spacing:-.01em}
 h1 em{font-style:normal;background:linear-gradient(135deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.lead{font-size:18px;color:var(--mut);max-width:680px;margin:0 0 26px}
-.cta{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-block;padding:11px 20px;border-radius:12px;font-weight:700;font-size:15px;text-decoration:none;border:1px solid var(--line);background:var(--surface);color:var(--fg)}
-.btn.p{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border:0;box-shadow:0 6px 18px rgba(80,90,255,.35)}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr));gap:14px;margin-top:40px}
-.stat{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
-.stat b{display:block;font-size:26px;line-height:1.3}
-.stat span{font-size:13px;color:var(--mut)}
+.lead{font-size:17px;color:var(--mut);max-width:680px;margin:0}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:18px;margin-top:26px;align-items:start}
+@media (max-width:860px){.calc{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
+.form{padding:22px}
+.form h2{font-size:16px;margin:0 0 14px}
+.f{margin-bottom:16px}
+.f label,.f .lb{display:block;font-size:13px;font-weight:700;margin-bottom:6px}
+.f .hint{font-size:12.5px;color:var(--mut);margin-top:5px;line-height:1.6}
+input[type=text],input[type=number],input[type=month],select{width:100%;font:inherit;font-size:16px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--fg);outline:none;transition:border-color .15s,box-shadow .15s}
+input:focus,select:focus{border-color:var(--brand);box-shadow:0 0 0 3px color-mix(in srgb,var(--brand) 22%,transparent)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.seg{display:grid;grid-template-columns:1fr 1fr;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:3px;gap:3px}
+.seg button{font:inherit;font-size:14px;font-weight:700;border:0;background:none;color:var(--mut);padding:8px;border-radius:9px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--surface);color:var(--brand);box-shadow:0 1px 4px rgba(20,30,60,.12)}
+.amt{position:relative}
+.amt input{padding-right:40px;font-size:22px;font-weight:800;font-variant-numeric:tabular-nums}
+.amt span{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--mut);font-weight:700}
+input[type=range]{width:100%;accent-color:var(--brand);margin:10px 0 2px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.chip{font:inherit;font-size:13px;font-weight:700;padding:4px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--mut);cursor:pointer}
+.chip:hover{color:var(--brand);border-color:var(--brand)}
+.step{display:grid;grid-template-columns:42px 1fr 42px;gap:8px;align-items:center}
+.step button{font:inherit;font-size:20px;font-weight:700;height:42px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--fg);cursor:pointer}
+.step button:hover{border-color:var(--brand);color:var(--brand)}
+.step input{text-align:center;font-weight:800}
+details.adv{border-top:1px dashed var(--line);margin-top:6px;padding-top:12px}
+details.adv summary{cursor:pointer;font-weight:700;font-size:14px;color:var(--brand);list-style:none;display:flex;align-items:center;gap:6px}
+details.adv summary::-webkit-details-marker{display:none}
+details.adv summary:after{content:"＋";margin-left:auto}
+details.adv[open] summary:after{content:"－"}
+details.adv .body{padding-top:14px}
+
+.result{padding:0;overflow:hidden;transition:opacity .2s}
+.result.loading{opacity:.55}
+.res-top{padding:24px 24px 6px;background:linear-gradient(135deg,var(--soft),var(--soft2))}
+.res-top small{color:var(--mut);font-weight:600}
+.net{font-size:clamp(38px,7vw,52px);font-weight:800;line-height:1.2;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.net small{font-size:18px;margin-left:4px}
+.rate-line{margin:2px 0 14px;color:var(--mut);font-size:14px}
+.rate-line b{color:var(--c-net)}
+.stack{display:flex;height:16px;border-radius:999px;overflow:hidden;margin:0 24px;background:var(--line)}
+.stack i{display:block;height:100%;transition:width .35s ease}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;padding:10px 24px 0;font-size:12.5px;color:var(--mut)}
+.legend span:before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;background:var(--c)}
+.rows{padding:10px 24px 4px}
+.r{display:flex;align-items:baseline;gap:10px;padding:10px 0;border-bottom:1px dashed var(--line)}
+.r .n{flex:1;min-width:0}
+.r .n small{display:block;color:var(--mut);font-size:12.5px;line-height:1.55}
+.r .v{font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap}
+.r .dot{width:10px;height:10px;border-radius:50%;flex:none;background:var(--c);transform:translateY(1px)}
+.r.subr{padding:3px 0 3px 20px;border:0;font-size:14px;color:var(--mut)}
+.r.subr .v{font-weight:600}
+.r.tot{border-bottom:0;font-weight:800}
+.co{margin:6px 24px 0;padding:14px 16px;border-radius:14px;background:var(--soft);font-size:14.5px;color:var(--mut)}
+.co b{color:var(--fg)}
+.foot{padding:14px 24px 20px;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;font-size:12.5px;color:var(--mut)}
+.btn{display:inline-flex;align-items:center;gap:7px;font:inherit;font-size:14px;font-weight:700;padding:9px 16px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;text-decoration:none}
+.btn:hover{border-color:var(--brand);color:var(--brand)}
+.btn .i{width:17px;height:17px}
+.btn.p{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border:0}
+.err{margin:24px;padding:16px;border-radius:14px;background:var(--errbg);color:var(--err);font-size:15px}
+.apibox{margin-top:16px;padding:16px 18px}
+.apibox h3{margin:0 0 4px;font-size:14px;display:flex;align-items:center;gap:8px}
+.apibox p{margin:0 0 8px;color:var(--mut);font-size:13px}
 
 /* sections */
-section{padding:52px 0 8px}
+section{padding:56px 0 6px}
 .eyebrow{font-size:13px;font-weight:700;color:var(--brand);letter-spacing:.08em}
-h2{margin:6px 0 10px;font-size:28px;line-height:1.4}
-.sub{color:var(--mut);margin:0 0 26px;max-width:720px}
+h2.t{margin:6px 0 10px;font-size:28px;line-height:1.4}
+.sub{color:var(--mut);margin:0 0 26px;max-width:740px}
 h3{margin:0 0 6px;font-size:17px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(270px,100%),1fr));gap:16px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow)}
 .card p{margin:6px 0 0;color:var(--mut);font-size:15px;line-height:1.75}
-.ico{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-size:21px;margin-bottom:12px;background:var(--soft)}
-
-/* paystub */
-.stub{background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden}
-.stub-h{padding:20px 24px;display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-between;border-bottom:1px solid var(--line);background:var(--soft)}
-.stub-h b{font-size:15px}
-.stub-h span{font-size:13.5px;color:var(--mut)}
-.net{padding:26px 24px 8px}
-.net small{color:var(--mut)}
-.net .yen{font-size:44px;font-weight:800;line-height:1.2}
-.net .yen small{font-size:16px;font-weight:600;margin-left:4px}
-.stack{display:flex;height:16px;border-radius:999px;overflow:hidden;margin:18px 24px 6px;background:var(--line)}
-.stack i{display:block;height:100%}
-.rows{padding:10px 24px 22px}
-.row{display:flex;align-items:baseline;gap:10px;padding:11px 0;border-bottom:1px dashed var(--line)}
-.row:last-child{border-bottom:0}
-.dot{width:10px;height:10px;border-radius:50%;flex:none;transform:translateY(1px)}
-.row .n{flex:1}
-.row .n small{display:block;color:var(--mut);font-size:12.5px;line-height:1.5}
-.row .v{font-variant-numeric:tabular-nums;font-weight:700}
-.row.t{font-weight:800}
-.er{margin:0 24px 24px;padding:14px 16px;border-radius:12px;background:var(--soft);font-size:14.5px;color:var(--mut)}
-.er b{color:var(--fg)}
-
-/* steps */
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));gap:16px;counter-reset:s}
-.step{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px 22px 22px 22px;position:relative;box-shadow:var(--shadow)}
-.step:before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;font-weight:800;font-size:14px;margin-bottom:10px}
-.step p{margin:4px 0 10px;color:var(--mut);font-size:15px}
-
-pre{background:var(--code);color:var(--codefg);border-radius:12px;padding:14px 16px;overflow:auto;font:13px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace;margin:10px 0}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:16px;counter-reset:s}
+.stepc{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow)}
+.stepc:before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;font-weight:800;font-size:14px;margin-bottom:10px}
+.stepc p{margin:4px 0 0;color:var(--mut);font-size:15px}
+pre{background:var(--code);color:var(--codefg);border-radius:12px;padding:14px 16px;overflow:auto;font:13px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace;margin:10px 0;white-space:pre-wrap;word-break:break-all}
 code{font:13px ui-monospace,SFMono-Regular,Consolas,monospace;background:var(--soft);border-radius:6px;padding:1px 6px}
 pre code{background:none;padding:0}
-
-/* tables */
 .tw{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface);box-shadow:var(--shadow)}
 table{width:100%;border-collapse:collapse;font-size:14.5px}
 th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
 tr:last-child td{border-bottom:0}
 th{background:var(--soft);font-size:13px;color:var(--mut)}
 td.k{font-family:ui-monospace,Consolas,monospace;font-size:13px;white-space:nowrap}
-.tag{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;padding:1px 9px}
-.tag.ok{background:color-mix(in srgb,var(--ok) 16%,transparent);color:var(--ok)}
-.tag.warn{background:var(--warnbg);color:var(--warn)}
-
-/* glossary / faq */
-details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:0 18px;margin:10px 0;box-shadow:var(--shadow)}
-summary{cursor:pointer;font-weight:700;padding:14px 0;list-style:none;display:flex;gap:10px;align-items:center}
-summary::-webkit-details-marker{display:none}
-summary:before{content:"＋";color:var(--brand);font-weight:800}
-details[open] summary:before{content:"－"}
-details p{margin:0 0 14px;color:var(--mut);font-size:15px}
+details.q{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:0 18px;margin:10px 0;box-shadow:var(--shadow)}
+details.q summary{cursor:pointer;font-weight:700;padding:14px 0;list-style:none;display:flex;gap:10px;align-items:center}
+details.q summary::-webkit-details-marker{display:none}
+details.q summary:before{content:"＋";color:var(--brand);font-weight:800}
+details.q[open] summary:before{content:"－"}
+details.q p{margin:0 0 14px;color:var(--mut);font-size:15px}
 .note{background:var(--warnbg);color:var(--warn);border-radius:14px;padding:16px 20px;font-size:15px}
 .note b{display:block;margin-bottom:2px}
 footer{margin-top:64px;border-top:1px solid var(--line);padding:30px 0 48px;color:var(--mut);font-size:14px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
-@media (max-width:560px){.hero{padding-top:44px}.net .yen{font-size:36px}h2{font-size:24px}.bar nav{gap:14px}}
+@media (max-width:560px){.hero{padding-top:36px}h2.t{font-size:24px}.bar nav{gap:14px}.form,.res-top{padding-left:18px;padding-right:18px}.rows,.legend,.foot{padding-left:18px;padding-right:18px}.stack,.co{margin-left:18px;margin-right:18px}}
 </style>
 </head>
 <body>
 
+<!-- icon sprite: all icons share one grid (24px), stroke and style -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-calc" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M8.5 7.5h7"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01M8.5 16h.01M12 16h.01M15.5 16h.01"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/></symbol>
+  <symbol id="i-brief" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7"/><path d="M3 13h18"/></symbol>
+  <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10h18"/><path d="M16.5 14.5h.01"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 9.5a6 6 0 1 1 12 0c0 5 2 6.5 2 6.5H4s2-1.500 2-6.500z"/><path d="M10 19.5a2 2 0 0 0 4 0"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.700 0l3-3a4 4 0 0 0-5.700-5.700l-1 1"/><path d="M14 10a4 4 0 0 0-5.700 0l-3 3a4 4 0 0 0 5.700 5.700l1-1"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="M8.500 8 4 12l4.500 4"/><path d="m15.500 8 4.500 4-4.500 4"/><path d="m13.500 5-3 14"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2.500"/><path d="M16 8V6.500A2.500 2.500 0 0 0 13.500 4h-7A2.500 2.500 0 0 0 4 6.500v7A2.500 2.500 0 0 0 6.500 16H8"/></symbol>
+</svg>
+
 <div class="bar"><div class="wrap">
-  <a class="logo" href="#top"><i></i>payroll-api</a>
-  <nav><a href="#what">できること</a><a href="#example">計算例</a><a href="#start">使い方</a><a href="#data">データ</a><a href="#words">用語</a><a href="#faq">Q&amp;A</a><a href="https://github.com/paps-jp/payroll-api">GitHub</a></nav>
+  <a class="logo" href="#top"><b><svg class="i"><use href="#i-calc"/></svg></b>payroll-api</a>
+  <nav><a href="#calc">計算する</a><a href="#what">できること</a><a href="#start">使い方</a><a href="#data">データ</a><a href="#words">用語</a><a href="#faq">Q&amp;A</a><a href="https://github.com/paps-jp/payroll-api">GitHub</a></nav>
 </div></div>
 
 <header class="hero" id="top"><div class="wrap">
-  <span class="pill">給与計算の「率」と「計算」を、いつでも最新・正確に</span>
-  <h1>給与から引かれる<br><em>保険料と税金</em>を、自動で計算</h1>
-  <p class="lead">健康保険・厚生年金・雇用保険・所得税(源泉徴収)。毎年のように変わる「率」を調べて計算する作業を、<b>プログラムやAIアシスタントから呼び出せる部品</b>にしました。2016年からの過去分も計算できます。</p>
-  <div class="cta">
-    <a class="btn p" href="#example">計算の例を見る</a>
-    <a class="btn" href="#start">使い方を見る</a>
-  </div>
-  <div class="stats">
-    <div class="stat"><b>2016年〜</b><span>10年分の履歴に対応</span></div>
-    <div class="stat"><b>47都道府県</b><span>協会けんぽの保険料率</span></div>
-    <div class="stat"><b>240件</b><span>国税庁の計算例で検算済み</span></div>
-    <div class="stat"><b>毎週チェック</b><span>公式ページと自動で照合</span></div>
+  <span class="pill">無料・登録なし・2016年からの料率に対応</span>
+  <h1>給与の<em>手取り</em>を、<br>入力するだけで自動計算</h1>
+  <p class="lead">月給(または年収)と条件を入れると、健康保険・厚生年金・雇用保険・所得税・住民税を引いた手取りがすぐに分かります。計算には公式の料率を使っています。</p>
+
+  <div class="calc" id="calc">
+    <!-- 入力 -->
+    <form class="panel form" id="form" autocomplete="off" onsubmit="return false">
+      <h2>条件を入力</h2>
+
+      <div class="f">
+        <span class="lb">金額の入力方法</span>
+        <div class="seg" role="group" aria-label="入力方法">
+          <button type="button" id="mMonth" aria-pressed="true">月給(額面)</button>
+          <button type="button" id="mYear" aria-pressed="false">年収</button>
+        </div>
+      </div>
+
+      <div class="f">
+        <label for="amt" id="amtLabel">月給(税金や保険料を引く前の金額)</label>
+        <div class="amt"><input type="text" id="amt" inputmode="numeric" value="320,000"><span>円</span></div>
+        <input type="range" id="rng" min="100000" max="1000000" step="10000" value="320000" aria-label="金額スライダー">
+        <div class="chips" id="chips"></div>
+        <div class="hint" id="amtHint">交通費(通勤手当)も含めた「総支給額」を入れてください。</div>
+      </div>
+
+      <div class="row2">
+        <div class="f"><label for="month">給与を受け取る月</label><input type="month" id="month" min="2016-03"></div>
+        <div class="f"><label for="pref">会社の都道府県</label><select id="pref"></select></div>
+      </div>
+
+      <div class="row2">
+        <div class="f"><label for="age">年齢</label><input type="number" id="age" min="15" max="100" value="35">
+          <div class="hint">40〜64歳は介護保険料がかかります</div></div>
+        <div class="f"><span class="lb">扶養している家族</span>
+          <div class="step"><button type="button" id="depM" aria-label="減らす">−</button><input type="number" id="dep" min="0" max="20" value="1"><button type="button" id="depP" aria-label="増やす">＋</button></div>
+          <div class="hint">配偶者を含む人数</div></div>
+      </div>
+
+      <div class="f"><label for="res">住民税(月額)</label>
+        <div class="amt"><input type="text" id="res" inputmode="numeric" value="15,000"><span>円</span></div>
+        <div class="hint">毎年6月ごろ会社に届く通知の金額です。分からなければ 0 のままでOK(手取りは多めに出ます)。</div></div>
+
+      <details class="adv"><summary>くわしい設定</summary><div class="body">
+        <div class="f"><label for="com">非課税の通勤手当(月額)</label>
+          <div class="amt"><input type="text" id="com" inputmode="numeric" value="10,000"><span>円</span></div>
+          <div class="hint">電車・バスなどの通勤費は、所得税がかからない分(月15万円まで)です。</div></div>
+        <div class="row2">
+          <div class="f"><label for="ind">会社の事業の種類</label><select id="ind"></select></div>
+          <div class="f"><label for="col">この会社での扱い</label><select id="col"><option value="ko">メインの勤め先</option><option value="otsu">副業・掛け持ち先</option></select></div>
+        </div>
+      </div></details>
+    </form>
+
+    <!-- 結果 -->
+    <div>
+      <div class="panel result" id="result" aria-live="polite"></div>
+      <div class="panel apibox">
+        <h3><svg class="i"><use href="#i-code"/></svg>この計算を API で呼び出す</h3>
+        <p>同じ計算を、自分のプログラムやAIから使えます(無料・登録不要)。</p>
+        <pre id="curl"><code></code></pre>
+        <div style="display:flex;flex-wrap:wrap;gap:8px"><button class="btn" id="cpCurl" type="button"><svg class="i"><use href="#i-copy"/></svg>コマンドをコピー</button><a class="btn" href="#start">使い方を見る</a></div>
+      </div>
+    </div>
   </div>
 </div></header>
 
@@ -142,62 +239,34 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 
 <section id="what">
   <div class="eyebrow">WHAT</div>
-  <h2>こんなことができます</h2>
+  <h2 class="t">こんなことができます</h2>
   <p class="sub">給与計算でいつも調べているものを、ひとつの窓口にまとめました。「何月の給料か」「どの都道府県か」を伝えるだけで、その時点で正しい率と金額が返ってきます。</p>
   <div class="grid">
-    <div class="card"><div class="ico">🏥</div><h3>社会保険料</h3><p>健康保険・介護保険・厚生年金・子ども・子育て支援金。本人と会社、それぞれの負担額を出します。</p></div>
-    <div class="card"><div class="ico">💼</div><h3>雇用保険料</h3><p>一般・農林水産・建設の区分ごとに、働く人と会社の負担を計算します。年の途中で変わった年にも対応。</p></div>
-    <div class="card"><div class="ico">🧾</div><h3>源泉所得税</h3><p>毎月の給与から引く所得税(復興特別所得税込み)。扶養の人数による違いや、副業先(乙欄)にも対応。</p></div>
-    <div class="card"><div class="ico">💴</div><h3>手取りまで一括</h3><p>上の全部をまとめて引き算し、手取り額と会社の負担総額まで一度に計算します。</p></div>
-    <div class="card"><div class="ico">🕰️</div><h3>過去も未来も</h3><p>「2019年10月の給与」のように月を指定でき、その月の率で計算します。改定は履歴として積み重ねます。</p></div>
-    <div class="card"><div class="ico">🔔</div><h3>改定を見逃さない</h3><p>公式サイトの発表と手元のデータを自動で見比べ、ズレや新しい改定があれば知らせます。</p></div>
-  </div>
-</section>
-
-<section id="example">
-  <div class="eyebrow">EXAMPLE</div>
-  <h2>計算の例:月給32万円の場合</h2>
-  <p class="sub">東京都の会社に勤める35歳、扶養する家族が1人、住民税が月1万5千円。2026年5月の給与を計算した、実際の結果です。</p>
-  <div class="stub">
-    <div class="stub-h"><b>2026年5月分 給与</b><span>東京都・35歳・扶養1人・通勤手当のうち1万円は非課税</span></div>
-    <div class="net"><small>手取り額</small><div class="yen">253,022<small>円</small></div></div>
-    <div class="stack" role="img" aria-label="総支給額の内訳">
-      <i style="width:79.07%;background:var(--c2)" title="手取り"></i>
-      <i style="width:14.19%;background:var(--c1)" title="社会保険料"></i>
-      <i style="width:0.5%;background:var(--c3)" title="雇用保険料"></i>
-      <i style="width:1.55%;background:var(--c4)" title="所得税"></i>
-      <i style="width:4.69%;background:var(--c5)" title="住民税"></i>
-    </div>
-    <div class="rows">
-      <div class="row"><span class="dot" style="background:var(--c2)"></span><span class="n">手取り<small>実際に振り込まれる金額</small></span><span class="v">253,022円</span></div>
-      <div class="row"><span class="dot" style="background:var(--c1)"></span><span class="n">社会保険料(本人分)<small>健康保険・厚生年金・子ども・子育て支援金</small></span><span class="v">45,408円</span></div>
-      <div class="row"><span class="dot" style="background:var(--c3)"></span><span class="n">雇用保険料(本人分)<small>給与の0.5%</small></span><span class="v">1,600円</span></div>
-      <div class="row"><span class="dot" style="background:var(--c4)"></span><span class="n">所得税(源泉徴収)<small>社会保険料などを引いた262,992円が対象</small></span><span class="v">4,970円</span></div>
-      <div class="row"><span class="dot" style="background:var(--c5)"></span><span class="n">住民税<small>自治体から届く通知額をそのまま入力</small></span><span class="v">15,000円</span></div>
-      <div class="row t"><span class="n">総支給額</span><span class="v">320,000円</span></div>
-    </div>
-    <div class="er"><b>会社の負担は、これとは別に 49,280円。</b> 社会保険料と雇用保険料は、会社も同じくらい(以上)を負担しています。人件費は「給与+この金額」です。</div>
+    <div class="card"><div class="ico"><svg class="i"><use href="#i-heart"/></svg></div><h3>社会保険料</h3><p>健康保険・介護保険・厚生年金・子ども・子育て支援金。本人と会社、それぞれの負担額を出します。</p></div>
+    <div class="card"><div class="ico"><svg class="i"><use href="#i-brief"/></svg></div><h3>雇用保険料</h3><p>一般・農林水産・建設の区分ごとに、働く人と会社の負担を計算します。年の途中で変わった年にも対応。</p></div>
+    <div class="card"><div class="ico"><svg class="i"><use href="#i-receipt"/></svg></div><h3>源泉所得税</h3><p>毎月の給与から引く所得税(復興特別所得税込み)。扶養の人数による違いや、副業先(乙欄)にも対応。</p></div>
+    <div class="card"><div class="ico"><svg class="i"><use href="#i-wallet"/></svg></div><h3>手取りまで一括</h3><p>上の全部をまとめて引き算し、手取り額と会社の負担総額まで一度に計算します。</p></div>
+    <div class="card"><div class="ico"><svg class="i"><use href="#i-clock"/></svg></div><h3>過去の月にも対応</h3><p>「2019年10月の給与」のように月を指定でき、その月の率で計算します。2016年から遡れます。</p></div>
+    <div class="card"><div class="ico"><svg class="i"><use href="#i-bell"/></svg></div><h3>改定を見逃さない</h3><p>公式サイトの発表と手元のデータを自動で見比べ、ズレや新しい改定があれば知らせます。</p></div>
   </div>
 </section>
 
 <section id="start">
   <div class="eyebrow">HOW TO USE</div>
-  <h2>使い方は3ステップ</h2>
-  <p class="sub">プログラムから使う方法と、AIアシスタント(Claudeなど)に使わせる方法があります。どちらも、最初に「合言葉(トークン)」が必要です。</p>
+  <h2 class="t">自分のプログラムやAIから使う</h2>
+  <p class="sub">上の計算は、公開しているAPIを使っています。<b>無料・登録・合言葉は不要</b>です。ただし、短時間に大量のアクセスがあると制限がかかります(1分あたり120回まで。繰り返すと一時的に止まります)。</p>
   <div class="steps">
-    <div class="step"><h3>合言葉をもらう</h3><p>勝手に使われないよう、合言葉(トークン)で守っています。管理者に発行を頼んでください。</p></div>
-    <div class="step"><h3>月と条件を伝える</h3><p>「何月の給与か」「都道府県」「金額」「年齢」などを、URLに書いて送ります。</p></div>
-    <div class="step"><h3>結果を受け取る</h3><p>項目ごとの率・金額・本人と会社の負担が、整った形で返ってきます。</p></div>
+    <div class="stepc"><h3>月と条件を伝える</h3><p>「何月の給与か」「都道府県」「金額」「年齢」などを、URLの後ろに書いて送ります。</p></div>
+    <div class="stepc"><h3>結果を受け取る</h3><p>項目ごとの率・金額・本人と会社の負担が、整った形(JSON)で返ってきます。</p></div>
+    <div class="stepc"><h3>AIにもつなげられる</h3><p>MCPという仕組みでつなぐと、AIアシスタントに話しかけるだけで計算してもらえます。</p></div>
   </div>
 
   <h3 style="margin-top:30px">プログラムから(API)</h3>
-  <pre><code>curl -H "Authorization: Bearer 合言葉" \
-  "https://payroll-api.paps.jp/v1/calc/payroll?month=2026-05&amp;prefecture=東京都&amp;gross=320000&amp;age=35&amp;dependents=1&amp;resident_tax=15000"</code></pre>
+  <pre><code>curl "https://payroll-api.paps.jp/v1/calc/payroll?month=2026-05&amp;prefecture=東京都&amp;gross=320000&amp;age=35&amp;dependents=1&amp;resident_tax=15000"</code></pre>
 
   <h3 style="margin-top:22px">AIアシスタントから(MCP)</h3>
   <p class="sub" style="margin-bottom:6px"><b>MCP</b>は、AIが外部の道具を直接使うための共通の仕組みです。つないでおくと、「2024年4月の東京の月給30万円の保険料は?」と話しかけるだけで、AIがこのAPIを呼んで答えます。</p>
-  <pre><code>claude mcp add --transport http payroll-api https://payroll-api.paps.jp/mcp \
-  --header "Authorization: Bearer 合言葉"</code></pre>
+  <pre><code>claude mcp add --transport http payroll-api https://payroll-api.paps.jp/mcp</code></pre>
 
   <h3 style="margin-top:26px">呼び出せる機能の一覧</h3>
   <div class="tw"><table>
@@ -209,12 +278,13 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
     <tr><td class="k">/v1/rates</td><td>指定した月に適用される「率」そのものを調べる</td></tr>
     <tr><td class="k">/v1/grades</td><td>標準報酬月額の等級表</td></tr>
     <tr><td class="k">/v1/revisions</td><td>登録されている改定の一覧(いつから・出典・確認済みか)</td></tr>
+    <tr><td class="k">/v1/meta</td><td>都道府県の一覧や対応期間(入力フォーム用)</td></tr>
   </table></div>
 </section>
 
 <section id="data">
   <div class="eyebrow">DATA</div>
-  <h2>どこまで遡れる?データの出どころ</h2>
+  <h2 class="t">どこまで遡れる?データの出どころ</h2>
   <p class="sub">数字はすべて公式の発表をもとにしています。それぞれの率に出典のURLを付けてあり、確認が済んでいないものには目印を付けています。</p>
   <div class="tw"><table>
     <tr><th>種類</th><th>いつから</th><th>出どころ</th></tr>
@@ -225,30 +295,31 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
     <tr><td>雇用保険</td><td>2015年4月〜</td><td>厚生労働省</td></tr>
     <tr><td>源泉所得税</td><td>2016年分〜</td><td>国税庁「源泉徴収のあらまし」</td></tr>
   </table></div>
-  <p style="margin-top:14px"><span class="tag ok">検算済み</span> 源泉所得税は、国税庁の資料にある計算例・税額表の値240件を、全年分で自動テストにかけて一致を確認しています。</p>
+  <p style="margin-top:14px">源泉所得税は、国税庁の資料にある計算例・税額表の値240件を、全年分で自動テストにかけて一致を確認しています。</p>
 </section>
 
 <section id="words">
   <div class="eyebrow">GLOSSARY</div>
-  <h2>むずかしい言葉の説明</h2>
+  <h2 class="t">むずかしい言葉の説明</h2>
   <p class="sub">給与計算に慣れていなくても読めるように、よく出てくる言葉をまとめました。</p>
-  <details><summary>標準報酬月額(ひょうじゅんほうしゅうげつがく)</summary><p>社会保険料を決めるための「ざっくり月給」です。実際の月給を50段階ほどの区分(等級)に当てはめた金額で、保険料はこの金額に率をかけて出します。</p></details>
-  <details><summary>本人負担と事業主(会社)負担</summary><p>社会保険料は、働く人と会社が半分ずつ負担します(子ども・子育て拠出金だけは会社が全額)。給与から引かれるのは「本人負担」の分です。</p></details>
-  <details><summary>介護保険料</summary><p>40歳から64歳の人だけが払う保険料です。健康保険料に上乗せされます。</p></details>
-  <details><summary>源泉所得税 / 甲欄・乙欄</summary><p>毎月の給与から、会社が代わりに国へ納める所得税です。<b>甲欄</b>はメインの勤め先(扶養の届出を出している場合)、<b>乙欄</b>は副業先など届出がない場合の計算方法で、乙欄のほうが税率は高めです。</p></details>
-  <details><summary>住民税</summary><p>住んでいる自治体から会社に毎年通知が届き、毎月ほぼ同じ金額を給与から引きます。金額は自治体が決めるため、このAPIでは計算せず、通知の金額を入力してもらいます。</p></details>
-  <details><summary>年末調整</summary><p>1年間に引いた所得税を、年末にまとめて精算する手続きです。毎月の所得税が多少ずれても、ここで調整されます。</p></details>
-  <details><summary>トークン(合言葉)</summary><p>このAPIを使ってよい人かを確認するための、長い文字列です。パスワードと同じように、他人に見せないでください。</p></details>
+  <details class="q"><summary>額面(総支給額)と手取り</summary><p><b>額面</b>は、保険料や税金を引く前の給与の合計です(通勤手当も含みます)。<b>手取り</b>は、そこから保険料・税金を引いて、実際に振り込まれる金額です。</p></details>
+  <details class="q"><summary>標準報酬月額(ひょうじゅんほうしゅうげつがく)</summary><p>社会保険料を決めるための「ざっくり月給」です。実際の月給を50段階ほどの区分(等級)に当てはめた金額で、保険料はこの金額に率をかけて出します。</p></details>
+  <details class="q"><summary>本人負担と事業主(会社)負担</summary><p>社会保険料は、働く人と会社が半分ずつ負担します(子ども・子育て拠出金だけは会社が全額)。給与から引かれるのは「本人負担」の分です。</p></details>
+  <details class="q"><summary>介護保険料</summary><p>40歳から64歳の人だけが払う保険料です。健康保険料に上乗せされます。</p></details>
+  <details class="q"><summary>源泉所得税 / 甲欄・乙欄</summary><p>毎月の給与から、会社が代わりに国へ納める所得税です。<b>甲欄</b>はメインの勤め先(扶養の届出を出している場合)、<b>乙欄</b>は副業先など届出がない場合の計算方法で、乙欄のほうが税率は高めです。</p></details>
+  <details class="q"><summary>住民税</summary><p>住んでいる自治体から会社に毎年通知が届き、毎月ほぼ同じ金額を給与から引きます。金額は自治体が決めるため、計算ではなく、通知の金額を入力してもらいます。</p></details>
+  <details class="q"><summary>年末調整</summary><p>1年間に引いた所得税を、年末にまとめて精算する手続きです。毎月の所得税が多少ずれても、ここで調整されます。</p></details>
 </section>
 
 <section id="faq">
   <div class="eyebrow">Q&amp;A</div>
-  <h2>よくある質問</h2>
-  <details><summary>計算結果をそのまま給与に使ってよい?</summary><p>あくまで<b>目安</b>です。実際の給与計算では、最新の公式資料(協会けんぽ・日本年金機構・厚生労働省・国税庁)でも確認してください。</p></details>
-  <details><summary>自社の健康保険組合(組合健保)でも使える?</summary><p>いいえ。対象は「協会けんぽ」に加入している会社です。組合健保や共済は率が違うため、対象外です。</p></details>
-  <details><summary>ボーナス(賞与)や年末調整は計算できる?</summary><p>まだできません。毎月の給与に対応しています。そのほか、産休・育休中の免除、労災保険、日額表も未対応です。</p></details>
-  <details><summary>料率が変わったらどうなる?</summary><p>新しい率を「適用開始月つき」で追加するだけで、過去の月は昔の率のまま、新しい月は新しい率で計算されます。公式サイトとの照合は毎週自動で行い、改定を見つけたら知らせます。</p></details>
-  <details><summary>「確認中」と出ることがあるのはなぜ?</summary><p>出典がひとつしか見つからなかった値などに印を付けています。計算自体はできますが、気になる場合は公式資料でご確認ください。</p></details>
+  <h2 class="t">よくある質問</h2>
+  <details class="q"><summary>本当に無料? 登録は必要?</summary><p>無料で、登録も合言葉も要りません。ただし全員が快適に使えるよう、短時間に大量のアクセスがあった場合は制限します(1分あたり120回まで。繰り返すと一時的にブロック)。</p></details>
+  <details class="q"><summary>入力した内容は保存される?</summary><p>保存しません。入力された金額や年齢は計算にだけ使い、記録には残しません。</p></details>
+  <details class="q"><summary>計算結果をそのまま給与に使ってよい?</summary><p>あくまで<b>目安</b>です。実際の給与計算では、最新の公式資料(協会けんぽ・日本年金機構・厚生労働省・国税庁)でも確認してください。</p></details>
+  <details class="q"><summary>自社の健康保険組合(組合健保)でも使える?</summary><p>いいえ。対象は「協会けんぽ」に加入している会社です。組合健保や共済は率が違うため、対象外です。</p></details>
+  <details class="q"><summary>ボーナス(賞与)や年末調整は計算できる?</summary><p>まだできません。毎月の給与に対応しています。年収で入力した場合は、ボーナスなしで12か月に均等に割った計算になります。そのほか、産休・育休中の免除、労災保険、日額表も未対応です。</p></details>
+  <details class="q"><summary>料率が変わったらどうなる?</summary><p>新しい率を「適用開始月つき」で追加するだけで、過去の月は昔の率のまま、新しい月は新しい率で計算されます。公式サイトとの照合は毎週自動で行い、改定を見つけたら知らせます。</p></details>
 
   <div class="note" style="margin-top:22px"><b>ご利用上の注意</b>計算結果の正しさは保証できません。法令や公式の発表が優先されます。重要な判断には、社会保険労務士や税理士などの専門家にご相談ください。</div>
 </section>
@@ -259,5 +330,161 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
   <span>payroll-api · 社会保険・雇用保険・源泉所得税の料率 API / MCP</span>
   <span><a href="https://github.com/paps-jp/payroll-api">GitHub</a> · <a href="https://github.com/paps-jp/payroll-api#readme">開発者向けの詳細(README)</a></span>
 </div></footer>
+
+<script>
+(() => {
+  const API = 'https://payroll-api.paps.jp';
+  const $ = id => document.getElementById(id);
+  const yen = n => Number(n).toLocaleString('ja-JP');
+  const num = s => parseInt(String(s).replace(/[^\d]/g, ''), 10) || 0;
+  const COLORS = {net:'var(--c-net)', soc:'var(--c-soc)', emp:'var(--c-emp)', tax:'var(--c-tax)', res:'var(--c-res)'};
+  let mode = 'month', ctl = null, timer = null;
+
+  const MODES = {
+    month: {label:'月給(税金や保険料を引く前の金額)', hint:'交通費(通勤手当)も含めた「総支給額」を入れてください。', min:100000, max:1000000, step:10000, chips:[200000,250000,300000,350000,400000,500000]},
+    year:  {label:'年収(税金や保険料を引く前の金額)', hint:'ボーナスも含めた年間の総額です。ボーナスなしで12か月に均等に割って計算します。', min:2000000, max:12000000, step:100000, chips:[3000000,4000000,5000000,6000000,8000000,10000000]},
+  };
+  const chipText = v => (v/10000) + '万円';
+
+  function setMode(m, keepValue) {
+    const cur = num($('amt').value);
+    mode = m;
+    const c = MODES[m];
+    $('mMonth').setAttribute('aria-pressed', m === 'month');
+    $('mYear').setAttribute('aria-pressed', m === 'year');
+    $('amtLabel').textContent = c.label; $('amtHint').textContent = c.hint;
+    $('rng').min = c.min; $('rng').max = c.max; $('rng').step = c.step;
+    if (!keepValue) $('amt').value = yen(m === 'year' ? Math.round(cur * 12 / 100000) * 100000 : Math.round(cur / 12 / 10000) * 10000);
+    $('rng').value = num($('amt').value);
+    $('chips').innerHTML = c.chips.map(v => `<button type="button" class="chip" data-v="${v}">${chipText(v)}</button>`).join('');
+  }
+
+  function params() {
+    const a = num($('amt').value);
+    const gross = mode === 'year' ? Math.round(a / 12) : a;
+    return {
+      month: $('month').value, prefecture: $('pref').value, gross, age: num($('age').value),
+      dependents: num($('dep').value), resident_tax: num($('res').value),
+      non_taxable_commute: Math.min(num($('com').value), gross),
+      industry: $('ind').value, column: $('col').value,
+    };
+  }
+  const qs = p => Object.entries(p).map(([k, v]) => k + '=' + encodeURIComponent(v)).join('&');
+
+  function share() {
+    const s = {m:$('month').value, p:$('pref').value, mode, a:num($('amt').value), age:num($('age').value), d:num($('dep').value),
+               r:num($('res').value), c:num($('com').value), i:$('ind').value, k:$('col').value};
+    history.replaceState(null, '', '#' + qs(s));
+  }
+  function load() {
+    const h = new URLSearchParams(location.hash.slice(1));
+    const g = (k, d) => h.has(k) ? h.get(k) : d;
+    const now = new Date();
+    $('month').value = g('m', now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0'));
+    if (h.has('p')) $('pref').value = h.get('p');
+    setMode(g('mode', 'month'), true);
+    $('amt').value = yen(num(g('a', 320000)));
+    $('rng').value = num($('amt').value);
+    $('age').value = g('age', 35); $('dep').value = g('d', 1);
+    $('res').value = yen(num(g('r', 15000))); $('com').value = yen(num(g('c', 10000)));
+    if (h.has('i')) $('ind').value = h.get('i'); if (h.has('k')) $('col').value = h.get('k');
+    setMode(mode, true);
+  }
+
+  function row(cls, color, name, note, val) {
+    return `<div class="r ${cls}">${color ? `<span class="dot" style="--c:${color}"></span>` : ''}<span class="n">${name}${note ? `<small>${note}</small>` : ''}</span><span class="v">${val}</span></div>`;
+  }
+
+  function render(r, p) {
+    const gross = r.gross, net = r.net_pay;
+    const soc = r.social_insurance_worker, emp = r.employment_insurance_worker, tax = r.withholding.tax, res = r.resident_tax;
+    const pct = v => (gross ? v / gross * 100 : 0);
+    const seg = [[net,'net','手取り'],[soc,'soc','社会保険料'],[emp,'emp','雇用保険料'],[tax,'tax','所得税'],[res,'res','住民税']];
+    const bar = seg.map(([v,k,t]) => `<i style="width:${pct(v).toFixed(2)}%;background:${COLORS[k]}" title="${t} ${yen(v)}円"></i>`).join('');
+    const legend = seg.map(([v,k,t]) => `<span style="--c:${COLORS[k]}">${t}</span>`).join('');
+
+    let subs = '';
+    (r.social ? r.social.items : []).filter(i => i.worker > 0).forEach(i => {
+      subs += row('subr', '', i.name, '', yen(i.worker) + '円');
+    });
+    const yearNote = mode === 'year' ? `年収 ${yen(num($('amt').value))}円 ÷ 12 = 月 ${yen(gross)}円で計算` : '';
+    const rows =
+      row('', COLORS.net, '手取り', '実際に振り込まれる金額', yen(net) + '円') +
+      row('', COLORS.soc, '社会保険料(本人分)', r.social && r.social.care_applies ? '介護保険を含む(40〜64歳)' : '健康保険・厚生年金など', yen(soc) + '円') + subs +
+      row('', COLORS.emp, '雇用保険料(本人分)', r.employment ? '給与の ' + (r.employment.worker.per_mille / 10) + '%' : '', yen(emp) + '円') +
+      row('', COLORS.tax, '所得税(源泉徴収)', '社会保険料などを引いた ' + yen(r.amount_after_social_insurance) + '円が対象', yen(tax) + '円') +
+      row('', COLORS.res, '住民税', res ? '入力いただいた金額' : '未入力(0円で計算)', yen(res) + '円') +
+      row('tot', '', '総支給額(額面)', yearNote, yen(gross) + '円');
+
+    const burden = r.employer_insurance_burden;
+    const unv = ((r.social && r.social.unverified_rate_kinds) || []).filter(k => k !== 'grade_table');
+    const warn = unv.length ? '・一部の率は公式での再確認中です' : '';
+    $('result').innerHTML = `
+      <div class="res-top"><small>${p.month.replace('-', '年')}月の手取り${mode === 'year' ? '(月額)' : ''}</small>
+        <div class="net">${yen(net)}<small>円</small></div>
+        <div class="rate-line">額面の <b>${pct(net).toFixed(1)}%</b> · 年間の目安 約${yen(net * 12)}円(ボーナスなし)</div></div>
+      <div class="stack" role="img" aria-label="額面の内訳">${bar}</div>
+      <div class="legend">${legend}</div>
+      <div class="rows">${rows}</div>
+      <div class="co"><b>会社の負担は、これとは別に ${yen(burden)}円。</b> 会社は社会保険料・雇用保険料を負担しています。会社が実際に払う人件費は「額面 + この金額」で <b>${yen(gross + burden)}円</b> です。</div>
+      <div class="foot"><span>計算結果は目安です${warn}。</span><button class="btn" id="cpLink" type="button"><svg class="i"><use href="#i-link"/></svg>この条件のリンクをコピー</button></div>`;
+    $('cpLink').onclick = e => copy(location.href, e.currentTarget, 'リンクをコピーしました');
+  }
+
+  function showError(msg) {
+    $('result').innerHTML = `<div class="err"><b>計算できませんでした</b><br>${msg}</div>`;
+  }
+
+  async function run() {
+    const p = params();
+    $('curl').firstChild.textContent = `curl "${API}/v1/calc/payroll?${qs(p)}"`;
+    share();
+    if (!p.gross) { showError('金額を入力してください。'); return; }
+    if (p.month && p.month < $('month').min) { showError(($('month').min.replace('-', '年')) + '月より前のデータはありません。それ以降の月を選んでください。'); return; }
+    if (ctl) ctl.abort();
+    ctl = new AbortController();
+    $('result').classList.add('loading');
+    try {
+      const resp = await fetch(`${API}/v1/calc/payroll?${qs(p)}`, {signal: ctl.signal});
+      const data = await resp.json().catch(() => ({}));
+      if (resp.status === 429) return showError(data.error || 'アクセスが多すぎます。しばらく待ってからお試しください。');
+      if (!resp.ok) return showError(data.error || '入力を確認してください。');
+      render(data, p);
+    } catch (e) {
+      if (e.name !== 'AbortError') showError('通信に失敗しました。時間をおいてもう一度お試しください。');
+    } finally { $('result').classList.remove('loading'); }
+  }
+  const later = () => { clearTimeout(timer); timer = setTimeout(run, 250); };
+
+  function copy(text, btn, msg) {
+    navigator.clipboard.writeText(text).then(() => {
+      const t = btn.innerHTML; btn.textContent = msg; setTimeout(() => btn.innerHTML = t, 1600);
+    });
+  }
+
+  // 金額入力: 数字だけ受け付け、カンマ区切りで表示
+  ['amt', 'res', 'com'].forEach(id => $(id).addEventListener('input', e => {
+    const v = num(e.target.value); e.target.value = v ? yen(v) : '';
+    if (id === 'amt') $('rng').value = v; later();
+  }));
+  $('rng').addEventListener('input', e => { $('amt').value = yen(e.target.value); later(); });
+  $('chips').addEventListener('click', e => { const b = e.target.closest('.chip'); if (b) { $('amt').value = yen(b.dataset.v); $('rng').value = b.dataset.v; later(); } });
+  ['month', 'pref', 'age', 'dep', 'ind', 'col'].forEach(id => $(id).addEventListener('input', later));
+  $('depM').onclick = () => { $('dep').value = Math.max(0, num($('dep').value) - 1); later(); };
+  $('depP').onclick = () => { $('dep').value = Math.min(20, num($('dep').value) + 1); later(); };
+  $('mMonth').onclick = () => { if (mode !== 'month') { setMode('month'); later(); } };
+  $('mYear').onclick = () => { if (mode !== 'year') { setMode('year'); later(); } };
+  $('cpCurl').onclick = e => copy($('curl').textContent, e.currentTarget, 'コピーしました');
+
+  // 都道府県・事業区分は API から取得
+  fetch(`${API}/v1/meta`).then(r => r.json()).then(m => {
+    $('pref').innerHTML = m.prefectures.map(p => `<option${p === '東京都' ? ' selected' : ''}>${p}</option>`).join('');
+    const order = ['general', 'agri', 'construction'];
+    $('ind').innerHTML = order.filter(k => m.industries[k]).map(k => `<option value="${k}">${m.industries[k]}</option>`).join('');
+    if (m.min_month) $('month').min = m.min_month;
+    load(); run();
+  }).catch(() => showError('サーバーに接続できませんでした。時間をおいてもう一度お試しください。'));
+})();
+</script>
 </body>
 </html>

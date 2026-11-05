@@ -8,7 +8,7 @@
 ## 起動
 
 ```bash
-go run ./cmd/server -addr 127.0.0.1:8080 [-token SECRET]   # REST /v1/*  と  MCP /mcp
+go run ./cmd/server -addr 127.0.0.1:8080 [-rate 120] [-token SECRET]   # REST /v1/*  と  MCP /mcp
 go run ./cmd/server -stdio                                   # MCP (stdio)
 ```
 
@@ -18,10 +18,21 @@ Claude Desktop 等 (stdio):
 { "mcpServers": { "insurance-rates": { "command": "C:\\path\\to\\server.exe", "args": ["-stdio"] } } }
 ```
 
+## 公開API (トークン不要)
+
+`https://payroll-api.paps.jp` は**トークン不要・登録不要**で使えます。電卓ページ ([GitHub Pages](https://paps-jp.github.io/payroll-api/)) もこのAPIを呼んでいます。
+
+- CORS は全オリジンに許可 (認証情報は扱わない読み取り専用)。入力値は保存しません。
+- 濫用対策: **IPごとに毎分120回まで**。超えた分は `429` (`Retry-After` 付き)。10分間に5回超過を繰り返すと**15分間ブロック**。
+- MCP の `check_for_revisions` は公式サイトを見に行くため、結果を1時間キャッシュします。
+- トークン必須に戻したい場合は `RATES_API_TOKEN` (または `-token`) を設定。`/v1/*` と `/mcp` が Bearer 必須になります。
+- 制限値は `-rate` で変更、ロジックは `internal/guard`。クライアントIPは Caddy が付ける `X-Forwarded-For` を信頼します。
+
 ## REST
 
 | パス | 内容 |
 |---|---|
+| `GET /v1/meta` | 入力フォーム用の情報 (都道府県一覧・対応開始月・事業区分) |
 | `GET /v1/rates?month=2026-04&prefecture=東京都` | 指定月の適用料率 (prefecture 省略で全47都道府県) |
 | `GET /v1/revisions` | 登録済みの全改定 (種別・適用開始月・出典・verified) |
 | `GET /v1/grades` | 標準報酬月額の等級表 |

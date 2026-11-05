@@ -11,6 +11,7 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"sync"
 	"time"
 
 	"insurance-rates/internal/api"
@@ -20,6 +21,10 @@ import (
 
 type Server struct {
 	DS *rates.Dataset
+
+	mu       sync.Mutex
+	checkAt  time.Time
+	checkRes any
 }
 
 type request struct {
@@ -109,9 +114,16 @@ func (s *Server) call(ctx context.Context, name string, a map[string]any) (any, 
 			Gross: int64(gi("gross")), NonTaxableCommute: int64(gi("non_taxable_commute")), Industry: gs("industry"),
 			Column: gs("column"), Dependents: int64(gi("dependents")), ResidentTax: int64(gi("resident_tax"))})
 	case "check_for_revisions":
+		// 公開APIなので、公式サイトへの問い合わせは1時間キャッシュして負荷をかけない
+		s.mu.Lock()
+		defer s.mu.Unlock()
+		if s.checkRes != nil && time.Since(s.checkAt) < time.Hour {
+			return s.checkRes, nil
+		}
 		c, cancel := context.WithTimeout(ctx, 60*time.Second)
 		defer cancel()
-		return check.Run(c, s.DS, check.Options{Now: time.Now()}), nil
+		s.checkRes, s.checkAt = check.Run(c, s.DS, check.Options{Now: time.Now()}), time.Now()
+		return s.checkRes, nil
 	}
 	return nil, fmt.Errorf("unknown tool: %s", name)
 }

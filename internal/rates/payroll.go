@@ -35,8 +35,11 @@ type PayrollResult struct {
 // CalcPayroll combines social insurance, employment insurance and income tax
 // withholding into a single monthly deduction / net-pay estimate.
 func (d *Dataset) CalcPayroll(in PayrollInput) (*PayrollResult, error) {
-	if in.Gross <= 0 {
-		return nil, fmt.Errorf("gross は正の整数")
+	if in.Gross <= 0 || in.Gross > 1_000_000_000 {
+		return nil, fmt.Errorf("gross は1〜10億の整数")
+	}
+	if in.Age < 0 || in.Age > 120 || in.Dependents < 0 || in.Dependents > 50 || in.ResidentTax < 0 || in.ResidentTax > in.Gross {
+		return nil, fmt.Errorf("age / dependents / resident_tax の値が範囲外です")
 	}
 	if in.NonTaxableCommute < 0 || in.NonTaxableCommute > in.Gross {
 		return nil, fmt.Errorf("non_taxable_commute は 0〜gross")
