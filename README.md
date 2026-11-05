@@ -2,7 +2,14 @@
 
 給与から引かれる **社会保険料・雇用保険料・源泉所得税** の「率」と「計算」を、API と MCP で提供するサービスです。2016年からの履歴に対応し、公式サイトとの照合(改定検知)も自動で行います。
 
-- 🧮 **電卓 / 解説ページ**: https://paps-jp.github.io/payroll-api/ (月給・年収を入れるだけで手取りを自動計算)
+<p align="center">
+  <a href="https://paps-jp.github.io/payroll-api/"><img src="docs/images/calculator-result.jpg" alt="手取り電卓の画面: 月給32万円の内訳" width="360"></a>
+  <a href="https://paps-jp.github.io/payroll-api/"><img src="docs/images/calculator-form.jpg" alt="手取り電卓の入力画面" width="360"></a>
+</p>
+
+<p align="center"><b><a href="https://paps-jp.github.io/payroll-api/">👉 手取り電卓 / 解説ページを開く</a></b></p>
+
+- 🧮 **電卓 / 解説ページ**: https://paps-jp.github.io/payroll-api/ (月給・年収を入れるだけで手取りを自動計算。使い方・用語解説・Q&A つき)
 - 🔌 **API**: https://payroll-api.paps.jp (無料・登録不要・トークン不要)
 - 🤖 **MCP**: https://payroll-api.paps.jp/mcp (AI アシスタントから直接呼び出し)
 
@@ -138,3 +145,8 @@ internal/check    公式ページとの照合
 internal/guard    CORS・IP 別レート制限・一時ブロック
 docs/             GitHub Pages (電卓・解説)
 ```
+
+## 関連サイト
+
+- [ぱっぷすラボ](https://paps-jp.github.io/)
+- [ぱっぷす ホームページ](https://www.paps.jp)
