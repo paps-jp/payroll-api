@@ -43,7 +43,7 @@ go run ./cmd/ratecheck [-state .ratecheck-state] [-webhook https://hooks.slack.c
 
 - 協会けんぽの `rate_prefectures/rNN` (今年度・来年度) を取得し、47都道府県と介護保険料率を保有データと突き合わせ
 - 厚労省「雇用保険料率について」ページの指紋変化と、次年度の記載有無を検知
-- 警告があれば終了コード 1 (+ webhook 通知)。GitHub Actions: [deploy/ratecheck.workflow.yml.example](deploy/ratecheck.workflow.yml.example) (`.github/workflows/` に置くと有効。push には gh の workflow 権限が必要)
+- 警告があれば終了コード 1 (+ webhook 通知)。GitHub Actions: [.github/workflows/ratecheck.yml](.github/workflows/ratecheck.yml)
 
 ## 改定時の更新手順
 
