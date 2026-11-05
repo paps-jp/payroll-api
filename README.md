@@ -113,7 +113,7 @@ claude mcp add --transport http payroll-api https://payroll-api.paps.jp/mcp
 
 1. 公式の公表値を確認 (`/v1/revisions` の `source`)
 2. `rates.json` に版を追記し、確認できたら `verified: true`
-3. `go test ./...`
+3. `go run ./cmd/sitegen` でページを再生成し、`go test ./...`
 
 `ratecheck` が公式の公開状況を確認し、データとの相違や未登録の改定を検知します。
 
@@ -125,6 +125,25 @@ go run ./cmd/ratecheck [-state .ratecheck-state] [-webhook https://hooks.slack.c
 - 厚労省「雇用保険料率について」ページの変化と、次年度の記載有無を検知
 - 国税庁の次年分「電算機計算の特例」PDF の公開を検知 (nta.go.jp は存在しない URL でも HTTP 200 のエラーページを返すため、Content-Type で判定)
 - GitHub Actions ([`ratecheck.yml`](.github/workflows/ratecheck.yml)) が**毎週月曜**に実行し、要確認があれば Issue を作成
+
+## 検索・AI 回答向けの静的ページ (SEO)
+
+電卓は JavaScript で表示するため、検索エンジンや AI が読める文章・表を別に用意しています。[`cmd/sitegen`](cmd/sitegen) が、**API と同じデータ・計算エンジン**から次のページを生成します (数字は手書きしません)。
+
+| ページ | 内容 |
+|---|---|
+| [`/kenpo/`](https://paps-jp.github.io/payroll-api/kenpo/) | 協会けんぽ 都道府県別 健康保険料率 (令和 8 年度一覧と 2016 年からの推移) |
+| [`/koyo/`](https://paps-jp.github.io/payroll-api/koyo/) | 雇用保険料率の推移 (一般・農林水産・建設) |
+| [`/tedori/`](https://paps-jp.github.io/payroll-api/tedori/) | 月給別・年収別の手取り早見表 (東京都) |
+| [`/how-to/`](https://paps-jp.github.io/payroll-api/how-to/) | 手取りの計算方法 (数字つきの例、逆算) |
+| [`/sources/`](https://paps-jp.github.io/payroll-api/sources/) | 出典一覧・検証方法・対象範囲 |
+
+各ページに、結論を先頭に書いた要約、FAQ、出典リンク、構造化データ (Article / BreadcrumbList / FAQPage / Dataset)、canonical、OGP を付けています。`docs/sitemap.xml` も生成されます。
+
+```bash
+go run ./cmd/sitegen            # docs/ を再生成 (料率を更新したら必ず実行)
+go test ./cmd/sitegen           # 生成物の構造・主要な数字を検証
+```
 
 ## 開発・運用
 
@@ -143,7 +162,8 @@ internal/api      REST ハンドラ
 internal/mcp      MCP (JSON-RPC 2.0, stdio / HTTP) の自前実装
 internal/check    公式ページとの照合
 internal/guard    CORS・IP 別レート制限・一時ブロック
-docs/             GitHub Pages (電卓・解説)
+cmd/sitegen       docs/ の静的ページ (料率一覧・早見表など) と sitemap.xml を生成
+docs/             GitHub Pages (電卓・解説・生成ページ)
 ```
 
 ## 関連サイト

@@ -3,14 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>payroll-api — 給与の手取りを、正しい率で自動計算</title>
+<title>手取り計算(額面⇔手取り)社会保険料・所得税を自動計算【令和8年度・2016年〜】| payroll-api</title>
 <meta property="og:type" content="website">
-<meta property="og:title" content="payroll-api — 給与の手取りを、正しい率で自動計算">
+<meta property="og:title" content="手取り計算(額面⇔手取り)社会保険料・所得税を自動計算 | payroll-api">
 <meta property="og:description" content="月給や年収を入力するだけで、社会保険料・雇用保険料・所得税を引いた手取りを自動計算。2016年からの料率に対応。">
 <meta property="og:url" content="https://paps-jp.github.io/payroll-api/">
 <meta property="og:image" content="https://paps-jp.github.io/payroll-api/images/calculator-result.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="description" content="月給や年収を入力するだけで、社会保険料・雇用保険料・所得税を引いた手取りを自動計算。2016年からの料率に対応。プログラムやAIから使えるAPI付き。">
+<meta name="description" content="月給・年収から手取りを自動計算。希望の手取りから必要な額面の逆算もできます。協会けんぽ・厚生年金・雇用保険・所得税(令和8年度、2016年から)に対応。無料・登録不要、API/MCPあり。">
+<link rel="canonical" href="https://paps-jp.github.io/payroll-api/">
 <style>
 :root{
   --bg:#f6f8fc;--surface:#fff;--fg:#17203a;--mut:#5b6784;--line:#e3e8f2;
@@ -180,6 +181,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:14px 32px;justify-content:space-bet
 .f-links a:hover{color:var(--brand)}
 @media (max-width:560px){.refs{padding-left:18px;padding-right:18px}.hero{padding-top:36px}h2.t{font-size:24px}.bar nav{gap:14px}.fbody,.res-top{padding-left:18px;padding-right:18px}.rows,.legend,.foot{padding-left:18px;padding-right:18px}.stack,.co{margin-left:18px;margin-right:18px}}
 </style>
+<!--LD:START-->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"手取り計算(額面⇔手取り)| payroll-api","url":"https://paps-jp.github.io/payroll-api/","applicationCategory":"BusinessApplication","operatingSystem":"Web","inLanguage":"ja","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"description":"月給や年収から、社会保険料・雇用保険料・所得税・住民税を引いた手取りを自動計算。希望の手取りから必要な額面を逆算することもできます。2016年からの公式料率に対応。","image":"https://paps-jp.github.io/payroll-api/images/calculator-result.jpg","dateModified":"2026-11-06","publisher":{"@type":"Organization","name":"ぱっぷすラボ(PAPS-Lab)","url":"https://paps-jp.github.io/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"payroll-api","url":"https://paps-jp.github.io/payroll-api/","inLanguage":"ja","publisher":{"@type":"Organization","name":"ぱっぷすラボ(PAPS-Lab)","url":"https://paps-jp.github.io/"}}</script>
+<!--LD:END-->
 </head>
 <body>
 
@@ -203,7 +208,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:14px 32px;justify-content:space-bet
 
 <div class="bar"><div class="wrap">
   <a class="logo" href="#top"><b><svg class="i"><use href="#i-calc"/></svg></b>payroll-api</a>
-  <nav><a href="#calc">計算する</a><a href="#what">できること</a><a href="#start">使い方</a><a href="#data">データ</a><a href="#words">用語</a><a href="#faq">Q&amp;A</a><a href="https://github.com/paps-jp/payroll-api">GitHub</a></nav>
+  <nav><a href="#calc">計算する</a><a href="kenpo/">協会けんぽ料率</a><a href="koyo/">雇用保険料率</a><a href="tedori/">手取り早見表</a><a href="how-to/">計算方法</a><a href="#start">API・MCP</a><a href="#faq">Q&amp;A</a></nav>
 </div></div>
 
 <header class="hero" id="top"><div class="wrap">
@@ -295,6 +300,30 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:14px 32px;justify-content:space-bet
   </div>
 </section>
 
+<!--SEO:START-->
+<section id="rates-now">
+  <div class="eyebrow">RATES</div>
+  <h2 class="t">令和8年度(2026年度)の主な料率</h2>
+  <p class="sub">電卓が使っている、東京都・一般の事業の料率です(最終更新: 2026年11月6日)。都道府県別・年度別の一覧は、各ページで確認できます。</p>
+  <div class="tw"><table>
+    <tr><th>項目</th><th>料率(総額)</th><th>本人負担</th><th>適用開始</th></tr>
+    <tr><td><a href="kenpo/">健康保険(協会けんぽ・東京都)</a></td><td>9.85%</td><td>4.925%</td><td>2026年3月</td></tr>
+    <tr><td><a href="kenpo/#care">介護保険(40〜64歳)</a></td><td>1.62%</td><td>0.81%</td><td>2026年3月</td></tr>
+    <tr><td>厚生年金</td><td>18.3%</td><td>9.15%</td><td>2017年9月</td></tr>
+    <tr><td>子ども・子育て支援金</td><td>0.23%</td><td>0.115%</td><td>2026年4月</td></tr>
+    <tr><td><a href="koyo/">雇用保険(一般の事業)</a></td><td>13.5/1,000(1.35%)</td><td>5/1,000(0.5%)</td><td>2026年4月</td></tr>
+  </table></div>
+  <p>例えば、<b>月給30万円(東京都・35歳・扶養なし)の手取りは約249,590円</b>です(住民税を除く)。月給別・年収別の一覧は<a href="tedori/">手取り早見表</a>、計算の手順は<a href="how-to/">手取りの計算方法</a>をご覧ください。</p>
+  <div class="grid">
+    <a class="card" href="kenpo/" style="text-decoration:none;color:inherit"><h3>協会けんぽ 都道府県別 保険料率</h3><p>令和8年度の47都道府県と、2016年からの推移。</p></a>
+    <a class="card" href="koyo/" style="text-decoration:none;color:inherit"><h3>雇用保険料率の推移</h3><p>一般・農林水産・建設の事業別。令和8年度の変更点も。</p></a>
+    <a class="card" href="tedori/" style="text-decoration:none;color:inherit"><h3>手取り早見表</h3><p>月給15万〜100万円、年収300万〜1000万円の手取り。</p></a>
+    <a class="card" href="how-to/" style="text-decoration:none;color:inherit"><h3>手取りの計算方法</h3><p>額面から引かれる5つの項目を、数字つきで解説。</p></a>
+    <a class="card" href="sources/" style="text-decoration:none;color:inherit"><h3>出典と検証方法</h3><p>公式資料の一覧と、データの確認のしかた。</p></a>
+  </div>
+</section>
+<!--SEO:END-->
+
 <section id="start">
   <div class="eyebrow">HOW TO USE</div>
   <h2 class="t">自分のプログラムやAIから使う</h2>
@@ -378,6 +407,11 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:14px 32px;justify-content:space-bet
     <span>社会保険・雇用保険・源泉所得税の料率 API / MCP</span>
   </div>
   <nav class="f-links" aria-label="関連リンク">
+    <a href="kenpo/">協会けんぽ料率</a>
+    <a href="koyo/">雇用保険料率</a>
+    <a href="tedori/">手取り早見表</a>
+    <a href="how-to/">計算方法</a>
+    <a href="sources/">出典と検証</a>
     <a href="https://paps-jp.github.io/">ぱっぷすラボ</a>
     <a href="https://www.paps.jp">ぱっぷす ホームページ</a>
     <a href="https://github.com/paps-jp/payroll-api">GitHub</a>
