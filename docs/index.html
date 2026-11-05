@@ -3,143 +3,261 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>payroll-api — 社会保険・雇用保険・源泉所得税の料率 API / MCP</title>
-<meta name="description" content="社会保険料率・雇用保険料率・源泉所得税の参照と計算、改定検知を提供する REST API と MCP サーバー。2016年からの履歴に対応。">
+<title>payroll-api — 給与の保険料・税金を、正しい率で自動計算</title>
+<meta name="description" content="社会保険料・雇用保険料・源泉所得税の「率」と「計算」を、プログラムやAIから呼び出せるAPI。2016年からの履歴に対応。">
 <style>
-:root{--bg:#fff;--fg:#1c2230;--mut:#5b667a;--line:#e3e7ee;--acc:#0b6bcb;--card:#f6f8fb;--code:#0f172a;--codefg:#e6edf7;--warn:#9a5b00;--warnbg:#fff6e0}
-@media (prefers-color-scheme:dark){:root{--bg:#10141c;--fg:#e6eaf2;--mut:#9aa6bb;--line:#273044;--acc:#6db1ff;--card:#171d29;--code:#0a0e15;--codefg:#dbe5f5;--warn:#f1c27a;--warnbg:#2a2111}}
+:root{
+  --bg:#f7f8fc;--surface:#fff;--fg:#1b2336;--mut:#5d6882;--line:#e4e8f1;
+  --brand:#2f6bff;--brand2:#7a4dff;--soft:#eef3ff;
+  --c1:#2f6bff;--c2:#16a68a;--c3:#f0a020;--c4:#ec5f67;--c5:#8a63ff;
+  --code:#0f1626;--codefg:#dfe8fa;--warnbg:#fff5dd;--warn:#8a5600;--ok:#0f7a5f;
+  --shadow:0 1px 2px rgba(20,30,60,.05),0 8px 24px rgba(20,30,60,.06);
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0d1119;--surface:#151b28;--fg:#e8ecf5;--mut:#9aa6bf;--line:#252d40;
+  --soft:#18223a;--code:#090d14;--codefg:#dfe8fa;--warnbg:#2b2213;--warn:#f0c37a;--ok:#4cd1ad;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.75 system-ui,-apple-system,"Hiragino Sans","Yu Gothic UI","Noto Sans JP",sans-serif}
-header{border-bottom:1px solid var(--line);background:var(--card)}
-.wrap{max-width:880px;margin:0 auto;padding:0 20px}
-header .wrap{padding-top:40px;padding-bottom:32px}
-h1{margin:0 0 8px;font-size:28px;letter-spacing:.01em}
-.lead{margin:0;color:var(--mut)}
-nav{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:18px;font-size:14px}
-nav a{color:var(--acc);text-decoration:none}
-nav a:hover{text-decoration:underline}
-main{padding-bottom:64px}
-h2{margin:48px 0 12px;font-size:21px;padding-bottom:8px;border-bottom:1px solid var(--line)}
-h3{margin:28px 0 8px;font-size:16px}
-p{margin:10px 0}
-code{font:13.5px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;background:var(--card);border:1px solid var(--line);border-radius:5px;padding:1px 5px}
-pre{background:var(--code);color:var(--codefg);border-radius:8px;padding:14px 16px;overflow:auto;font:13px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace}
-pre code{background:none;border:0;padding:0;color:inherit}
-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14.5px}
-th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
-th{background:var(--card);font-weight:600}
-td.p{font-family:ui-monospace,Consolas,monospace;font-size:13px;white-space:nowrap}
-.note{background:var(--warnbg);color:var(--warn);border-radius:8px;padding:12px 16px;margin:16px 0;font-size:14.5px}
-.badge{display:inline-block;font-size:12px;border:1px solid var(--line);border-radius:999px;padding:0 8px;color:var(--mut);margin-left:6px}
-footer{border-top:1px solid var(--line);color:var(--mut);font-size:13px;padding:24px 0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.85 system-ui,-apple-system,"Hiragino Sans","Yu Gothic UI","Noto Sans JP",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--brand)}
+.wrap{max-width:960px;margin:0 auto;padding:0 22px}
+
+/* top bar */
+.bar{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:22px;height:56px}
+.logo{flex:none;white-space:nowrap;font-weight:800;letter-spacing:.01em;color:var(--fg);text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo i{width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg,var(--brand),var(--brand2));display:inline-block}
+.bar nav{display:flex;gap:18px;margin-left:auto;font-size:14px;overflow-x:auto;white-space:nowrap}
+.bar nav a{color:var(--mut);text-decoration:none}
+.bar nav a:hover{color:var(--fg)}
+
+/* hero */
+.hero{padding:68px 0 54px;background:radial-gradient(900px 340px at 85% -10%,color-mix(in srgb,var(--brand2) 20%,transparent),transparent),radial-gradient(700px 300px at 0% 0%,color-mix(in srgb,var(--brand) 18%,transparent),transparent)}
+.pill{display:inline-block;font-size:13px;font-weight:600;color:var(--brand);background:var(--soft);border-radius:999px;padding:3px 12px}
+h1{margin:16px 0 14px;font-size:clamp(30px,5.4vw,46px);line-height:1.3;letter-spacing:-.01em}
+h1 em{font-style:normal;background:linear-gradient(135deg,var(--brand),var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:18px;color:var(--mut);max-width:680px;margin:0 0 26px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:11px 20px;border-radius:12px;font-weight:700;font-size:15px;text-decoration:none;border:1px solid var(--line);background:var(--surface);color:var(--fg)}
+.btn.p{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border:0;box-shadow:0 6px 18px rgba(80,90,255,.35)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr));gap:14px;margin-top:40px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:var(--shadow)}
+.stat b{display:block;font-size:26px;line-height:1.3}
+.stat span{font-size:13px;color:var(--mut)}
+
+/* sections */
+section{padding:52px 0 8px}
+.eyebrow{font-size:13px;font-weight:700;color:var(--brand);letter-spacing:.08em}
+h2{margin:6px 0 10px;font-size:28px;line-height:1.4}
+.sub{color:var(--mut);margin:0 0 26px;max-width:720px}
+h3{margin:0 0 6px;font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow)}
+.card p{margin:6px 0 0;color:var(--mut);font-size:15px;line-height:1.75}
+.ico{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-size:21px;margin-bottom:12px;background:var(--soft)}
+
+/* paystub */
+.stub{background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden}
+.stub-h{padding:20px 24px;display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-between;border-bottom:1px solid var(--line);background:var(--soft)}
+.stub-h b{font-size:15px}
+.stub-h span{font-size:13.5px;color:var(--mut)}
+.net{padding:26px 24px 8px}
+.net small{color:var(--mut)}
+.net .yen{font-size:44px;font-weight:800;line-height:1.2}
+.net .yen small{font-size:16px;font-weight:600;margin-left:4px}
+.stack{display:flex;height:16px;border-radius:999px;overflow:hidden;margin:18px 24px 6px;background:var(--line)}
+.stack i{display:block;height:100%}
+.rows{padding:10px 24px 22px}
+.row{display:flex;align-items:baseline;gap:10px;padding:11px 0;border-bottom:1px dashed var(--line)}
+.row:last-child{border-bottom:0}
+.dot{width:10px;height:10px;border-radius:50%;flex:none;transform:translateY(1px)}
+.row .n{flex:1}
+.row .n small{display:block;color:var(--mut);font-size:12.5px;line-height:1.5}
+.row .v{font-variant-numeric:tabular-nums;font-weight:700}
+.row.t{font-weight:800}
+.er{margin:0 24px 24px;padding:14px 16px;border-radius:12px;background:var(--soft);font-size:14.5px;color:var(--mut)}
+.er b{color:var(--fg)}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));gap:16px;counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px 22px 22px 22px;position:relative;box-shadow:var(--shadow)}
+.step:before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;font-weight:800;font-size:14px;margin-bottom:10px}
+.step p{margin:4px 0 10px;color:var(--mut);font-size:15px}
+
+pre{background:var(--code);color:var(--codefg);border-radius:12px;padding:14px 16px;overflow:auto;font:13px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace;margin:10px 0}
+code{font:13px ui-monospace,SFMono-Regular,Consolas,monospace;background:var(--soft);border-radius:6px;padding:1px 6px}
+pre code{background:none;padding:0}
+
+/* tables */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface);box-shadow:var(--shadow)}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{background:var(--soft);font-size:13px;color:var(--mut)}
+td.k{font-family:ui-monospace,Consolas,monospace;font-size:13px;white-space:nowrap}
+.tag{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;padding:1px 9px}
+.tag.ok{background:color-mix(in srgb,var(--ok) 16%,transparent);color:var(--ok)}
+.tag.warn{background:var(--warnbg);color:var(--warn)}
+
+/* glossary / faq */
+details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:0 18px;margin:10px 0;box-shadow:var(--shadow)}
+summary{cursor:pointer;font-weight:700;padding:14px 0;list-style:none;display:flex;gap:10px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary:before{content:"＋";color:var(--brand);font-weight:800}
+details[open] summary:before{content:"－"}
+details p{margin:0 0 14px;color:var(--mut);font-size:15px}
+.note{background:var(--warnbg);color:var(--warn);border-radius:14px;padding:16px 20px;font-size:15px}
+.note b{display:block;margin-bottom:2px}
+footer{margin-top:64px;border-top:1px solid var(--line);padding:30px 0 48px;color:var(--mut);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+@media (max-width:560px){.hero{padding-top:44px}.net .yen{font-size:36px}h2{font-size:24px}.bar nav{gap:14px}}
 </style>
 </head>
 <body>
-<header>
-<div class="wrap">
-<h1>payroll-api</h1>
-<p class="lead">社会保険料率・雇用保険料率・源泉所得税の<strong>参照 / 保険料計算 / 改定検知</strong>を行う REST API と MCP サーバー。2016年からの履歴に対応しています。</p>
-<nav>
-<a href="#api">REST API</a><a href="#mcp">MCP</a><a href="#data">収録データ</a><a href="#calc">計算の考え方</a><a href="#caveat">注意事項</a><a href="#update">改定への追従</a>
-<a href="https://github.com/paps-jp/payroll-api">GitHub</a>
-</nav>
-</div>
-</header>
+
+<div class="bar"><div class="wrap">
+  <a class="logo" href="#top"><i></i>payroll-api</a>
+  <nav><a href="#what">できること</a><a href="#example">計算例</a><a href="#start">使い方</a><a href="#data">データ</a><a href="#words">用語</a><a href="#faq">Q&amp;A</a><a href="https://github.com/paps-jp/payroll-api">GitHub</a></nav>
+</div></div>
+
+<header class="hero" id="top"><div class="wrap">
+  <span class="pill">給与計算の「率」と「計算」を、いつでも最新・正確に</span>
+  <h1>給与から引かれる<br><em>保険料と税金</em>を、自動で計算</h1>
+  <p class="lead">健康保険・厚生年金・雇用保険・所得税(源泉徴収)。毎年のように変わる「率」を調べて計算する作業を、<b>プログラムやAIアシスタントから呼び出せる部品</b>にしました。2016年からの過去分も計算できます。</p>
+  <div class="cta">
+    <a class="btn p" href="#example">計算の例を見る</a>
+    <a class="btn" href="#start">使い方を見る</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>2016年〜</b><span>10年分の履歴に対応</span></div>
+    <div class="stat"><b>47都道府県</b><span>協会けんぽの保険料率</span></div>
+    <div class="stat"><b>240件</b><span>国税庁の計算例で検算済み</span></div>
+    <div class="stat"><b>毎週チェック</b><span>公式ページと自動で照合</span></div>
+  </div>
+</div></header>
 
 <main class="wrap">
 
-<h2 id="about">概要</h2>
-<p>協会けんぽ管掌の健康保険・介護保険、厚生年金、子ども・子育て支援金/拠出金、雇用保険、給与の源泉所得税(月額表 甲欄・乙欄)の料率と計算を、同じデータから返します。住民税は自治体の通知額を入力として受け取り、手取りまで一括で計算できます。</p>
-<ul>
-<li>エンドポイント: <code>https://payroll-api.paps.jp</code></li>
-<li>認証: <code>Authorization: Bearer &lt;トークン&gt;</code> (<code>/healthz</code> のみ認証なし)。トークンは管理者に発行を依頼してください。</li>
-<li>データの正本: <a href="https://github.com/paps-jp/payroll-api/blob/main/internal/rates/rates.json"><code>rates.json</code></a> — 適用開始月ごとの版管理、出典URL、検証済みフラグつき</li>
-<li>Go 製・外部依存なし。同じコードを Docker で運用しています。</li>
-</ul>
+<section id="what">
+  <div class="eyebrow">WHAT</div>
+  <h2>こんなことができます</h2>
+  <p class="sub">給与計算でいつも調べているものを、ひとつの窓口にまとめました。「何月の給料か」「どの都道府県か」を伝えるだけで、その時点で正しい率と金額が返ってきます。</p>
+  <div class="grid">
+    <div class="card"><div class="ico">🏥</div><h3>社会保険料</h3><p>健康保険・介護保険・厚生年金・子ども・子育て支援金。本人と会社、それぞれの負担額を出します。</p></div>
+    <div class="card"><div class="ico">💼</div><h3>雇用保険料</h3><p>一般・農林水産・建設の区分ごとに、働く人と会社の負担を計算します。年の途中で変わった年にも対応。</p></div>
+    <div class="card"><div class="ico">🧾</div><h3>源泉所得税</h3><p>毎月の給与から引く所得税(復興特別所得税込み)。扶養の人数による違いや、副業先(乙欄)にも対応。</p></div>
+    <div class="card"><div class="ico">💴</div><h3>手取りまで一括</h3><p>上の全部をまとめて引き算し、手取り額と会社の負担総額まで一度に計算します。</p></div>
+    <div class="card"><div class="ico">🕰️</div><h3>過去も未来も</h3><p>「2019年10月の給与」のように月を指定でき、その月の率で計算します。改定は履歴として積み重ねます。</p></div>
+    <div class="card"><div class="ico">🔔</div><h3>改定を見逃さない</h3><p>公式サイトの発表と手元のデータを自動で見比べ、ズレや新しい改定があれば知らせます。</p></div>
+  </div>
+</section>
 
-<h2 id="api">REST API</h2>
-<p>月は <code>YYYY-MM</code> (支払月・対象月)。2016年より前の月はデータなしでエラーになります。</p>
-<table>
-<tr><th>パス</th><th>内容</th></tr>
-<tr><td class="p">GET /v1/rates</td><td>指定月に適用される料率。<code>month</code>、<code>prefecture</code> (省略で全47都道府県)</td></tr>
-<tr><td class="p">GET /v1/revisions</td><td>登録済みの全改定 (種別・適用開始月・出典・検証済みか)</td></tr>
-<tr><td class="p">GET /v1/grades</td><td>標準報酬月額の等級表</td></tr>
-<tr><td class="p">GET /v1/calc/social</td><td>健康保険・介護保険・厚生年金・子ども・子育て支援金/拠出金。<code>month</code> <code>prefecture</code> <code>monthly_remuneration</code> または <code>standard_remuneration</code>、<code>age</code></td></tr>
-<tr><td class="p">GET /v1/calc/employment</td><td>雇用保険。<code>month</code> <code>wage</code> <code>industry</code> (general / agri / construction)</td></tr>
-<tr><td class="p">GET /v1/calc/withholding</td><td>源泉所得税 (復興特別所得税込み)。<code>month</code> <code>amount</code> (社会保険料等控除後) <code>column</code> (ko / otsu) <code>dependents</code></td></tr>
-<tr><td class="p">GET /v1/calc/payroll</td><td>社保・雇用保険・源泉・住民税の控除と手取り、会社負担。<code>gross</code> <code>prefecture</code> <code>age</code> <code>non_taxable_commute</code> <code>dependents</code> <code>column</code> <code>resident_tax</code></td></tr>
-</table>
+<section id="example">
+  <div class="eyebrow">EXAMPLE</div>
+  <h2>計算の例:月給32万円の場合</h2>
+  <p class="sub">東京都の会社に勤める35歳、扶養する家族が1人、住民税が月1万5千円。2026年5月の給与を計算した、実際の結果です。</p>
+  <div class="stub">
+    <div class="stub-h"><b>2026年5月分 給与</b><span>東京都・35歳・扶養1人・通勤手当のうち1万円は非課税</span></div>
+    <div class="net"><small>手取り額</small><div class="yen">253,022<small>円</small></div></div>
+    <div class="stack" role="img" aria-label="総支給額の内訳">
+      <i style="width:79.07%;background:var(--c2)" title="手取り"></i>
+      <i style="width:14.19%;background:var(--c1)" title="社会保険料"></i>
+      <i style="width:0.5%;background:var(--c3)" title="雇用保険料"></i>
+      <i style="width:1.55%;background:var(--c4)" title="所得税"></i>
+      <i style="width:4.69%;background:var(--c5)" title="住民税"></i>
+    </div>
+    <div class="rows">
+      <div class="row"><span class="dot" style="background:var(--c2)"></span><span class="n">手取り<small>実際に振り込まれる金額</small></span><span class="v">253,022円</span></div>
+      <div class="row"><span class="dot" style="background:var(--c1)"></span><span class="n">社会保険料(本人分)<small>健康保険・厚生年金・子ども・子育て支援金</small></span><span class="v">45,408円</span></div>
+      <div class="row"><span class="dot" style="background:var(--c3)"></span><span class="n">雇用保険料(本人分)<small>給与の0.5%</small></span><span class="v">1,600円</span></div>
+      <div class="row"><span class="dot" style="background:var(--c4)"></span><span class="n">所得税(源泉徴収)<small>社会保険料などを引いた262,992円が対象</small></span><span class="v">4,970円</span></div>
+      <div class="row"><span class="dot" style="background:var(--c5)"></span><span class="n">住民税<small>自治体から届く通知額をそのまま入力</small></span><span class="v">15,000円</span></div>
+      <div class="row t"><span class="n">総支給額</span><span class="v">320,000円</span></div>
+    </div>
+    <div class="er"><b>会社の負担は、これとは別に 49,280円。</b> 社会保険料と雇用保険料は、会社も同じくらい(以上)を負担しています。人件費は「給与+この金額」です。</div>
+  </div>
+</section>
 
-<h3>例: 東京都・標準報酬月額 30万円・45歳 (2026年4月)</h3>
-<pre><code>curl -H "Authorization: Bearer $TOKEN" \
-  "https://payroll-api.paps.jp/v1/calc/social?month=2026-04&amp;prefecture=東京都&amp;standard_remuneration=300000&amp;age=45"</code></pre>
-<table>
-<tr><th>項目</th><th>料率</th><th>合計</th><th>本人</th><th>事業主</th></tr>
-<tr><td>健康保険</td><td>9.85%</td><td>29,550</td><td>14,775</td><td>14,775</td></tr>
-<tr><td>介護保険</td><td>1.62%</td><td>4,860</td><td>2,430</td><td>2,430</td></tr>
-<tr><td>子ども・子育て支援金</td><td>0.23%</td><td>690</td><td>345</td><td>345</td></tr>
-<tr><td>厚生年金</td><td>18.3%</td><td>54,900</td><td>27,450</td><td>27,450</td></tr>
-<tr><td>子ども・子育て拠出金</td><td>0.36%</td><td>1,080</td><td>—</td><td>1,080</td></tr>
-<tr><th colspan="3">合計</th><th>45,000</th><th>46,080</th></tr>
-</table>
+<section id="start">
+  <div class="eyebrow">HOW TO USE</div>
+  <h2>使い方は3ステップ</h2>
+  <p class="sub">プログラムから使う方法と、AIアシスタント(Claudeなど)に使わせる方法があります。どちらも、最初に「合言葉(トークン)」が必要です。</p>
+  <div class="steps">
+    <div class="step"><h3>合言葉をもらう</h3><p>勝手に使われないよう、合言葉(トークン)で守っています。管理者に発行を頼んでください。</p></div>
+    <div class="step"><h3>月と条件を伝える</h3><p>「何月の給与か」「都道府県」「金額」「年齢」などを、URLに書いて送ります。</p></div>
+    <div class="step"><h3>結果を受け取る</h3><p>項目ごとの率・金額・本人と会社の負担が、整った形で返ってきます。</p></div>
+  </div>
 
-<h2 id="mcp">MCP</h2>
-<p>MCP は <code>https://payroll-api.paps.jp/mcp</code> (HTTP POST、Bearer トークン必須)、またはローカルバイナリの stdio で使えます。</p>
-<pre><code># Claude Code
-claude mcp add --transport http payroll-api https://payroll-api.paps.jp/mcp \
-  --header "Authorization: Bearer &lt;トークン&gt;"</code></pre>
-<pre><code>// stdio (Claude Desktop など): go build -o payroll-api ./cmd/server
-{ "mcpServers": { "payroll-api": { "command": "/path/to/payroll-api", "args": ["-stdio"] } } }</code></pre>
-<table>
-<tr><th>ツール</th><th>内容</th></tr>
-<tr><td class="p">get_rates</td><td>指定月の適用料率</td></tr>
-<tr><td class="p">list_revisions</td><td>全改定の一覧 (出典・検証済みフラグ)</td></tr>
-<tr><td class="p">get_standard_remuneration_grade</td><td>報酬月額から等級・標準報酬月額</td></tr>
-<tr><td class="p">calculate_social_insurance</td><td>社会保険料の本人・事業主負担</td></tr>
-<tr><td class="p">calculate_employment_insurance</td><td>雇用保険料</td></tr>
-<tr><td class="p">calculate_withholding_tax</td><td>源泉所得税 (甲欄・乙欄)</td></tr>
-<tr><td class="p">calculate_payroll_deductions</td><td>控除合計と手取り、会社負担</td></tr>
-<tr><td class="p">check_for_revisions</td><td>公式ページと突き合わせて改定・相違を検知</td></tr>
-</table>
+  <h3 style="margin-top:30px">プログラムから(API)</h3>
+  <pre><code>curl -H "Authorization: Bearer 合言葉" \
+  "https://payroll-api.paps.jp/v1/calc/payroll?month=2026-05&amp;prefecture=東京都&amp;gross=320000&amp;age=35&amp;dependents=1&amp;resident_tax=15000"</code></pre>
 
-<h2 id="data">収録データ</h2>
-<table>
-<tr><th>種別</th><th>収録期間</th><th>出典</th></tr>
-<tr><td>健康保険・介護保険 (協会けんぽ)</td><td>2016-03〜 (47都道府県)</td><td>協会けんぽ 各年度の都道府県単位保険料率</td></tr>
-<tr><td>厚生年金</td><td>2015-09〜</td><td>日本年金機構</td></tr>
-<tr><td>子ども・子育て支援金</td><td>2026-04〜 (0.23%)</td><td>協会けんぽ</td></tr>
-<tr><td>子ども・子育て拠出金</td><td>2015-04〜</td><td>日本年金機構</td></tr>
-<tr><td>雇用保険</td><td>2015-04〜 (期中改定含む)</td><td>厚生労働省</td></tr>
-<tr><td>源泉所得税</td><td>2016年分〜</td><td>国税庁『源泉徴収のあらまし』</td></tr>
-</table>
-<p>すべての版に出典URLと<code>verified</code>フラグがあり、<code>/v1/revisions</code> で確認できます。源泉所得税は、国税庁の計算例と税額表の値 240 件を全年分で自動テストにかけ、再現を確認しています。</p>
+  <h3 style="margin-top:22px">AIアシスタントから(MCP)</h3>
+  <p class="sub" style="margin-bottom:6px"><b>MCP</b>は、AIが外部の道具を直接使うための共通の仕組みです。つないでおくと、「2024年4月の東京の月給30万円の保険料は?」と話しかけるだけで、AIがこのAPIを呼んで答えます。</p>
+  <pre><code>claude mcp add --transport http payroll-api https://payroll-api.paps.jp/mcp \
+  --header "Authorization: Bearer 合言葉"</code></pre>
 
-<h2 id="calc">計算の考え方</h2>
-<ul>
-<li><strong>端数処理</strong>: 本人負担は 50銭以下切捨て・50銭超切上げ。事業主負担は 総額(四捨五入) − 本人負担。</li>
-<li><strong>介護保険</strong>: 40歳以上65歳未満。75歳以上は健康保険なし、70歳以上は厚生年金・拠出金なし。</li>
-<li><strong>厚生年金の標準報酬</strong>: 健康保険の標準報酬を 88,000〜650,000円に収めて算出。</li>
-<li><strong>源泉所得税</strong>: 甲欄は国税庁の「電算機計算の特例」、乙欄は電算機計算の算式。税額表の値とは差が出ることがあり、年末調整で精算されます。</li>
-<li><strong>住民税</strong>: 自治体の特別徴収通知額を <code>resident_tax</code> に入力 (計算はしません)。</li>
-</ul>
+  <h3 style="margin-top:26px">呼び出せる機能の一覧</h3>
+  <div class="tw"><table>
+    <tr><th>住所(パス)</th><th>何をするか</th></tr>
+    <tr><td class="k">/v1/calc/payroll</td><td><b>手取りまで一括</b>。社会保険・雇用保険・所得税・住民税をまとめて計算</td></tr>
+    <tr><td class="k">/v1/calc/social</td><td>社会保険料(健康・介護・厚生年金・子育て関連)</td></tr>
+    <tr><td class="k">/v1/calc/employment</td><td>雇用保険料</td></tr>
+    <tr><td class="k">/v1/calc/withholding</td><td>源泉所得税(甲欄・乙欄)</td></tr>
+    <tr><td class="k">/v1/rates</td><td>指定した月に適用される「率」そのものを調べる</td></tr>
+    <tr><td class="k">/v1/grades</td><td>標準報酬月額の等級表</td></tr>
+    <tr><td class="k">/v1/revisions</td><td>登録されている改定の一覧(いつから・出典・確認済みか)</td></tr>
+  </table></div>
+</section>
 
-<h2 id="caveat">注意事項</h2>
-<div class="note">
-計算結果は<strong>目安</strong>です。実際の給与計算では、必ず最新の公式資料(協会けんぽ・日本年金機構・厚生労働省・国税庁)で確認してください。
-</div>
-<ul>
-<li>協会けんぽ管掌のみ。組合健保・共済は対象外です。</li>
-<li>賞与、随時改定、産休・育休の免除、労災保険、年末調整、日額表は未対応です。</li>
-<li>標準報酬月額の等級表の境界額、平成28年度(2016-03)の健康保険料率、拠出金率の 2015-04 / 2016-04 は、出典が弱いため未確認として扱っています (レスポンスの <code>unverified_rate_kinds</code> に出ます)。</li>
-<li>令和2〜7年分の乙欄は、国税庁の算式が月額表と約29万〜43.7万円付近の一部の行で最大数千円ずれます (算式のほうが大きい)。令和8年分は全行一致です。</li>
-</ul>
+<section id="data">
+  <div class="eyebrow">DATA</div>
+  <h2>どこまで遡れる?データの出どころ</h2>
+  <p class="sub">数字はすべて公式の発表をもとにしています。それぞれの率に出典のURLを付けてあり、確認が済んでいないものには目印を付けています。</p>
+  <div class="tw"><table>
+    <tr><th>種類</th><th>いつから</th><th>出どころ</th></tr>
+    <tr><td>健康保険・介護保険</td><td>2016年3月分〜</td><td>協会けんぽ(都道府県ごとの率)</td></tr>
+    <tr><td>厚生年金</td><td>2015年9月〜</td><td>日本年金機構</td></tr>
+    <tr><td>子ども・子育て支援金</td><td>2026年4月〜</td><td>協会けんぽ</td></tr>
+    <tr><td>子ども・子育て拠出金</td><td>2015年4月〜</td><td>日本年金機構</td></tr>
+    <tr><td>雇用保険</td><td>2015年4月〜</td><td>厚生労働省</td></tr>
+    <tr><td>源泉所得税</td><td>2016年分〜</td><td>国税庁「源泉徴収のあらまし」</td></tr>
+  </table></div>
+  <p style="margin-top:14px"><span class="tag ok">検算済み</span> 源泉所得税は、国税庁の資料にある計算例・税額表の値240件を、全年分で自動テストにかけて一致を確認しています。</p>
+</section>
 
-<h2 id="update">改定への追従</h2>
-<p>料率が改定されたら、<code>rates.json</code> に新しい版を追記するだけです (過去の版は消しません)。<code>ratecheck</code> が協会けんぽ・厚生労働省・国税庁の公開状況を確認し、データとの相違や未登録の改定を検知します。</p>
-<pre><code>go run ./cmd/ratecheck   # 要確認があれば終了コード 1</code></pre>
-<p>詳しい手順は <a href="https://github.com/paps-jp/payroll-api#readme">README</a> を参照してください。</p>
+<section id="words">
+  <div class="eyebrow">GLOSSARY</div>
+  <h2>むずかしい言葉の説明</h2>
+  <p class="sub">給与計算に慣れていなくても読めるように、よく出てくる言葉をまとめました。</p>
+  <details><summary>標準報酬月額(ひょうじゅんほうしゅうげつがく)</summary><p>社会保険料を決めるための「ざっくり月給」です。実際の月給を50段階ほどの区分(等級)に当てはめた金額で、保険料はこの金額に率をかけて出します。</p></details>
+  <details><summary>本人負担と事業主(会社)負担</summary><p>社会保険料は、働く人と会社が半分ずつ負担します(子ども・子育て拠出金だけは会社が全額)。給与から引かれるのは「本人負担」の分です。</p></details>
+  <details><summary>介護保険料</summary><p>40歳から64歳の人だけが払う保険料です。健康保険料に上乗せされます。</p></details>
+  <details><summary>源泉所得税 / 甲欄・乙欄</summary><p>毎月の給与から、会社が代わりに国へ納める所得税です。<b>甲欄</b>はメインの勤め先(扶養の届出を出している場合)、<b>乙欄</b>は副業先など届出がない場合の計算方法で、乙欄のほうが税率は高めです。</p></details>
+  <details><summary>住民税</summary><p>住んでいる自治体から会社に毎年通知が届き、毎月ほぼ同じ金額を給与から引きます。金額は自治体が決めるため、このAPIでは計算せず、通知の金額を入力してもらいます。</p></details>
+  <details><summary>年末調整</summary><p>1年間に引いた所得税を、年末にまとめて精算する手続きです。毎月の所得税が多少ずれても、ここで調整されます。</p></details>
+  <details><summary>トークン(合言葉)</summary><p>このAPIを使ってよい人かを確認するための、長い文字列です。パスワードと同じように、他人に見せないでください。</p></details>
+</section>
+
+<section id="faq">
+  <div class="eyebrow">Q&amp;A</div>
+  <h2>よくある質問</h2>
+  <details><summary>計算結果をそのまま給与に使ってよい?</summary><p>あくまで<b>目安</b>です。実際の給与計算では、最新の公式資料(協会けんぽ・日本年金機構・厚生労働省・国税庁)でも確認してください。</p></details>
+  <details><summary>自社の健康保険組合(組合健保)でも使える?</summary><p>いいえ。対象は「協会けんぽ」に加入している会社です。組合健保や共済は率が違うため、対象外です。</p></details>
+  <details><summary>ボーナス(賞与)や年末調整は計算できる?</summary><p>まだできません。毎月の給与に対応しています。そのほか、産休・育休中の免除、労災保険、日額表も未対応です。</p></details>
+  <details><summary>料率が変わったらどうなる?</summary><p>新しい率を「適用開始月つき」で追加するだけで、過去の月は昔の率のまま、新しい月は新しい率で計算されます。公式サイトとの照合は毎週自動で行い、改定を見つけたら知らせます。</p></details>
+  <details><summary>「確認中」と出ることがあるのはなぜ?</summary><p>出典がひとつしか見つからなかった値などに印を付けています。計算自体はできますが、気になる場合は公式資料でご確認ください。</p></details>
+
+  <div class="note" style="margin-top:22px"><b>ご利用上の注意</b>計算結果の正しさは保証できません。法令や公式の発表が優先されます。重要な判断には、社会保険労務士や税理士などの専門家にご相談ください。</div>
+</section>
 
 </main>
-<footer><div class="wrap">payroll-api · <a href="https://github.com/paps-jp/payroll-api">paps-jp/payroll-api</a></div></footer>
+
+<footer><div class="wrap">
+  <span>payroll-api · 社会保険・雇用保険・源泉所得税の料率 API / MCP</span>
+  <span><a href="https://github.com/paps-jp/payroll-api">GitHub</a> · <a href="https://github.com/paps-jp/payroll-api#readme">開発者向けの詳細(README)</a></span>
+</div></footer>
 </body>
 </html>
