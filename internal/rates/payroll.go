@@ -30,6 +30,7 @@ type PayrollResult struct {
 	NetPay           int64              `json:"net_pay"`
 	EmployerBurden   int64              `json:"employer_insurance_burden"`
 	Notes            []string           `json:"notes"`
+	Sources          []Source           `json:"sources"` // この計算が根拠にした公式資料(参考文献)
 }
 
 // CalcPayroll combines social insurance, employment insurance and income tax
@@ -71,6 +72,7 @@ func (d *Dataset) CalcPayroll(in PayrollInput) (*PayrollResult, error) {
 		return nil, err
 	}
 	res.Withholding = w
+	res.Sources = d.sourcesFor(in, in.Month, res.Social, res.Employment)
 	res.TotalDeductions = res.SocialWorker + res.EmploymentWorker + w.Tax + in.ResidentTax
 	res.NetPay = in.Gross - res.TotalDeductions
 	res.Notes = []string{

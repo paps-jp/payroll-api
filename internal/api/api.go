@@ -24,6 +24,7 @@ func (s *Server) Handler() http.Handler {
 	mux.HandleFunc("/v1/calc/employment", s.calcEmployment)
 	mux.HandleFunc("/v1/calc/withholding", s.calcWithholding)
 	mux.HandleFunc("/v1/calc/payroll", s.calcPayroll)
+	mux.HandleFunc("/v1/calc/payroll/reverse", s.calcPayrollReverse)
 	return mux
 }
 
@@ -187,6 +188,24 @@ func (s *Server) calcPayroll(w http.ResponseWriter, r *http.Request) {
 		ResidentTax: int64(atoi(r, "resident_tax")),
 		SkipSocial:  q.Get("skip_social") == "true", SkipEmployment: q.Get("skip_employment") == "true",
 	})
+	if err != nil {
+		bad(w, err)
+		return
+	}
+	write(w, 200, res)
+}
+
+// GET /v1/calc/payroll/reverse?month=&prefecture=&net=&age=&non_taxable_commute=&dependents=&column=&resident_tax=&industry=
+// 希望の手取り(月額)から、必要な額面(総支給額)を逆算する。
+func (s *Server) calcPayrollReverse(w http.ResponseWriter, r *http.Request) {
+	q := r.URL.Query()
+	res, err := s.DS.CalcGrossFromNet(rates.PayrollInput{
+		Month: q.Get("month"), Prefecture: q.Get("prefecture"), Age: atoi(r, "age"),
+		NonTaxableCommute: int64(atoi(r, "non_taxable_commute")),
+		Industry:          q.Get("industry"), Column: q.Get("column"), Dependents: int64(atoi(r, "dependents")),
+		ResidentTax: int64(atoi(r, "resident_tax")),
+		SkipSocial:  q.Get("skip_social") == "true", SkipEmployment: q.Get("skip_employment") == "true",
+	}, int64(atoi(r, "net")))
 	if err != nil {
 		bad(w, err)
 		return

@@ -86,6 +86,12 @@ var tools = []tool{
 			"industry": map[string]any{"type": "string", "enum": []string{"general", "agri", "construction"}},
 			"column":   map[string]any{"type": "string", "enum": []string{"ko", "otsu"}}, "dependents": num("扶養親族等の数"),
 			"resident_tax": num("住民税月額(円)")}, "month", "prefecture", "gross")},
+	{"calculate_gross_from_net", "希望する手取り(月額)から、必要な額面(総支給額)を逆算する。社会保険・雇用保険・源泉所得税・住民税を考慮。手取りが希望額以上になる最小の額面を返す。",
+		obj(map[string]any{"month": str("支払月 YYYY-MM"), "prefecture": str("都道府県名"), "net": num("希望する手取り(月額・円)"),
+			"age": num("年齢"), "non_taxable_commute": num("非課税の通勤手当(円)"),
+			"industry": map[string]any{"type": "string", "enum": []string{"general", "agri", "construction"}},
+			"column":   map[string]any{"type": "string", "enum": []string{"ko", "otsu"}}, "dependents": num("扶養親族等の数"),
+			"resident_tax": num("住民税月額(円)")}, "month", "prefecture", "net")},
 	{"check_for_revisions", "協会けんぽ・厚労省の公式ページを確認し、保有データとの差異や未登録の改定がないか検知する(ネットワークアクセスあり)。", obj(map[string]any{})},
 }
 
@@ -113,6 +119,10 @@ func (s *Server) call(ctx context.Context, name string, a map[string]any) (any, 
 		return s.DS.CalcPayroll(rates.PayrollInput{Month: gs("month"), Prefecture: gs("prefecture"), Age: gi("age"),
 			Gross: int64(gi("gross")), NonTaxableCommute: int64(gi("non_taxable_commute")), Industry: gs("industry"),
 			Column: gs("column"), Dependents: int64(gi("dependents")), ResidentTax: int64(gi("resident_tax"))})
+	case "calculate_gross_from_net":
+		return s.DS.CalcGrossFromNet(rates.PayrollInput{Month: gs("month"), Prefecture: gs("prefecture"), Age: gi("age"),
+			NonTaxableCommute: int64(gi("non_taxable_commute")), Industry: gs("industry"),
+			Column: gs("column"), Dependents: int64(gi("dependents")), ResidentTax: int64(gi("resident_tax"))}, int64(gi("net")))
 	case "check_for_revisions":
 		// 公開APIなので、公式サイトへの問い合わせは1時間キャッシュして負荷をかけない
 		s.mu.Lock()
